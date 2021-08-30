@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+<Operation Class="PatchOperationAdd">
+    <xpath>/Defs/FactionDef[defName and not(maxConfigurableAtWorldCreation) and not(hidden="true") and not(isPlayer="true") and(@ParentName="FactionBase" or not(@ParentName))]</xpath>
+    <value>
+    <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+    </value>
+</Operation>
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>The GiantRace</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+    <xpath>/Defs/FactionDef[(defName="SavageGiants") and not(maxConfigurableAtWorldCreation)]</xpath>
+    	<value>
+    		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+    	</value>
+    </match>
+</Operation>
+</Patch>

@@ -1,0 +1,6 @@
+Load this after faction mods. 
+Fixes some modded factions not appearing in world creation menu by adding maxConfigurableAtWorldCreation to their factiondef. Doesn't affect factions that already have it.
+
+purely xml patch operation that doesn't replace anything so will be compatible with every mod.
+
+credits to Imranfish from discord who basically wrote this for me
