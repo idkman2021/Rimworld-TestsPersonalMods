@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 <Operation Class="PatchOperationAdd">
+<success>Always</success>
     <xpath>/Defs/FactionDef[defName and not(maxConfigurableAtWorldCreation) and not(hidden="true") and not(isPlayer="true") and(@ParentName="FactionBase" or not(@ParentName))]</xpath>
     <value>
     <maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
     </value>
 </Operation>
 <Operation Class="PatchOperationFindMod">
+<success>Always</success>
     <mods>
         <li>The GiantRace</li>
     </mods>
