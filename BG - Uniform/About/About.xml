@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>BG - Uniform</name>
+  <author>test</author>
+  <packageId>carnap.bg.uniform</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>Removes main menu background (by replacing it with rimworld GUI color). Go to settings and change the background to "core".</description>
+</ModMetaData>
