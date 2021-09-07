@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>HAR thoughtSettings Remover</name>
+  <author>test</author>
+  <url>https://github.com/idkman2021/Rimworld-AssortedMods</url>
+  <packageId>test.HAR.thoughtSettings.remover</packageId>
+  <supportedVersions>
+	<li>1.3</li>
+  </supportedVersions>
+  <description>Automatically removes all thoughtSettings from all Humanoid Alien Races mods that are loaded before this mod. 
+
+The thoughtSettings are used to customize what thoughts the race can and can't get.
+
+I've noticed that modders love to make their races not care about living in barracks, death, etc, which I found unbalanced.
+I've also noticed a pretty bad harmony patch that HAR creates because of those thoughtSettings.
+
+By removing thoughtSettings this mod potentially makes races more balanced. It also potentially reduces the lag but I don't know if it actually does or not.
+
+If you want a certain race mod to not be affected, load it after this mod.
+
+Note! Vert rarely race mods might start to show red errors tring to reference the removed xml note. Those errors are harmless.</description>
+</ModMetaData>
