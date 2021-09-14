@@ -10,4 +10,14 @@
   <description>fixes nerubians mod which prevents all other races from using some vanilla weapons.
 
 technical - this removes weaponList def from the mod. No idea why there is one in the first place, but if it is intended, it should've been whiteWeaponList instead.</description>
+<modDependencies>
+        <li>
+            <packageId>deathwing.nerubianrace</packageId>
+            <displayName>World of Warcraft - Playable Nerubians</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/2148383162</steamWorkshopUrl>
+        </li>
+</modDependencies>
+<loadAfter>
+        <li>deathwing.nerubianrace</li>
+    </loadAfter>
 </ModMetaData>
