@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/StatDef[defName = "MeleeWeapon_DamageMultiplier"]/parts</xpath>
+		<value>
+			<parts>
+				<li Class="StatPart_Quality">
+					<factorAwful>0.5</factorAwful>
+					<factorPoor>0.8</factorPoor>
+					<factorNormal>1</factorNormal>
+					<factorGood>1.1</factorGood>
+					<factorExcellent>1.2</factorExcellent>
+					<factorMasterwork>1.45</factorMasterwork>
+					<factorLegendary>2</factorLegendary>
+				</li>
+			</parts>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]</xpath>
+		<value>
+			<parts>
+				<li Class="StatPart_Quality">
+					<factorAwful>1.5</factorAwful>
+					<factorPoor>1.1</factorPoor>
+					<factorNormal>1</factorNormal>
+					<factorGood>.98</factorGood>
+					<factorExcellent>.94</factorExcellent>
+					<factorMasterwork>.88</factorMasterwork>
+					<factorLegendary>.8</factorLegendary>
+				</li>
+			</parts>
+		</value>
+	</Operation>
+</Patch>

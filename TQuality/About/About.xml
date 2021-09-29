@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+	<name>TQuality</name>
+	<author>test</author>
+	<supportedVersions>
+		<li>1.3</li>
+	</supportedVersions>
+	<packageId>carnap2.tquality</packageId>
+	<description>Quality now affects all stats, including cooldown and most miscellaneous stats. Awful items are now worse and legendary - better. Other qualities have only slightly stronger scaling and remain close to vanilla.
+This mod affects armor, weapons and tools, shield belts.
+
+
+This mod is based on Santakat's Improved Quality Scaling, but the scaling is not as strong as in santakat's mod; and Phlivan.WontDieInNoob's Quality Matters, with scaling slightly stronger than in Phlivan.WontDieInNoob's mod.
+	</description>
+</ModMetaData>
