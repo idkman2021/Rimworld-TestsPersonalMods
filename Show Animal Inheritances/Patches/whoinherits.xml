@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+
+    <Operation Class="XmlExtensions.ForEach">
+        <xpath>Defs/ThingDef[attribute::ParentName=/Defs/ThingDef[race/wildBiomes]/attribute::Name]</xpath>
+        <storeIn>DEF</storeIn>
+        <apply>
+            <Operation Class="XmlExtensions.Log">
+                <xpath>{DEF}/defName</xpath>
+            </Operation>
+            <Operation Class="XmlExtensions.CreateVariable">
+                <storeIn>dname</storeIn>
+                <value>{DEF}/defName</value>
+                <fromXml>true</fromXml>
+                <apply>
+                    <Operation Class="PatchOperationAdd">
+                        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="testsinherits_menu"]/settings</xpath>
+                        <value>
+                            <li Class="XmlExtensions.Setting.Text">
+                                <text>{dname}</text>
+                            </li>
+                        </value>
+                    </Operation>
+                </apply>
+            </Operation>
+
+        </apply>
+    </Operation>
+
+    
+    <Operation Class="XmlExtensions.Log">
+        <text>test:</text>
+    </Operation>
+    <Operation Class="XmlExtensions.Log">
+        <xpath>Defs/ThingDef[attribute::Name=/Defs/ThingDef[defName="CraftingSpot"]/attribute::ParentName]/soundImpactDefault</xpath>
+    </Operation>
+
+</Patch>

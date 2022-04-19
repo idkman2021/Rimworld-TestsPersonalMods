@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the SettingsMenuDef with two tabs defined. All other tabs are added by patches -->
+<Defs>
+
+    <XmlExtensions.SettingsMenuDef>
+        <defName>testsinherits_menu</defName> <!--Can be anything unique with no periods-->
+        <modId>test.whoinherits</modId> <!--MUST be the same as the one entered earlier-->
+        <label>Animal inheritances</label> <!-- This is what displays as your mod's name-->
+        <settings>
+           
+
+        </settings>
+    </XmlExtensions.SettingsMenuDef>
+
+
+</Defs>
