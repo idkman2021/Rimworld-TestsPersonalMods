@@ -1,5 +1,5 @@
 ### Some of those mods are now included in https://github.com/idkman2021/Rimworld-TPatches
-
+#### Note that those are mostly personal mods that I upload to avoid losing them (as I already did once)
 ###### Press the green "Code" button at the top and "Download ZIP" to download the latest versions of all mods. Each folder is a mod. The mods are so tiny there is no reason for me to put them to different repositories, just choose whatever mods you like.
 
 Mod | Description
