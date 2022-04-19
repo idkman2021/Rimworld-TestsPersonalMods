@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/StatDef[@Name = "AccuracyBase"]/parts/li[@Class = "StatPart_Quality"]</xpath>
@@ -14,55 +14,75 @@
 			</li>
 		</value>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/StatDef[defName = "RangedWeapon_DamageMultiplier"]/parts</xpath>
+		<xpath>Defs/StatDef[defName = "RangedWeapon_DamageMultiplier"]/parts/li[@Class="StatPart_Quality"]</xpath>
 		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>0.5</factorAwful>
-					<factorPoor>0.9</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>1.05</factorGood>
-					<factorExcellent>1.1</factorExcellent>
-					<factorMasterwork>1.25</factorMasterwork>
-					<factorLegendary>1.5</factorLegendary>
-				</li>
-			</parts>
+			<li Class="StatPart_Quality">
+				<factorAwful>0.5</factorAwful>
+				<factorPoor>0.9</factorPoor>
+				<factorNormal>1</factorNormal>
+				<factorGood>1.05</factorGood>
+				<factorExcellent>1.1</factorExcellent>
+				<factorMasterwork>1.25</factorMasterwork>
+				<factorLegendary>1.5</factorLegendary>
+			</li>
 		</value>
 	</Operation>
 
+
 	<Operation Class="PatchOperationConditional">
-	<xpath>Defs/StatDef[defName="RangedWeapon_Cooldown"]/parts</xpath>
-        <nomatch Class="PatchOperationAdd">
-		<xpath>Defs/StatDef[defName = "RangedWeapon_Cooldown"]</xpath>
-		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>1.5</factorAwful>
-					<factorPoor>1.1</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>.98</factorGood>
-					<factorExcellent>.94</factorExcellent>
-					<factorMasterwork>.88</factorMasterwork>
-					<factorLegendary>.8</factorLegendary>
-				</li>
-			</parts>
-		</value>
-	</nomatch>
-	 <match Class="PatchOperationAdd">
-		<xpath>Defs/StatDef[defName = "RangedWeapon_Cooldown"]/parts</xpath>
-		<value>
-				<li Class="StatPart_Quality">
-					<factorAwful>1.5</factorAwful>
-					<factorPoor>1.1</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>.98</factorGood>
-					<factorExcellent>.94</factorExcellent>
-					<factorMasterwork>.88</factorMasterwork>
-					<factorLegendary>.8</factorLegendary>
-				</li>
-		</value>
-	</match>
+		<xpath>Defs/StatDef[defName="RangedWeapon_Cooldown"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName = "RangedWeapon_Cooldown"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.9</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.5</factorLegendary>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/StatDef[defName="RangedWeapon_Cooldown"]/parts/li[@Class="StatPart_Quality"]</xpath>
+
+
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/StatDef[defName = "RangedWeapon_Cooldown"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.9</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.5</factorLegendary>
+					</li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName = "RangedWeapon_Cooldown"]/parts</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.9</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.5</factorLegendary>
+					</li>
+				</value>
+			</nomatch>
+		</match>
 	</Operation>
+
+
 </Patch>

@@ -31,54 +31,166 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/StatDef[defName = "EnergyShieldEnergyMax"]/parts</xpath>
-		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>0.4</factorAwful>
-					<factorPoor>0.8</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>1.2</factorGood>
-					<factorExcellent>1.4</factorExcellent>
-					<factorMasterwork>1.7</factorMasterwork>
-					<factorLegendary>3.0</factorLegendary>
-				</li>
-			</parts>
-		</value>
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="EnergyShieldEnergyMax"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName = "EnergyShieldEnergyMax"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.4</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.2</factorGood>
+						<factorExcellent>1.4</factorExcellent>
+						<factorMasterwork>1.7</factorMasterwork>
+						<factorLegendary>3.0</factorLegendary>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/StatDef[defName="EnergyShieldEnergyMax"]/parts/li[@Class="StatPart_Quality"]</xpath>
+
+
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/StatDef[defName = "EnergyShieldEnergyMax"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.4</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.2</factorGood>
+						<factorExcellent>1.4</factorExcellent>
+						<factorMasterwork>1.7</factorMasterwork>
+						<factorLegendary>3.0</factorLegendary>
+					</li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName = "EnergyShieldEnergyMax"]/parts</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.4</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.2</factorGood>
+						<factorExcellent>1.4</factorExcellent>
+						<factorMasterwork>1.7</factorMasterwork>
+						<factorLegendary>3.0</factorLegendary>
+					</li>
+				</value>
+			</nomatch>
+		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/StatDef[defName = "EnergyShieldRechargeRate"]/parts</xpath>
-		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>0.5</factorAwful>
-					<factorPoor>0.8</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>1.1</factorGood>
-					<factorExcellent>1.2</factorExcellent>
-					<factorMasterwork>1.4</factorMasterwork>
-					<factorLegendary>2.0</factorLegendary>
-				</li>
-			</parts>
-		</value>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="EnergyShieldRechargeRate"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName = "EnergyShieldRechargeRate"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/StatDef[defName="EnergyShieldRechargeRate"]/parts/li[@Class="StatPart_Quality"]</xpath>
+
+
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/StatDef[defName = "EnergyShieldRechargeRate"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName = "EnergyShieldRechargeRate"]/parts</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</value>
+			</nomatch>
+		</match>
 	</Operation>
 
-	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/StatDef[defName = "SmokepopBeltRadius"]/parts</xpath>
-		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>0.5</factorAwful>
-					<factorPoor>0.8</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>1.1</factorGood>
-					<factorExcellent>1.2</factorExcellent>
-					<factorMasterwork>1.4</factorMasterwork>
-					<factorLegendary>2.0</factorLegendary>
-				</li>
-			</parts>
-		</value>
+
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="SmokepopBeltRadius"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName = "SmokepopBeltRadius"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/StatDef[defName="SmokepopBeltRadius"]/parts/li[@Class="StatPart_Quality"]</xpath>
+
+
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/StatDef[defName = "SmokepopBeltRadius"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName = "SmokepopBeltRadius"]/parts</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>0.5</factorAwful>
+						<factorPoor>0.8</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>1.1</factorGood>
+						<factorExcellent>1.2</factorExcellent>
+						<factorMasterwork>1.4</factorMasterwork>
+						<factorLegendary>2.0</factorLegendary>
+					</li>
+				</value>
+			</nomatch>
+		</match>
 	</Operation>
+
 </Patch>

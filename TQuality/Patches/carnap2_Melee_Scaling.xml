@@ -1,36 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/StatDef[defName = "MeleeWeapon_DamageMultiplier"]/parts</xpath>
+		<xpath>Defs/StatDef[defName = "MeleeWeapon_DamageMultiplier"]/parts/li[@Class="StatPart_Quality"]/factorAwful</xpath>
 		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>0.5</factorAwful>
-					<factorPoor>0.8</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>1.1</factorGood>
-					<factorExcellent>1.2</factorExcellent>
-					<factorMasterwork>1.45</factorMasterwork>
-					<factorLegendary>2</factorLegendary>
-				</li>
-			</parts>
+			<factorAwful>0.7</factorAwful>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/StatDef[defName = "MeleeWeapon_DamageMultiplier"]/parts/li[@Class="StatPart_Quality"]/factorPoor</xpath>
+		<value>
+			<factorPoor>0.85</factorPoor>
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]</xpath>
-		<value>
-			<parts>
-				<li Class="StatPart_Quality">
-					<factorAwful>1.5</factorAwful>
-					<factorPoor>1.1</factorPoor>
-					<factorNormal>1</factorNormal>
-					<factorGood>.98</factorGood>
-					<factorExcellent>.94</factorExcellent>
-					<factorMasterwork>.88</factorMasterwork>
-					<factorLegendary>.8</factorLegendary>
-				</li>
-			</parts>
-		</value>
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="MeleeWeapon_CooldownMultiplier"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.95</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.6</factorLegendary>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationConditional">
+			<xpath>Defs/StatDef[defName="MeleeWeapon_CooldownMultiplier"]/parts/li[@Class="StatPart_Quality"]</xpath>
+
+
+			<match Class="PatchOperationReplace">
+				<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]/parts/li[@Class="StatPart_Quality"]</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.95</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.6</factorLegendary>
+					</li>
+				</value>
+			</match>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]/parts</xpath>
+				<value>
+					<li Class="StatPart_Quality">
+						<factorAwful>1.5</factorAwful>
+						<factorPoor>1.1</factorPoor>
+						<factorNormal>1</factorNormal>
+						<factorGood>.95</factorGood>
+						<factorExcellent>.9</factorExcellent>
+						<factorMasterwork>.8</factorMasterwork>
+						<factorLegendary>.6</factorLegendary>
+					</li>
+				</value>
+			</nomatch>
+		</match>
 	</Operation>
+
+
+	
 </Patch>
