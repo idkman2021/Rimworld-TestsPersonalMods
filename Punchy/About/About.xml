@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Punchy</name>
+  <author>test</author>
+  <url>https://github.com/idkman2021/Rimworld-AssortedMods</url>
+  <packageId>carnap.punchy</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>Adds Punchy from starbound for testing purposes. The main variant is impossible to miss, has a single bodypart and exactly 10000 health so you can easily compare DPS. There are also different variants for different testing purposes - different sizes, different armor values.
+
+A gun that does exactly 100 dps - 100 damage and 1 shot per second with maximum accuracy. Stuffable and quality variants of the gun. Same for a melee and an explosive weapon. Useful for testing infusions, stuff materials, qualities, etc.
+
+
+They are only obtainable through devmode, although I can't guarantee rimworld won't try to sneak something in a quest, especially in a modded one.</description>
+
+  <loadAfter>
+    <li>imranfish.xmlextensions</li>
+  </loadAfter>
+</ModMetaData>

@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <BodyDef>
+    <defName>carnap2_PunchyBody</defName>
+    <label>Punchy</label>
+    <corePart>
+      <def>carnap2_PunchyBody</def>
+      <height>Middle</height>
+      <depth>Outside</depth>
+      <groups>
+        <li>UpperHead</li>
+        <li>HeadAttackTool</li>
+        <li>FullHead</li>
+        <li>Torso</li>
+        <li>Neck</li>
+        <li>Shoulders</li>
+        <li>Arms</li>
+        <li>Legs</li>
+      </groups>
+    </corePart>
+  </BodyDef>
+
+  <BodyPartDef>
+    <defName>carnap2_PunchyBody</defName>
+    <label>Punchy</label>
+    <hitPoints>40</hitPoints>
+    <skinCovered>true</skinCovered>
+    <tags>
+      <li>MovingLimbCore</li>
+      <li>ManipulationLimbCore</li>
+      <li>BreathingSourceCage</li>
+      <li>BloodPumpingSource</li>
+      <li>BreathingSource</li>
+      <li>BloodFiltrationKidney</li>
+      <li>BloodFiltrationLiver</li>
+      <li>MetabolismSource</li>
+      <li>ConsciousnessSource</li>
+      <li>SightSource</li>
+      <li>HearingSource</li>
+      <li>EatingSource</li>
+      <li>TalkingSource</li>
+      <li>BreathingPathway</li>
+      <li>EatingPathway</li>
+      <li>TalkingPathway</li>
+      <li>Tongue</li>
+    </tags>
+    <canScarify>true</canScarify>
+    <frostbiteVulnerability>10</frostbiteVulnerability>
+    <canSuggestAmputation>false</canSuggestAmputation>
+  </BodyPartDef>
+
+  <ThingDef ParentName="BodyPartNaturalBase">
+    <defName>carnap2_PunchyBody</defName>
+    <label>Punchy</label>
+    <description>A punchy.</description>
+    <statBases>
+      <MarketValue>1000</MarketValue>
+      <Mass>20</Mass>
+    </statBases>
+  </ThingDef>
+
+
+  <ThingDef ParentName="AnimalThingBase" Name="carnap2_PunchyBase" Abstract="True">
+    <statBases>
+      <MoveSpeed>0.01</MoveSpeed>
+      <MarketValue>1000000</MarketValue>
+      <ComfyTemperatureMin>-1000</ComfyTemperatureMin>
+      <ComfyTemperatureMax>1000</ComfyTemperatureMax>
+      <ArmorRating_Sharp>0</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0</ArmorRating_Blunt>
+      <ArmorRating_Heat>0</ArmorRating_Heat>
+      <FilthRate>0</FilthRate>
+      <ToxicSensitivity>100</ToxicSensitivity>
+    </statBases>
+    <uiIconScale>1.75</uiIconScale>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>1</power>
+        <cooldownTime>2</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+      </li>
+    </tools>
+    <race>
+      <body>carnap2_PunchyBody</body>
+      <herdMigrationAllowed>false</herdMigrationAllowed>
+      <baseBodySize>1000</baseBodySize>
+      <baseHungerRate>0.01</baseHungerRate>
+      <baseHealthScale>250</baseHealthScale>
+      <foodType>OmnivoreAnimal</foodType>
+      <leatherDef>Leather_Light</leatherDef>
+      <trainability>Advanced</trainability>
+      <gestationPeriodDays>100</gestationPeriodDays>
+      <manhunterOnDamageChance>0.00</manhunterOnDamageChance>
+      <wildness>0</wildness>
+      <lifeExpectancy>1000</lifeExpectancy>
+      <willNeverEat>
+        <li MayRequire="Ludeon.RimWorld.Royalty">Plant_TreeAnima</li>
+        <li MayRequire="Ludeon.RimWorld.Ideology">Plant_TreeGauranlen</li>
+      </willNeverEat>
+      <lifeStageAges>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.0</minAge>
+          <soundCall>Pawn_Thrumbo_Call</soundCall>
+          <soundAngry>Pawn_Thrumbo_Angry</soundAngry>
+          <soundWounded>Pawn_Thrumbo_Pain</soundWounded>
+          <soundDeath>Pawn_Thrumbo_Death</soundDeath>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase" Name="carnap2_PunchyKindBase" Abstract="True">
+    <combatPower>1000000</combatPower>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy</defName>
+    <label>Punchy</label>
+    <description>Impossible to miss, 0 armor.</description>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy</defName>
+    <label>Punchy</label>
+    <race>00A_Punchy</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/Punchy</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_ArmorLight</defName>
+    <label>Punchy - armor: 0.5</label>
+    <description>Impossible to miss, 0.25 armor.</description>
+    <statBases>
+      <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.25</ArmorRating_Heat>
+    </statBases>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_ArmorLight</defName>
+    <label>Punchy - armor: 0.5</label>
+    <race>00A_Punchy_ArmorLight</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyCyan</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_ArmorMedium</defName>
+    <label>Punchy - armor: 1</label>
+    <description>Impossible to miss, 1 armor.</description>
+    <statBases>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+      <ArmorRating_Blunt>1</ArmorRating_Blunt>
+      <ArmorRating_Heat>1</ArmorRating_Heat>
+    </statBases>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_ArmorMedium</defName>
+    <label>Punchy - armor: 1</label>
+    <race>00A_Punchy_ArmorMedium</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyBlue</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_ArmorHigh</defName>
+    <label>Punchy - armor: 2</label>
+    <description>Impossible to miss, 2 armor.</description>
+    <statBases>
+      <ArmorRating_Sharp>2</ArmorRating_Sharp>
+      <ArmorRating_Blunt>2</ArmorRating_Blunt>
+      <ArmorRating_Heat>2</ArmorRating_Heat>
+    </statBases>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_ArmorHigh</defName>
+    <label>Punchy - armor: 2</label>
+    <race>00A_Punchy_ArmorHigh</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyPink</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_SizeHuman</defName>
+    <label>Punchy - size: human (1)</label>
+    <description>Human-sized with no armor.</description>
+    <race>
+      <baseBodySize>1</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_SizeHuman</defName>
+    <label>Punchy - size: human (1)</label>
+    <race>00A_Punchy_SizeHuman</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyGreen</texPath>
+          <drawSize>1</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>0.6</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_SizeBear</defName>
+    <label>Punchy - size: bear (2)</label>
+    <description>bear-sized with no armor.</description>
+    <race>
+      <baseBodySize>2</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_SizeBear</defName>
+    <label>Punchy - size: bear (2)</label>
+    <race>00A_Punchy_SizeBear</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyRed</texPath>
+          <drawSize>2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>0.8</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_SizeRat</defName>
+    <label>Punchy - size: rat (0.2)</label>
+    <description>rat-sized with no armor.</description>
+    <race>
+      <baseBodySize>0.2</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_SizeRat</defName>
+    <label>Punchy - size: rat (0.2)</label>
+    <race>00A_Punchy_SizeRat</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchySmall</texPath>
+          <drawSize>1</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_SizeMicrobe</defName>
+    <label>Punchy - size: microbe (0.01)</label>
+    <description>rat-sized with no armor.</description>
+    <race>
+      <baseBodySize>0.01</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_SizeMicrobe</defName>
+    <label>Punchy - size: microbe (0.01)</label>
+    <race>00A_Punchy_SizeMicrobe</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyTiny</texPath>
+          <drawSize>0.75</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_EmulatorHumanAverage</defName>
+    <label>Punchy - human emulator</label>
+    <description>human-sized (1) with average armor (0.5).</description>
+    <statBases>
+      <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.50</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.50</ArmorRating_Heat>
+    </statBases>
+    <race>
+      <baseBodySize>1</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_EmulatorHumanAverage</defName>
+    <label>Punchy - human emulator</label>
+    <race>00A_Punchy_EmulatorHumanAverage</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyAngry</texPath>
+          <drawSize>1</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_EmulatorThrumbo</defName>
+    <label>Punchy - thrumbo emulator</label>
+    <description>thrumbo-sized (4) with thrumbo armor (S-0.6, B-0.4, H-0.3).</description>
+    <statBases>
+      <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.30</ArmorRating_Heat>
+    </statBases>
+    <race>
+      <baseBodySize>4</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_EmulatorThrumbo</defName>
+    <label>Punchy - thrumbo emulator</label>
+    <race>00A_Punchy_EmulatorThrumbo</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyAngry</texPath>
+          <drawSize>4</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+  <ThingDef ParentName="carnap2_PunchyBase">
+    <defName>00A_Punchy_EmulatorHumanArmored</defName>
+    <label>Punchy - armored human emulator</label>
+    <description>human-sized (1) with good armor (1).</description>
+    <statBases>
+      <ArmorRating_Sharp>1</ArmorRating_Sharp>
+      <ArmorRating_Blunt>1</ArmorRating_Blunt>
+      <ArmorRating_Heat>1</ArmorRating_Heat>
+    </statBases>
+    <race>
+      <baseBodySize>1</baseBodySize>
+    </race>
+  </ThingDef>
+
+  <PawnKindDef ParentName="carnap2_PunchyKindBase">
+    <defName>00A_Punchy_EmulatorHumanArmored</defName>
+    <label>Punchy - armored human emulator</label>
+    <race>00A_Punchy_EmulatorHumanArmored</race>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>StarboundPunchy/PunchyYellow</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Animal/Hare/Dessicated_Hare</texPath>
+          <drawSize>1</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>carnap2_PunchyBullet</defName>
+    <label>punchy gun bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <stoppingPower>100</stoppingPower>
+      <speed>100</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseGun" Name="carnap2_PunchyBaseGun" Abstract="True">
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <uiIconScale>1.5</uiIconScale>
+    <soundInteract>Interact_Autopistol</soundInteract>
+    <statBases>
+      <Mass>0.1</Mass>
+      <AccuracyTouch>100</AccuracyTouch>
+      <AccuracyShort>100</AccuracyShort>
+      <AccuracyMedium>100</AccuracyMedium>
+      <AccuracyLong>100</AccuracyLong>
+      <RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>carnap2_PunchyBullet</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>100</range>
+        <soundCast>Shot_Autopistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>100</power>
+        <cooldownTime>1</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+
+  <ThingDef ParentName="carnap2_PunchyBaseGun">
+    <defName>00A_Punchy_Ranged</defName>
+    <label>Punchy gun</label>
+    <description>Has exactly 100DPS. Deals 100 damage, warmup 0.5s, cooldown 0.5s, maximum accuracy possible.</description>
+    <graphicData>
+      <texPath>StarboundPunchy/PunchyWeapons/PunchyRangedBase</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="carnap2_PunchyBaseGun">
+    <defName>00A_Punchy_RangedQuality</defName>
+    <label>Punchy gun (quality)</label>
+    <description>Has exactly 100DPS. Deals 100 damage, warmup 0.5s, cooldown 0.5s, maximum accuracy possible. Quality will affect the stats!</description>
+    <graphicData>
+      <texPath>StarboundPunchy/PunchyWeapons/PunchyRangedQuality</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="carnap2_PunchyBaseGun">
+    <defName>00A_Punchy_RangedStuffable</defName>
+    <label>Punchy gun (stuffable)</label>
+    <description>Has exactly 100DPS. Deals 100 damage, warmup 0.5s, cooldown 0.5s, maximum accuracy possible. Stuff material will affect the stats!</description>
+    <graphicData>
+      <texPath>StarboundPunchy/PunchyWeapons/PunchyRangedStuff</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <costStuffCount>1</costStuffCount>
+  </ThingDef>
+
+
+  <!--=========================================================-->
+
+
+</Defs>
