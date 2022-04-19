@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+
+    <Operation Class="XmlExtensions.ForEach">
+        <xpath>Defs/ThingDef[defName]</xpath>
+        <storeIn>defName</storeIn>
+        <apply>
+
+            <Operation Class="XmlExtensions.AggregateValues">
+                <valueOperations>
+
+                    <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>defNameAdd</storeIn>
+                        <value>{defName}/defName</value>
+                        <fromXml>true</fromXml>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>description</storeIn>
+                        <value>{defName}/description</value>
+                        <fromXml>true</fromXml>
+                        <defaultValue>no description found</defaultValue>
+                    </Operation>
+
+                </valueOperations>
+                <apply>
+
+                    <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                        <xpath>{defName}</xpath>
+                        <value>
+                            <description>{defNameAdd}\n\n{description}</description>
+                        </value>
+                    </Operation>
+
+                </apply>
+            </Operation>
+
+        </apply>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ForEach">
+        <xpath>Defs/TerrainDef[defName]</xpath>
+        <storeIn>defName</storeIn>
+        <apply>
+
+            <Operation Class="XmlExtensions.AggregateValues">
+                <valueOperations>
+
+                    <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>defNameAdd</storeIn>
+                        <value>{defName}/defName</value>
+                        <fromXml>true</fromXml>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>description</storeIn>
+                        <value>{defName}/description</value>
+                        <fromXml>true</fromXml>
+                        <defaultValue>no description found</defaultValue>
+                    </Operation>
+
+                </valueOperations>
+                <apply>
+
+                    <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                        <xpath>{defName}</xpath>
+                        <value>
+                            <description>{defNameAdd}\n\n{description}</description>
+                        </value>
+                    </Operation>
+
+                </apply>
+            </Operation>
+
+        </apply>
+    </Operation>
+
+</Patch>

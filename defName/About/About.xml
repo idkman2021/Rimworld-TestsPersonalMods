@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>see defNames</name>
+  <author>test</author>
+  <url>https://github.com/idkman2021/Rimworld-AssortedMods</url>
+  <packageId>tests.defName</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>Adds defNames to all item descriptions for easier patching. Might impact loading times.</description>
+  <modDependencies>
+    <li>
+      <packageId>imranfish.xmlextensions</packageId>
+      <displayName>XML Extensions</displayName>
+      <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>imranfish.xmlextensions</li>
+  </loadAfter>
+</ModMetaData>
