@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!--
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+        </caseTrue>
+        <caseFalse>
+
+        </caseFalse>
+    </Operation>
+
+    -->
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Walls</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Walls</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Walls</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Walls</defName>
+                        <label>walls</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build walls for protecting, insulating, and supporting roofs to prevent deterioration.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
+                    (graphicData/linkFlags/li="Rock") or 
+                    @ParentName="Wall" or 
+                    holdsRoof="true"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Walls</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
+                    (graphicData/linkFlags/li="Rock") or 
+                    @ParentName="Wall" or 
+                    holdsRoof="true"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Walls</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Walls</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Walls</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Walls</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Walls</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Doors</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Doors</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Doors</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Doors</defName>
+                        <label>doors</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build doors to enclose buildings and prevent wild animals and enemies from entering.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites>
+                            <li>BasicResearch_Walls</li>
+                        </prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Doors</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Doors</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Fences</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Fences</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Fences</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Fences</defName>
+                        <label>fences</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build fences to prevent some animals from wandering away.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites/li[text()="BasicResearch_Walls"]</xpath>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Fences</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Fences</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Bridges</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_BasicBridges</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_BasicBridges</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_BasicBridges</defName>
+                        <label>basic bridges</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build simple wooden bridges over water.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/TerrainDef[bridge="true"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_BasicBridges</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/TerrainDef[bridge="true"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_BasicBridges</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_ResearchBench</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_SimpleResearchBench</defName>
+                        <label>simple research bench</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn the basic research methodology and build a simple research bench to facilitate research.</description>
+                        <baseCost>200</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+
+                    <ThingDef ParentName="BuildingBase">
+                        <defName>BasicResearch_ThinkingSpot</defName>
+                        <label>research spot</label>
+                        <description>A place for researching. People can work here to learn the most basic things.</description>
+                        <thingClass>Building_ResearchBench</thingClass>
+                        <graphicData>
+                            <texPath>Things/Building/Production/CraftingSpot</texPath>
+                            <color>(55,230,55)</color>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1,1)</drawSize>
+                        </graphicData>
+                        <altitudeLayer>FloorEmplacement</altitudeLayer>
+                        <statBases>
+                            <WorkToBuild>0</WorkToBuild>
+                            <ResearchSpeedFactor>0.2</ResearchSpeedFactor>
+                        </statBases>
+                        <scatterableOnMapGen>false</scatterableOnMapGen>
+                        <useHitPoints>false</useHitPoints>
+                        <size>(1,1)</size>
+                        <designationCategory>Production</designationCategory>
+                        <passability>Standable</passability>
+                        <hasInteractionCell>True</hasInteractionCell>
+                        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+                        <surfaceType>Item</surfaceType>
+                        <building>
+                            <sowTag>SupportPlantsOnly</sowTag>
+                            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+                            <ai_chillDestination>false</ai_chillDestination>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <buildingTags>
+                                <li>Production</li>
+                            </buildingTags>
+                        </building>
+                        <placeWorkers>
+                            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+                        </placeWorkers>
+                    </ThingDef>
+
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_SimpleResearchBench</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_SimpleResearchBench</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="MultiAnalyzer"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_SimpleResearchBench</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="MultiAnalyzer"][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_SimpleResearchBench</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Art</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Art</defName>
+                        <label>art</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to express creativity by creating basic art objects that can be displayed or sold.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="TableSculpting"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Art</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="TableSculpting"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Art</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[
+                    defName="VFE_Res_Obelisk" or
+                    defName="VFE_Res_Pottery" or
+                    defName="VFE_Res_WallCarvings" or
+                    defName="VFE_Res_ArtfulDisplay" or
+                    defName="VFE_Res_Statues" or
+                    defName="VFE_Res_Monuments" or
+                    defName="VFE_Res_Rugs" or
+                    defName="VFE_Res_Wallpapers" or
+                    defName="VFE_Res_Holograms"
+                    ]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Art</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[
+                    defName="VFE_Res_Obelisk" or
+                    defName="VFE_Res_Pottery" or
+                    defName="VFE_Res_WallCarvings" or
+                    defName="VFE_Res_ArtfulDisplay" or
+                    defName="VFE_Res_Statues" or
+                    defName="VFE_Res_Monuments" or
+                    defName="VFE_Res_Rugs" or
+                    defName="VFE_Res_Wallpapers" or
+                    defName="VFE_Res_Holograms"
+                    ][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Art</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Stove</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Stove</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Stove</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Stove</defName>
+                        <label>stove</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to build a stove for cooking meals.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Stove</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Stove</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <!--[defName="FueledStove" or defName="ElectricStove" or defName="COMIGO_SmallerElectricStove" or defName="VFE_TableStoveLarge" or defName="COMIGO_PortableChemfuelStove" or defName="VPE_GasStove" or defName="RE_PreFabStove"] -->
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_ButcherTable</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_ButcherTable</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_ButcherTable</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_ButcherTable</defName>
+                        <label>butcher table</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to build a table for butchering dead creatures more efficiently.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_ButcherTable</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_ButcherTable</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="ButcherSpot"]/researchPrerequisites/li[text()="BasicResearch_ButcherTable"]</xpath>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Beds</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Beds</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Beds</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Beds</defName>
+                        <label>bedroll</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to make simple beds for better sleep.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Beds</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Beds</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Fire</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Fire</defName>
+                        <label>fire</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to tame fire for light, warmth, and cooking.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Fire</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Fire</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Recreation</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Recreation</defName>
+                        <label>recreation</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build primitive recreational objects.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[statBases/JoyGainFactor or building/joyKind]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Recreation</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[statBases/JoyGainFactor or building/joyKind][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Recreation</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Furniture</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Furniture</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Furniture</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Furniture</defName>
+                        <label>furniture</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build various functional and decorative objects.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="FurnitureBase"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Furniture</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="FurnitureBase"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Furniture</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="BasicResearch_Beds"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Furniture</li>
+                </value>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_DBHWells</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Wells</defName>
+                        <label>wells</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build wells to access underground water.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="PrimitiveWell"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Wells</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="PrimitiveWell"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Wells</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="DeepWells"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Wells</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="DeepWells"][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Wells</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_DBHHygiene</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Hygiene</defName>
+                        <label>hygiene</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn basic hygiene and build simple hygienic objects like latrines and water tubs.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BasedHygieneMom"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Hygiene</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BasedHygieneMom"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Hygiene</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[tab="DubsBadHygiene" or defName="BasicResearch_Wells"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Hygiene</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[tab="DubsBadHygiene"][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Hygiene</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Graves</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Graves</defName>
+                        <label>graves</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Dig graves to bury dead people.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li/focusTypes/li="Morbid"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Graves</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li/focusTypes/li="Morbid"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Graves</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <!--
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Benches</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Benches</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Benches</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Benches</defName>
+                        <label>benches</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build benches to facilitate various tasks.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BenchBase"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Benches</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[@Name="BenchBase"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Benches</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+-->
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_FireCover</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_FireCover</defName>
+                        <label>fire cover</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build artificial fire cover buildings like sandbags and barricades.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_FireCover</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_FireCover</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_FireCover</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_FireCover</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Traps</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Traps</defName>
+                        <label>traps</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build traps that damage those who try to traverse them.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Traps</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Traps</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Floors</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor")]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Floors</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Floors</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Floors</defName>
+                        <label>floors</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Lay various floors to cover the earth.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Floors</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Floors</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Styling</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Styling</defName>
+                        <label>styling</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Change looks by restyling hair and beards.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Styling</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Styling</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Crafting</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove" or defName="BasicResearch_Styling"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Crafting</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Crafting</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Crafting</defName>
+                        <label>crafting</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Learn to put various materials together to craft basic weapons, tools, and apparel.</description>
+                        <baseCost>50</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Crafting</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Crafting</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Butchering</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher") or defName="BasicResearch_ButcherTable"]/prerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Butchering</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
+                <value>
+                    <prerequisites>
+                        <li>BasicResearch_Butchering</li>
+                    </prerequisites>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Butchering</defName>
+                        <label>butchering</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Cut dead bodies up for food instead of consuming them whole.</description>
+                        <baseCost>25</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Butchering</li>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Butchering</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <!--
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            
+
+        </caseTrue>
+        <caseFalse>
+
+        </caseFalse>
+    </Operation>
+
+    -->
+
+
+</Patch>

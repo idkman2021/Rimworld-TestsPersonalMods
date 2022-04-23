@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the SettingsMenuDef with two tabs defined. All other tabs are added by patches -->
+<Defs>
+
+    <XmlExtensions.SettingsMenuDef>
+        <defName>BasicResearch_Settings</defName> <!--Can be anything unique with no periods-->
+        <modId>carnap2.BasicResearch</modId> <!--MUST be the same as the one entered earlier-->
+        <label>Basic Research</label> <!-- This is what displays as your mod's name-->
+        <settings>
+            <!--This is where you define what settings are in the settings menu-->
+            <li Class="XmlExtensions.Setting.Text">
+                <text>All XML Extensions settings require a restart to be applied!</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>All settings are safe to have enabled even if you don't have the appropriate mods.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.GapLine" />
+
+            <!--settings -->
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Walls</key>
+                <label>Walls require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Doors</key>
+                <label>Doors require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Fences</key>
+                <label>Fences require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Bridges</key>
+                <label>Bridges require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_ResearchBench</key>
+                <label>Research bench requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Adds a research spot to research the research bench because you would't be able to research without the research bench so now you can research on the research spot without the research bench until your research it.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Art</key>
+                <label>Art requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Stove</key>
+                <label>Stoves require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_ButcherTable</key>
+                <label>Butcher tables require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Beds</key>
+                <label>Beds require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Fire</key>
+                <label>Fire requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>You won't be able to build campfires before researching this! Keep that in mind if playing on cold maps.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Recreation</key>
+                <label>Recreation requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Furniture</key>
+                <label>Furniture requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Graves</key>
+                <label>Graves require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Dig graves to bury dead people.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_FireCover</key>
+                <label>Fire cover buildings require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Build artificial fire cover buildings like sandbags and barricades.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Traps</key>
+                <label>Traps require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Build traps that damage those who try to traverse them.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Floors</key>
+                <label>Floors require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Lay various floors to cover the earth.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Styling</key>
+                <label>Styling requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Change looks by restyling hair and beards.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Crafting</key>
+                <label>Crafting requires research</label>
+                <defaultValue>false</defaultValue>
+                <tooltip>Learn to put various materials together to craft basic weapons, tools, and apparel. (unlocks crafting spot and all workbenches)</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Butchering</key>
+                <label>Butchering require research</label>
+                <defaultValue>false</defaultValue>
+                <tooltip>Cut dead bodies up for food instead of consuming them whole. (unlocks butchering spot)</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_</key>
+                <label> require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Dubs Bad Hygiene</text>
+            </li>
+            <li Class="XmlExtensions.Setting.GapLine" />
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_DBHHygiene</key>
+                <label>Hygiene requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Learn basic hygiene and build simple hygienic objects like latrines and water tubs.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_DBHWells</key>
+                <label>Wells require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Build wells to access underground water.</tooltip>
+            </li>
+
+
+        </settings>
+    </XmlExtensions.SettingsMenuDef>
+
+
+</Defs>
