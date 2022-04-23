@@ -5,6 +5,7 @@
 Mod | Description
 ------------ | -------------
 **BG - Uniform** | Replaces core rimworld background with uniform rimworld UI color.
+**Basic Research** | Requires XML Extensions, adds research projects for many basic things like walls, butcher tables, etc. Everything is toggleable.
 **HAR Research Restrictions Remover** | A patch operation that automatically removes all research restrictions from all HAR races loaded before it. Useful if you have mods like Random Research.
 **HAR thoughtSettings Remover** | A patch operation that automatically removes all thoughtSettings from all HAR races loaded before it. Useful if you want to make HAR races closer to humans and less OP and might also improve performance.
 **Punchy** | Adds punchy from starbound with 1 bodypart and exactly 10000 health, useful for testing DPS. Also adds a weapon that always has exactly 10 DPS.
