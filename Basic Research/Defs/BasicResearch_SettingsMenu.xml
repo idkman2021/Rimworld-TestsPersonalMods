@@ -18,41 +18,7 @@
 
             <!--settings -->
 
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Walls</key>
-                <label>Walls require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Doors</key>
-                <label>Doors require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Fences</key>
-                <label>Fences require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Bridges</key>
-                <label>Bridges require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_ResearchBench</key>
-                <label>Research bench requires research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip>Adds a research spot to research the research bench because you would't be able to research without the research bench so now you can research on the research spot without the research bench until your research it.</tooltip>
-            </li>
-
+            <!-- A -->
             <li Class="XmlExtensions.Setting.Checkbox">
                 <key>BasicResearch_Art</key>
                 <label>Art requires research</label>
@@ -60,9 +26,16 @@
                 <tooltip></tooltip>
             </li>
 
+            <!-- B -->
             <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Stove</key>
-                <label>Stoves require research</label>
+                <key>BasicResearch_Beds</key>
+                <label>Beds require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Bridges</key>
+                <label>Bridges require research</label>
                 <defaultValue>true</defaultValue>
                 <tooltip></tooltip>
             </li>
@@ -74,12 +47,38 @@
                 <tooltip></tooltip>
             </li>
 
+            <!-- C -->
             <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Beds</key>
-                <label>Beds require research</label>
+                <key>BasicResearch_Butchering</key>
+                <label>Butchering require research</label>
+                <defaultValue>false</defaultValue>
+                <tooltip>Cut dead bodies up for food instead of consuming them whole. (unlocks butchering spot)</tooltip>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Crafting</key>
+                <label>Crafting requires research</label>
+                <defaultValue>false</defaultValue>
+                <tooltip>Learn to put various materials together to craft basic weapons, tools, and apparel. (unlocks crafting spot and all workbenches)</tooltip>
+            </li>
+
+            <!-- D -->
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Doors</key>
+                <label>Doors require research</label>
                 <defaultValue>true</defaultValue>
                 <tooltip></tooltip>
             </li>
+
+            <!-- E -->
+
+            <!-- F -->
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Fences</key>
+                <label>Fences require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
 
             <li Class="XmlExtensions.Setting.Checkbox">
                 <key>BasicResearch_Fire</key>
@@ -89,38 +88,10 @@
             </li>
 
             <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Recreation</key>
-                <label>Recreation requires research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Furniture</key>
-                <label>Furniture requires research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip></tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Graves</key>
-                <label>Graves require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip>Dig graves to bury dead people.</tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
                 <key>BasicResearch_FireCover</key>
-                <label>Fire cover buildings require research</label>
+                <label>Fire cover buildings (like sandbags) require research</label>
                 <defaultValue>true</defaultValue>
                 <tooltip>Build artificial fire cover buildings like sandbags and barricades.</tooltip>
-            </li>
-
-            <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Traps</key>
-                <label>Traps require research</label>
-                <defaultValue>true</defaultValue>
-                <tooltip>Build traps that damage those who try to traverse them.</tooltip>
             </li>
 
             <li Class="XmlExtensions.Setting.Checkbox">
@@ -131,25 +102,113 @@
             </li>
 
             <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Furniture</key>
+                <label>Furniture requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <!-- G -->
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Graves</key>
+                <label>Graves require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Dig graves to bury dead people.</tooltip>
+            </li>
+
+            <!-- H -->
+
+            <!-- I -->
+
+            <!-- J -->
+
+            <!-- K -->
+
+            <!-- L -->
+
+            <!-- M -->
+
+            <!-- N -->
+
+            <!-- O -->
+
+            <!-- P -->
+
+            <!-- Q -->
+
+            <!-- R -->
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Ranching</key>
+                <label>Ranching requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Build pen markers and leash animals to enclosed pens for farming.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Recreation</key>
+                <label>Recreation requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_ResearchBench</key>
+                <label>Research bench requires research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Adds a research spot to research the research bench because you would't be able to research without the research bench so now you can research on the research spot without the research bench until your research it.</tooltip>
+            </li>
+
+
+            <!-- S -->
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>BasicResearch_Stove</key>
+                <label>Stoves require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
                 <key>BasicResearch_Styling</key>
                 <label>Styling requires research</label>
                 <defaultValue>true</defaultValue>
                 <tooltip>Change looks by restyling hair and beards.</tooltip>
             </li>
 
+
+            <!-- T -->
             <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Crafting</key>
-                <label>Crafting requires research</label>
-                <defaultValue>false</defaultValue>
-                <tooltip>Learn to put various materials together to craft basic weapons, tools, and apparel. (unlocks crafting spot and all workbenches)</tooltip>
+                <key>BasicResearch_Traps</key>
+                <label>Traps require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>Build traps that damage those who try to traverse them.</tooltip>
             </li>
 
+            <!-- U -->
+
+            <!-- V -->
+
+            <!-- W -->
+
+
             <li Class="XmlExtensions.Setting.Checkbox">
-                <key>BasicResearch_Butchering</key>
-                <label>Butchering require research</label>
-                <defaultValue>false</defaultValue>
-                <tooltip>Cut dead bodies up for food instead of consuming them whole. (unlocks butchering spot)</tooltip>
+                <key>BasicResearch_Walls</key>
+                <label>Walls require research</label>
+                <defaultValue>true</defaultValue>
+                <tooltip></tooltip>
             </li>
+
+            <!-- X -->
+
+            <!-- Y -->
+
+            <!-- Z -->
+
+
+
+
+
+<!--
 
             <li Class="XmlExtensions.Setting.Checkbox">
                 <key>BasicResearch_</key>
@@ -157,7 +216,7 @@
                 <defaultValue>true</defaultValue>
                 <tooltip></tooltip>
             </li>
-
+        -->
 
             <li Class="XmlExtensions.Setting.Gap" />
             <li Class="XmlExtensions.Setting.Text">

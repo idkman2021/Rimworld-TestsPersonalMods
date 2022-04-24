@@ -585,7 +585,9 @@
                         <baseCost>50</baseCost>
                         <researchViewX>0</researchViewX>
                         <researchViewY>0</researchViewY>
-                        <prerequisites></prerequisites>
+                        <prerequisites>
+                            <li MayRequire="ComigoGames.Miniaturization.Kitchen">COMIGO_SmallerButcherTableResearch</li>
+                        </prerequisites>
                     </ResearchProjectDef>
                 </value>
             </Operation>
@@ -643,7 +645,7 @@
                 <value>
                     <ResearchProjectDef>
                         <defName>BasicResearch_Beds</defName>
-                        <label>bedroll</label>
+                        <label>beds</label>
                         <tab>carnap2BRTab</tab>
                         <techLevel>Animal</techLevel>
                         <description>Learn to make simple beds for better sleep.</description>
@@ -668,6 +670,12 @@
                     <researchPrerequisites>
                         <li>BasicResearch_Beds</li>
                     </researchPrerequisites>
+                </value>
+            </Operation>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[defName="SleepingSpot" or defName="DoubleSleepingSpot" or defName="AnimalSleepingSpot"]/researchPrerequisites</xpath>
+                <value>
                 </value>
             </Operation>
 
@@ -769,7 +777,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Furniture</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -1183,14 +1191,14 @@
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor")]/prerequisites</xpath>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Floors</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor")][not(prerequisites)]</xpath>
+                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Floors</li>
@@ -1279,6 +1287,53 @@
 
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
+        <key>BasicResearch_Ranching</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>Defs</xpath>
+                <value>
+                    <ResearchProjectDef>
+                        <defName>BasicResearch_Ranching</defName>
+                        <label>Ranching</label>
+                        <tab>carnap2BRTab</tab>
+                        <techLevel>Animal</techLevel>
+                        <description>Build pen markers and leash animals to enclosed pens for farming.</description>
+                        <baseCost>100</baseCost>
+                        <researchViewX>0</researchViewX>
+                        <researchViewY>0</researchViewY>
+                        <prerequisites></prerequisites>
+                    </ResearchProjectDef>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]]/researchPrerequisites</xpath>
+                <value>
+                    <li>BasicResearch_Ranching</li>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationAdd">
+                <success>Always</success>
+                <xpath>/Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]][not(researchPrerequisites)]</xpath>
+                <value>
+                    <researchPrerequisites>
+                        <li>BasicResearch_Ranching</li>
+                    </researchPrerequisites>
+                </value>
+            </Operation>
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Crafting</key>
         <defaultValue>true</defaultValue>
         <caseTrue>
@@ -1341,7 +1396,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Butchering</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
