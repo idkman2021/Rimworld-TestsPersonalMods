@@ -675,8 +675,6 @@
             <Operation Class="PatchOperationRemove">
                 <success>Always</success>
                 <xpath>/Defs/ThingDef[defName="SleepingSpot" or defName="DoubleSleepingSpot" or defName="AnimalSleepingSpot"]/researchPrerequisites</xpath>
-                <value>
-                </value>
             </Operation>
 
         </caseTrue>
