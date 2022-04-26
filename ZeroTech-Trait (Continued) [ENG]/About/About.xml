@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>ZeroTech-Trait (Continued) [English]</name>
+  <author>test</author>
+  <url>https://github.com/emipa606/ZeroTechTrait</url>
+  <packageId>Mlie.ZeroTechTrait.test.English</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>This is just a translation and needs to be loaded after ZeroTech-Trait (Continued).
+The mod's description lists english as one of the supported languages, but in fact that is not the case, hence this translation.
+It adds a bunch of negative traits, great for counterbalancing most trait mods adding too many positive traits.
+  </description>
+  <modDependencies>
+    <li>
+      <packageId>Mlie.ZeroTechTrait</packageId>
+      <displayName>ZeroTech-Trait (Continued)</displayName>
+      <downloadUrl>https://github.com/emipa606/ZeroTechTrait</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2609655273</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>Mlie.ZeroTechTrait</li>
+  </loadAfter>
+</ModMetaData>

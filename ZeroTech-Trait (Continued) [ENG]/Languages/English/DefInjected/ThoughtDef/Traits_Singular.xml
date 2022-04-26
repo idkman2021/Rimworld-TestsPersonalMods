@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- {PAWN_nameDef}
+	{PAWN_possessive}
+	{PAWN_pronoun} -->
+  <Ling_NoGod_Nonsense.stages.0.label>disgusting words</Ling_NoGod_Nonsense.stages.0.label>
+  <Ling_NoGod_NonsenseMood.stages.0.label>disgusting words</Ling_NoGod_NonsenseMood.stages.0.label>
+  <Ling_NoGod_NonsenseMood.stages.0.description>That guy said so many disgusting things to me, what a horrible guy!</Ling_NoGod_NonsenseMood.stages.0.description>
+  <!-- <TraitDef>
+    <defName>Ling_NoGod_13</defName>
+    <commonality>0.1</commonality>
+    <degreeDatas>
+      <li>
+        <label>μ圣母婊</label>
+        <description>{PAWN_nameDef}以极高的要求要求他人,不准其他人做任何伤害别人的事,对自己却十分宽容.</description>
+      </li>
+    </degreeDatas>
+  </TraitDef> -->
+  <Ling_NoGod_14.stages.0.label>No partner</Ling_NoGod_14.stages.0.label>
+  <Ling_NoGod_14.stages.0.description>Oh my god, no one is partner with someone as good as me?!</Ling_NoGod_14.stages.0.description>
+  <Ling_NoGod_14.stages.1.label>One partner</Ling_NoGod_14.stages.1.label>
+  <Ling_NoGod_14.stages.1.description>I am such a cool person and have only one partner</Ling_NoGod_14.stages.1.description>
+  <Ling_NoGod_14.stages.2.label>Two partners</Ling_NoGod_14.stages.2.label>
+  <Ling_NoGod_14.stages.2.description>Just barely...</Ling_NoGod_14.stages.2.description>
+  <Ling_NoGod_14.stages.3.label>Multiple partners</Ling_NoGod_14.stages.3.label>
+  <Ling_NoGod_14.stages.3.description>This is the perfect life!</Ling_NoGod_14.stages.3.description>
+</LanguageData>
