@@ -1,0 +1,2084 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <!--
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>TMaterials_123456</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+        </caseTrue>
+        <caseFalse>
+
+        </caseFalse>
+    </Operation>
+
+    -->
+    <Operation Class="XmlExtensions.CreateDocument">
+        <docName>TMStonesMenu</docName>
+        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="TMaterialsStone_Settings"]/settings</xpath>
+    </Operation>
+
+    <Operation Class="XmlExtensions.CreateDocument">
+        <docName>TMStonesDuplicates</docName>
+        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="TMaterialsStone_Settings"]/settings/li[tag="Duplicates"]/settings</xpath>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod3</patchName>
+        <arguments>
+            <li>SZ_StonesAndTerrains</li>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>obsidian</li>
+            <li>true</li>
+            <li>Obsidian is quite brittle and not as good for building. It is however quite beautiful, blocks be sold for good money, and it makes very sharp weapons.</li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod3</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>andesite</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>diorite</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod3</patchName>
+        <arguments>
+            <li>Expanded Materials - Stones and Mortars</li>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>basalt</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blockstuff</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockstuff"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blocksdesertglass</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksdesertglass"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blockssoapstone</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockssoapstone"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>gneiss</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod2</patchName>
+        <arguments>
+            <li>Expanded Materials - Stones and Mortars</li>
+            <li>Cupro's Stones</li>
+            <li>schist</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod2a</patchName>
+        <arguments>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>chalk</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod3</patchName>
+        <arguments>
+            <li>Expanded Materials - Stones and Mortars</li>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>siltstone</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod</patchName>
+        <arguments>
+            <li>Expanded Materials - Stones and Mortars</li>
+            <li>shale</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blocksmudstone</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksmudstone"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>claystone</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blockspumice</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockspumice"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>pegmatite</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blocksphyllite</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksphyllite"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod2a</patchName>
+        <arguments>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>scoria</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blockslunarrock</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockslunarrock"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blockscoquina</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockscoquina"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+    <Operation Class="XmlExtensions.ApplyPatch">
+        <patchName>TMStonesMod3</patchName>
+        <arguments>
+            <li>Cupro's Stones</li>
+            <li>[K]Extra Stone</li>
+            <li>[K]Extra Stone(w/ Cupro's Textures)</li>
+            <li>gabbro</li>
+            <li>true</li>
+            <li></li>
+        </arguments>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blocksmeteoriterock</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksmeteoriterock"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>carnap_blocksvoidstone</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+        <caseFalse>
+            <Operation Class="PatchOperationRemove">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksvoidstone"]</xpath>
+            </Operation>
+        </caseFalse>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>TMaterials_StoneTypes</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+            <!-- 
+
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocks123456"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_123456Base">
+                        <defName>carnap_123456</defName>
+                        <label>123456</label>
+                        <description>An intermediate volcanic rock.</description>
+                        <graphicData>
+                            <color>(112,118,118)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>700</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunk123456</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothed123456</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_123456Base">
+                        <defName>carnap_smoothed123456</defName>
+                        <label>smoothed 123456</label>
+                        <description>An intermediate volcanic rock. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>21</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunk123456</defName>
+                        <label>123456 chunk</label>
+                        <graphicData>
+                            <color>(112,118,118)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocks123456>20</carnap_blocks123456>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            
+        -->
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>andesite</li>
+                    <li>andesite</li>
+                    <li>A volcanic rock formed by rapid cooling of lava.</li>
+                    <li>(116,120,120)</li>
+                    <li>1100</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>22</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.7</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>diorite</li>
+                    <li>diorite</li>
+                    <li>A rock formed by slow cooling of magma.</li>
+                    <li>(219,219,219)</li>
+                    <li>900</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.6</li>
+                </arguments>
+            </Operation>
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>basalt</li>
+                    <li>basalt</li>
+                    <li>A rock formed by slow cooling of basaltic lava.</li>
+                    <li>(87,93,94)</li>
+                    <li>900</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>21</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.6</li>
+                </arguments>
+            </Operation>
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>tuff</li>
+                    <li>tuff</li>
+                    <li>A soft rock formed by consolidation of volcanic ash.</li>
+                    <li>(194,174,147)</li>
+                    <li>350</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>16</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1</li>
+                </arguments>
+            </Operation>
+
+            <!--
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>quartzite</li>
+                    <li>quartzite</li>
+                    <li>A rock converted from sandstone due to heating and pressure from tectonic compression.</li>
+                    <li>(202,200,203)</li>
+                    <li>550</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>19</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+        -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>soapstone</li>
+                    <li>soapstone</li>
+                    <li>A very soft rock converted from various minerals through a combination of heating, pressure and time.</li>
+                    <li>(57,64,66)</li>
+                    <li>250</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>14</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">0.8</li>
+                </arguments>
+            </Operation>
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>gneiss</li>
+                    <li>gneiss</li>
+                    <li>A common and widely distributed type of metamorphic rock.</li>
+                    <li>(150, 142, 120)</li>
+                    <li>700</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.5</li>
+                </arguments>
+            </Operation>
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>schist</li>
+                    <li>schist</li>
+                    <li>A rock which consists of layers of different minerals.</li>
+                    <li>(169, 178, 147)</li>
+                    <li>600</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>19</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.4</li>
+                </arguments>
+            </Operation>
+
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>chalk</li>
+                    <li>chalk</li>
+                    <li>A very soft rock formed from the skeletal remains of sea creatures.</li>
+                    <li>(235,238,236)</li>
+                    <li>150</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>9</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">0.5</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>siltstone</li>
+                    <li>siltstone</li>
+                    <li>A rock composed mostly of silt.</li>
+                    <li>(201, 172, 155)</li>
+                    <li>400</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>17</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.2</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>shale</li>
+                    <li>shale</li>
+                    <li>A rock formed by the compaction of silt and clay-size mineral particles.</li>
+                    <li>(74,63,65)</li>
+                    <li>400</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>17</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.2</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>mudstone</li>
+                    <li>mudstone</li>
+                    <li>An ugly rock formed from consolidated mud.</li>
+                    <li>(206,196,147)</li>
+                    <li>400</li>
+                    <li>-2</li>
+                    <li>0</li>
+                    <li>15</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.2</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>claystone</li>
+                    <li>claystone</li>
+                    <li>A rock composed primarily of clay-sized particles.</li>
+                    <li>(183,175,165)</li>
+                    <li>350</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>15</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.15</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>pumice</li>
+                    <li>pumice</li>
+                    <li>A very porous rock produced when lava with a very high content of water and gases is discharged from a volcano.</li>
+                    <li>(202,198,191)</li>
+                    <li>320</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>14</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.1</li>
+                </arguments>
+            </Operation>
+            <!--
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>conglomerate</li>
+                    <li>conglomerate</li>
+                    <li>A rock composed of rounded fragments embedded in a matrix of cementing material such as sand, silt, and clay.</li>
+                    <li>(186, 176, 147)</li>
+                    <li>350</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>15</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+
+            
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>amphibolite</li>
+                    <li>amphibolite</li>
+                    <li>A rock consisting mainly of hornblende and plagioclase.</li>
+                    <li>(70,72,71)</li>
+                    <li>1000</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>22</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>anorthosite</li>
+                    <li>anorthosite</li>
+                    <li>A rock composed largely of labradorite.</li>
+                    <li>(87,98,91)</li>
+                    <li>750</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+
+            
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>dolomite</li>
+                    <li>dolomite</li>
+                    <li>A rock formed chiefly of dolomite.</li>
+                    <li>(198,198,200)</li>
+                    <li>650</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+
+
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksdolomite"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_dolomiteBase">
+                        <defName>carnap_dolomite</defName>
+                        <label>dolomite</label>
+                        <description>A rock formed chiefly of dolomite.</description>
+                        <graphicData>
+                            <color>(198,198,200)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>650</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkdolomite</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smootheddolomite</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_dolomiteBase" Name="carnap_smootheddolomiteBase">
+                        <defName>carnap_smootheddolomite</defName>
+                        <label>smoothed dolomite</label>
+                        <description>A rock formed chiefly of dolomite. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkdolomite</defName>
+                        <label>dolomite chunk</label>
+                        <graphicData>
+                            <color>(198,198,200)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksdolomite>20</carnap_blocksdolomite>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksdunite"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_duniteBase">
+                        <defName>carnap_dunite</defName>
+                        <label>dunite</label>
+                        <description>A rock consisting largely of olivine.</description>
+                        <graphicData>
+                            <color>(139,140,100)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>550</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkdunite</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smootheddunite</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_duniteBase" Name="carnap_smoothedduniteBase">
+                        <defName>carnap_smootheddunite</defName>
+                        <label>smoothed dunite</label>
+                        <description>A rock consisting largely of olivine. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkdunite</defName>
+                        <label>dunite chunk</label>
+                        <graphicData>
+                            <color>(139,140,100)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksdunite>20</carnap_blocksdunite>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksporphyry"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_porphyryBase">
+                        <defName>carnap_porphyry</defName>
+                        <label>porphyry</label>
+                        <description>A rock containing crystals of feldspar in a fine-grained groundmass.</description>
+                        <graphicData>
+                            <color>(152,60,71)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>600</MaxHitPoints>
+                            <Beauty>0</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkporphyry</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedporphyry</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_porphyryBase">
+                        <defName>carnap_smoothedporphyry</defName>
+                        <label>smoothed porphyry</label>
+                        <description>A rock containing crystals of feldspar in a fine-grained groundmass. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>2</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkporphyry</defName>
+                        <label>porphyry chunk</label>
+                        <graphicData>
+                            <color>(152,60,71)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksporphyry>20</carnap_blocksporphyry>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+            <!--
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>rhyolite</li>
+                    <li>rhyolite</li>
+                    <li>A beautiful rock formed when lava cools down on or near the earth's surface.</li>
+                    <li>(187,146,120)</li>
+                    <li>900</li>
+                    <li>0</li>
+                    <li>2</li>
+                    <li>24</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+        -->
+
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockssyenite"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_syeniteBase">
+                        <defName>carnap_syenite</defName>
+                        <label>syenite</label>
+                        <description>A rock syenite composed mainly of alkali feldspar and ferromagnesian minerals.</description>
+                        <graphicData>
+                            <color>(213,203,194)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>850</MaxHitPoints>
+                            <Beauty>0</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunksyenite</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedsyenite</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_syeniteBase" Name="carnap_smoothedsyeniteBase">
+                        <defName>carnap_smoothedsyenite</defName>
+                        <label>smoothed syenite</label>
+                        <description>A rock syenite composed mainly of alkali feldspar and ferromagnesian minerals. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunksyenite</defName>
+                        <label>syenite chunk</label>
+                        <graphicData>
+                            <color>(213,203,194)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blockssyenite>20</carnap_blockssyenite>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>dacite</li>
+                    <li>dacite</li>
+                    <li>A volcanic rock resembling andesite but containing free quartz.</li>
+                    <li>(168,165,163)</li>
+                    <li>1000</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>22</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.7</li>
+                </arguments>
+            </Operation>
+
+
+            <!-- chert isn't something that mountains can be made of??? -->
+            <!--
+        <Operation Class="PatchOperationInsert">
+            <success>Always</success>
+            <xpath>Defs/ThingDef[defName="carnap_blockschert"]</xpath>
+            <value>
+                <ThingDef ParentName="UglyRockBase" Name="carnap_chertBase">
+                    <defName>carnap_chert</defName>
+                    <label>chert</label>
+                    <description>A hard, dark, opaque rock composed of silica (chalcedony) with an amorphous or microscopically fine-grained texture.</description>
+                    <graphicData>
+                        <color>(128,128,128)</color>
+                    </graphicData>
+                    <statBases>
+                        <MaxHitPoints>700</MaxHitPoints>
+                        <Beauty>-1</Beauty>
+                    </statBases>
+                    <building>
+                        <mineableThing>carnap_chunkchert</mineableThing>
+                        <mineableDropChance>0.25</mineableDropChance>
+                        <smoothedThing>carnap_smoothedchert</smoothedThing>
+                    </building>
+                </ThingDef>
+
+                <ThingDef ParentName="carnap_chertBase">
+                    <defName>carnap_smoothedchert</defName>
+                    <label>smoothed chert</label>
+                    <description>A hard, dark, opaque rock composed of silica (chalcedony) with an amorphous or microscopically fine-grained texture. It has been polished to a flat, smooth surface.</description>
+                    <graphicData>
+                        <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                    </graphicData>
+                    <statBases>
+                        <Beauty>1</Beauty>
+                        <MarketValue>21</MarketValue>
+                    </statBases>
+                    <building>
+                        <isNaturalRock>false</isNaturalRock>
+                        <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                        <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                        <smoothedThing />
+                    </building>
+                    <saveCompressible>false</saveCompressible>
+                    <repairEffect>Repair</repairEffect>
+                </ThingDef>
+
+                <ThingDef ParentName="ChunkRockBase">
+                    <defName>carnap_chunkchert</defName>
+                    <label>chert chunk</label>
+                    <graphicData>
+                        <color>(112,118,118)</color>
+                    </graphicData>
+                    <statBases>
+                        <Mass>25</Mass>
+                    </statBases>
+                    <soundDrop>ChunkRock_Drop</soundDrop>
+                    <butcherProducts>
+                        <carnap_blockschert>20</carnap_blockschert>
+                    </butcherProducts>
+                </ThingDef>
+            </value>
+        </Operation>
+    -->
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>pegmatite</li>
+                    <li>pegmatite</li>
+                    <li>An igneous rock showing a very coarse texture.</li>
+                    <li>(136,133,122)</li>
+                    <li>900</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>21</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.6</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>phyllite</li>
+                    <li>phyllite</li>
+                    <li>A fine-grained metamorphic rock with a well-developed laminar structure.</li>
+                    <li>(77,76,64)</li>
+                    <li>700</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.5</li>
+                </arguments>
+            </Operation>
+
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockscaliche"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_calicheBase">
+                        <defName>carnap_caliche</defName>
+                        <label>caliche</label>
+                        <description>A shallow layer of soil cemented together by the precipitation of calcium carbonate.</description>
+                        <graphicData>
+                            <color>(223,194,149)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>400</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkcaliche</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedcaliche</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_calicheBase">
+                        <defName>carnap_smoothedcaliche</defName>
+                        <label>smoothed caliche</label>
+                        <description>A shallow layer of soil cemented together by the precipitation of calcium carbonate. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>21</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkcaliche</defName>
+                        <label>caliche chunk</label>
+                        <graphicData>
+                            <color>(223,194,149)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blockscaliche>20</carnap_blockscaliche>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+        -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>scoria</li>
+                    <li>scoria</li>
+                    <li>A volcanic rock.</li>
+                    <li>(119,88,84)</li>
+                    <li>700</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.5</li>
+                </arguments>
+            </Operation>
+            <!--
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksdiabase"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_diabaseBase">
+                        <defName>carnap_diabase</defName>
+                        <label>diabase</label>
+                        <description>A fine-grained rock of the composition of gabbro but with an ophitic texture.</description>
+                        <graphicData>
+                            <color>(90,84,81)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>700</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkdiabase</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smootheddiabase</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_diabaseBase">
+                        <defName>carnap_smootheddiabase</defName>
+                        <label>smoothed diabase</label>
+                        <description>A fine-grained rock of the composition of gabbro but with an ophitic texture. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>21</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkdiabase</defName>
+                        <label>diabase chunk</label>
+                        <graphicData>
+                            <color>(90,84,81)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksdiabase>20</carnap_blocksdiabase>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>lunarrock</li>
+                    <li>lunar rock</li>
+                    <li>An incredibly hard rock that originally formed a moon, but due to collisions with space debree huge pieces often hit the planet.</li>
+                    <li>(138,127,141)</li>
+                    <li>1400</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>26</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.8</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>coquina</li>
+                    <li>coquina</li>
+                    <li>A soft rock composed of broken shells.</li>
+                    <li>(210,189,161)</li>
+                    <li>400</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>18</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.2</li>
+                </arguments>
+            </Operation>
+
+            <!--
+
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksdiatomite"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_diatomiteBase">
+                        <defName>carnap_diatomite</defName>
+                        <label>diatomite</label>
+                        <description>A fine-grained sedimentary rock formed from consolidated diatomaceous earth.</description>
+                        <graphicData>
+                            <color>(218,218,218)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>400</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkdiatomite</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smootheddiatomite</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_diatomiteBase" Name="carnap_smootheddiatomiteBase">
+                        <defName>carnap_smootheddiatomite</defName>
+                        <label>smoothed diatomite</label>
+                        <description>A fine-grained sedimentary rock formed from consolidated diatomaceous earth. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkdiatomite</defName>
+                        <label>diatomite chunk</label>
+                        <graphicData>
+                            <color>(218,218,218)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksdiatomite>20</carnap_blocksdiatomite>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>gabbro</li>
+                    <li>gabbro</li>
+                    <li>A dark, coarse-grained plutonic rock of crystalline texture.</li>
+                    <li>(133,136,125)</li>
+                    <li>800</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>21</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.6</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>obsidian</li>
+                    <li>obsidian</li>
+                    <li>A brittle volcanic rock formed by rapid cooling of lava.</li>
+                    <li>(42, 27, 54)</li>
+                    <li>400</li>
+                    <li>-1</li>
+                    <li>2</li>
+                    <li>40</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">2</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>desertglass</li>
+                    <li>desert glass</li>
+                    <li>Solid desert glass formed by radiative melting of sandstone from large aerial bursts.</li>
+                    <li>RGBA(220,208,163,135)</li>
+                    <li>700</li>
+                    <li>-1</li>
+                    <li>3</li>
+                    <li>40</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.0</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>meteoriterock</li>
+                    <li>meteorite rock</li>
+                    <li>An incredibly heavy and tough rock that originally formed a meteorite.</li>
+                    <li>(106,69,67)</li>
+                    <li>1700</li>
+                    <li>-1</li>
+                    <li>1</li>
+                    <li>30</li>
+                    <li>40</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">2</li>
+                </arguments>
+            </Operation>
+
+
+            <!-- lightstone -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockslightstone"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_lightstoneBase">
+                        <defName>carnap_lightstone</defName>
+                        <label>lightstone</label>
+                        <description>An extremely bright white rock, almost blinding on sunny days.</description>
+                        <graphicData>
+                            <color>(255,255,255)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>550</MaxHitPoints>
+                            <Beauty>0</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunklightstone</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedlightstone</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_lightstoneBase">
+                        <defName>carnap_smoothedlightstone</defName>
+                        <label>smoothed lightstone</label>
+                        <description>An extremely bright white rock, almost blinding on sunny days. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>20</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunklightstone</defName>
+                        <label>lightstone chunk</label>
+                        <graphicData>
+                            <color>(255,255,255)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blockslightstone>20</carnap_blockslightstone>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+            <!-- voidstone -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRock</patchName>
+                <arguments>
+                    <li>voidstone</li>
+                    <li>voidstone</li>
+                    <li>A unique rock of unknown origin. It absorbs 99% light, making it look like a pitch black void.</li>
+                    <li>(0,0,0)</li>
+                    <li>650</li>
+                    <li>0</li>
+                    <li>0</li>
+                    <li>20</li>
+                    <li>25</li>
+                    <li MayRequire="Argon.ExpandedMaterials.Stones">1.5</li>
+                </arguments>
+            </Operation>
+
+
+            <!-- transparent crystal -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockstransparentcrystal"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_transparentcrystalBase">
+                        <defName>carnap_transparentcrystal</defName>
+                        <label>transparent crystal rock</label>
+                        <description>A rare mountain-forming crystal, very transparent and beautiful.</description>
+                        <graphicData>
+                            <color>RGBA(128,128,128,128)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>700</MaxHitPoints>
+                            <Beauty>1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunktransparentcrystal</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedtransparentcrystal</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_transparentcrystalBase">
+                        <defName>carnap_smoothedtransparentcrystal</defName>
+                        <label>smoothed transparent crystal rock</label>
+                        <description>A rare mountain-forming crystal, very transparent and beautiful. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>4</Beauty>
+                            <MarketValue>60</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunktransparentcrystal</defName>
+                        <label>transparent crystal chunk</label>
+                        <graphicData>
+                            <color>RGBA(128,128,128,128)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                            <Beauty>1</Beauty>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blockstransparentcrystal>20</carnap_blockstransparentcrystal>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+
+            <!-- blackcrystal -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksblackcrystal"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_blackcrystalBase">
+                        <defName>carnap_blackcrystal</defName>
+                        <label>black crystal</label>
+                        <description>A rare and beautiful mountain-forming crystal that very dark and transparent.</description>
+                        <graphicData>
+                            <color>RGBA(0,0,0,128)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>700</MaxHitPoints>
+                            <Beauty>1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkblackcrystal</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedblackcrystal</smoothedThing>
+                        </building>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_blackcrystalBase">
+                        <defName>carnap_smoothedblackcrystal</defName>
+                        <label>smoothed black crystal</label>
+                        <description>A rare and beautiful mountain-forming crystal that very dark and transparent. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>4</Beauty>
+                            <MarketValue>60</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <defName>carnap_chunkblackcrystal</defName>
+                        <label>black crystal chunk</label>
+                        <graphicData>
+                            <color>RGBA(0,0,0,128)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                            <Beauty>1</Beauty>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksblackcrystal>20</carnap_blocksblackcrystal>
+                        </butcherProducts>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+            <!-- glowstone -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksglowstone"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_glowstoneBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_glowstone</defName>
+                        <label>glowstone</label>
+                        <description>A rock that emits a faint glow. It is teeming with glowing green bacteria, most of which will die when it is processed into blocks form.</description>
+                        <graphicData>
+                            <color>(153, 196, 188)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>700</MaxHitPoints>
+                            <Beauty>1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkglowstone</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedglowstone</smoothedThing>
+                        </building>
+                        <comps>
+                            <li Class="CompProperties_Glower">
+                                <glowRadius>3</glowRadius>
+                                <glowColor>(21,244,238,128)</glowColor>
+                            </li>
+                        </comps>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_glowstoneBase">
+                        <defName>carnap_smoothedglowstone</defName>
+                        <label>smoothed glowstone</label>
+                        <description>A rock that emits a faint glow. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>3</Beauty>
+                            <MarketValue>30</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_chunkglowstone</defName>
+                        <label>glowstone chunk</label>
+                        <graphicData>
+                            <color>(153, 196, 188)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksglowstone>20</carnap_blocksglowstone>
+                        </butcherProducts>
+                        <comps>
+                            <li Class="CompProperties_Glower">
+                                <glowRadius>2</glowRadius>
+                                <glowColor>(21,244,238,128)</glowColor>
+                            </li>
+                        </comps>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+        -->
+            <!-- infestedstone -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocksinfestedstone"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_infestedstoneBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_infestedstone</defName>
+                        <label>infested stone</label>
+                        <description>There is an extensive insectoid cave system below this rock! Agressive insectoids often burrow themselves out nearby.</description>
+                        <graphicData>
+                            <color>(155, 166, 154)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>800</MaxHitPoints>
+                            <Beauty>-2</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunkinfestedstone</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedinfestedstone</smoothedThing>
+                        </building>
+                        <comps>
+                            <li Class="CompProperties_CreatesInfestations" />
+                            <li Class="CompProperties_SpawnerPawn">
+                                <spawnablePawnKinds>
+                                    <li>Megascarab</li>
+                                    <li>Spelopede</li>
+                                    <li>Megaspider</li>
+                                </spawnablePawnKinds>
+                                <lordJob>LordJob_DefendAndExpandHive</lordJob>
+                                <spawnSound>Hive_Spawn</spawnSound>
+                                <initialPawnsPoints>200</initialPawnsPoints>
+                                <maxSpawnedPawnsPoints>500</maxSpawnedPawnsPoints>
+                            </li>
+                        </comps>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_infestedstoneBase">
+                        <defName>carnap_smoothedinfestedstone</defName>
+                        <label>smoothed infested stone</label>
+                        <description>A rock in an insectoid infested area, hardened by insectoid excretions. It has been polished to a flat, smooth surface.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>18</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_chunkinfestedstone</defName>
+                        <label>infested stone chunk</label>
+                        <graphicData>
+                            <color>(155, 166, 154)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blocksinfestedstone>20</carnap_blocksinfestedstone>
+                        </butcherProducts>
+                        <comps>
+                            <li Class="CompProperties_CreatesInfestations" />
+                            <li Class="CompProperties_SpawnerPawn">
+                                <spawnablePawnKinds>
+                                    <li>Megascarab</li>
+                                    <li>Spelopede</li>
+                                    <li>Megaspider</li>
+                                </spawnablePawnKinds>
+                                <lordJob>LordJob_DefendAndExpandHive</lordJob>
+                                <spawnSound>Hive_Spawn</spawnSound>
+                                <initialPawnsPoints>200</initialPawnsPoints>
+                                <maxSpawnedPawnsPoints>500</maxSpawnedPawnsPoints>
+                            </li>
+                        </comps>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+        -->
+            <!-- toxicstone -->
+            <!--
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blockstoxicstone"]</xpath>
+                <value>
+                    <ThingDef ParentName="UglyRockBase" Name="carnap_toxicstoneBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_toxicstone</defName>
+                        <label>toxic stone</label>
+                        <description>Air reacts with the surface of this rock and becomes toxic. It slowly kills plants around and causes toxic buildup.</description>
+                        <graphicData>
+                            <color>(67, 94, 73)</color>
+                        </graphicData>
+                        <statBases>
+                            <MaxHitPoints>600</MaxHitPoints>
+                            <Beauty>-1</Beauty>
+                        </statBases>
+                        <building>
+                            <mineableThing>carnap_chunktoxicstone</mineableThing>
+                            <mineableDropChance>0.25</mineableDropChance>
+                            <smoothedThing>carnap_smoothedtoxicstone</smoothedThing>
+                        </building>
+                        <comps>
+                            <li Class="CompProperties_PlantHarmRadius">
+                                <radiusPerDayCurve>
+                                    <points>
+                                        <li>0  , 10</li>
+                                        <li>10000, 100</li>
+                                    </points>
+                                </radiusPerDayCurve>
+                            </li>
+                            <li Class="CompProperties_GiveHediffSeverity">
+                                <hediff>ToxicBuildup</hediff>
+                                <range>10</range>
+                                <severityPerSecond>0.01</severityPerSecond>
+                                <allowMechs>false</allowMechs>
+                            </li>
+                            <li Class="CompProperties_SmokeCloudMaker">
+                                <sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+                                <cloudRadius>10</cloudRadius>
+                                <fleckScale>4</fleckScale>
+                                <cloudFleck>AutobongSmoke</cloudFleck>
+                                <fleckSpawnMTB>25</fleckSpawnMTB>
+                            </li>
+                        </comps>
+                    </ThingDef>
+
+                    <ThingDef ParentName="carnap_toxicstoneBase">
+                        <defName>carnap_smoothedtoxicstone</defName>
+                        <label>smoothed toxic stone</label>
+                        <description>A rock that emits toxic gas. It has been polished to a flat, smooth surface, and as a result, made significantly more toxic.</description>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>1</Beauty>
+                            <MarketValue>10</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+
+                    <ThingDef ParentName="ChunkRockBase">
+                        <thingClass>ThingWithComps</thingClass>
+                        <defName>carnap_chunktoxicstone</defName>
+                        <label>toxic stone chunk</label>
+                        <graphicData>
+                            <color>(67, 94, 73)</color>
+                        </graphicData>
+                        <statBases>
+                            <Mass>25</Mass>
+                        </statBases>
+                        <soundDrop>ChunkRock_Drop</soundDrop>
+                        <butcherProducts>
+                            <carnap_blockstoxicstone>20</carnap_blockstoxicstone>
+                        </butcherProducts>
+                        <comps>
+                            <li Class="CompProperties_PlantHarmRadius">
+                                <radiusPerDayCurve>
+                                    <points>
+                                        <li>0  , 10</li>
+                                        <li>10000, 100</li>
+                                    </points>
+                                </radiusPerDayCurve>
+                            </li>
+                            <li Class="CompProperties_GiveHediffSeverity">
+                                <hediff>ToxicBuildup</hediff>
+                                <range>10</range>
+                                <severityPerSecond>0.01</severityPerSecond>
+                                <allowMechs>false</allowMechs>
+                            </li>
+                            <li Class="CompProperties_SmokeCloudMaker">
+                                <sourceStreamEffect>BurnbongSmoke</sourceStreamEffect>
+                                <cloudRadius>10</cloudRadius>
+                                <fleckScale>4</fleckScale>
+                                <cloudFleck>AutobongSmoke</cloudFleck>
+                                <fleckSpawnMTB>25</fleckSpawnMTB>
+                            </li>
+                        </comps>
+                    </ThingDef>
+                </value>
+            </Operation>
+        -->
+
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>carnap2.TMaterials.Stone</modId>
+                <key>TMaterials_StoneRarity</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+
+                    <!-- core 4 -->
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>SandstoneBase</li>
+                            <li>1</li>
+                            <li>18</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>GraniteBase</li>
+                            <li>1</li>
+                            <li>20</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>LimestoneBase</li>
+                            <li>1</li>
+                            <li>20</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>SlateBase</li>
+                            <li>1</li>
+                            <li>20</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>MarbleBase</li>
+                            <li>2</li>
+                            <li>25</li>
+                        </arguments>
+                    </Operation>
+
+
+                    <!-- EM - Stones -->
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>EM_BasaltBase</li>
+                            <li>1</li>
+                            <li>20</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>EM_ShaleBase</li>
+                            <li>1</li>
+                            <li>18</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>EM_SiltstoneBase</li>
+                            <li>1</li>
+                            <li>18</li>
+                        </arguments>
+                    </Operation>
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarityName</patchName>
+                        <arguments>
+                            <li>EM_SchistBase</li>
+                            <li>1</li>
+                            <li>20</li>
+                        </arguments>
+                    </Operation>
+
+
+                    <!-- 3-4 -->
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>andesite</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>basalt</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>claystone</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>diorite</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>mudstone</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>shale</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>siltstone</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity3</patchName>
+                        <arguments>
+                            <li>tuff</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity4</patchName>
+                        <arguments>
+                            <li>schist</li>
+                        </arguments>
+                    </Operation>
+
+                    <!-- 2 -->
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>dacite</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>gabbro</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>gneiss</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>pegmatite</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>phyllite</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>scoria</li>
+                        </arguments>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.ApplyPatch">
+                        <patchName>TMAddRarity2</patchName>
+                        <arguments>
+                            <li>soapstone</li>
+                        </arguments>
+                    </Operation>
+
+
+                </caseTrue>
+                <caseFalse></caseFalse>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+    <!--
+    <Operation Class="XmlExtensions.Log">
+        <xmlDoc>TMStonesMenu</xmlDoc>
+        <xpath>TMStonesMenu/settings/li[tag="Duplicates"]/settings</xpath>
+    </Operation>
+-->
+
+    <Operation Class="XmlExtensions.PatchOperationAdd">
+        <success>Always</success>
+        <xmlDoc>TMStonesMenu</xmlDoc>
+        <xpath>TMStonesMenu/settings/li[tag="Duplicates"]/settings[not(li/splits)]</xpath>
+        <value>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>No duplicates found.</text>
+            </li>
+        </value>
+    </Operation>
+    <!--
+    <Operation Class="XmlExtensions.Log">
+        <xmlDoc>TMStonesMenu</xmlDoc>
+        <xpath>/TMStonesMenu</xpath>
+    </Operation>
+-->
+    <Operation Class="XmlExtensions.MergeDocument">
+        <docName>TMStonesMenu</docName>
+    </Operation>
+    <!--
+    <Operation Class="XmlExtensions.Log">
+        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="TMaterialsStone_Settings"]/settings/li/settings/li[tag="Duplicates"]/settings</xpath>
+    </Operation>
+
+-->
+
+    <Operation Class="XmlExtensions.MergeDocument">
+        <docName>TMStonesDuplicates</docName>
+    </Operation>
+
+</Patch>

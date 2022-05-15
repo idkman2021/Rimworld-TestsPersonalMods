@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+  <name>TMaterials - Stone</name>
+  <packageId>carnap2.TMaterials.Stone</packageId>
+  <description></description>
+  <author>test</author>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>imranfish.xmlextensions</packageId>
+      <displayName>XML Extensions</displayName>
+      <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+
+  <loadAfter>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>Argon.ExpandedMaterials.Stones</li>
+    <li>void.szstonesandterrains</li>
+    <li>Ogliss.Cupro.CuprosStones</li>
+    <li>Kura.ExtraStone</li>
+    <li>Kura.ExtraStoneCupro</li>
+  </loadAfter>
+
+  <loadBefore>
+    <li>carnap2.TPatches</li>
+  </loadBefore>
+
+</ModMetaData>
