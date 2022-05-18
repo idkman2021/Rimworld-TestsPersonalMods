@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <!--  <ThingDef ParentName="ResourceBase" Name="StoneBlocksBase" Abstract="True">
+    <description>Blocks of stone. Mostly useful for building long-lasting, simple structures.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/StoneBlocks</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <soundInteract>Stone_Drop</soundInteract>
+    <soundDrop>Stone_Drop</soundDrop>
+    <useHitPoints>false</useHitPoints>
+    <tradeability>Buyable</tradeability>
+    <statBases>
+      <MaxHitPoints>200</MaxHitPoints>
+      <MarketValue>0.9</MarketValue>
+      <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+      <BluntDamageMultiplier>1.0</BluntDamageMultiplier>
+      <Beauty>-12</Beauty>
+      <ConstructionSpeedFactor>0.8</ConstructionSpeedFactor>
+    </statBases>
+    <thingCategories>
+      <li>StoneBlocks</li>
+    </thingCategories>
+    <burnableByRecipe>false</burnableByRecipe>
+    <minRewardCount>10</minRewardCount>
+    <stuffProps>
+      <categories>
+        <li>Stony</li>
+      </categories>
+      <commonality>0.20</commonality>
+      <appearance>Bricks</appearance>
+      <statOffsets>
+        <WorkToBuild>140</WorkToBuild>
+      </statOffsets>
+      <statFactors>
+        <MarketValue>0.4</MarketValue>
+        <MaxHitPoints>1.8</MaxHitPoints>
+        <Flammability>0</Flammability>
+        <WorkToBuild>6.0</WorkToBuild>
+        <WorkToMake>1.3</WorkToMake>
+        <DoorOpenSpeed>0.45</DoorOpenSpeed>
+        <BedRestEffectiveness>0.9</BedRestEffectiveness>
+        <MeleeWeapon_CooldownMultiplier>1.30</MeleeWeapon_CooldownMultiplier>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    </ThingDef> -->
+
+
+  <!--                              chalk                          -->
+  <ThingDef ParentName="StoneBlocksBase">
+    <defName>carnap_blockschalk</defName>
+    <label>chalk blocks</label>
+    <description>Blocks of solid chalk. Chalk is an extremely soft stone.</description>
+    <graphicData>
+      <color>(235,238,236)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>0.7</MarketValue> <!-- base 0.9 -->
+      <Mass>1</Mass> <!-- sandstone 1 granite 1.25 limestone 1.1 slate 0.9 marble 1.25 --> <!-- 1 = 2300, 1.1 - 1.25 = 2700,  -->
+      <SharpDamageMultiplier>0.3</SharpDamageMultiplier> <!-- base 0.6 sandstone 0.5 granite 0.65 -->
+      <!-- <BluntDamageMultiplier></BluntDamageMultiplier> -->
+      <!-- base 1.0 -->
+      <!-- <Beauty>value</Beauty> -->
+      <!-- base -12 -->
+    </statBases>
+    <stuffProps>
+      <commonality>0.05</commonality> <!-- base 0.2 -->
+      <color>(235,238,236)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>chalk</stuffAdjective>
+      <statFactors>
+        <MarketValue>0.4</MarketValue> <!-- base 0.4 -->
+        <MaxHitPoints>0.8</MaxHitPoints> <!-- base 1.8 sandstone 1.4 granite 1.7 limestone 1.55 slate 1.3 marble 1.2 -->
+        <WorkToBuild>1</WorkToBuild> <!-- base 6 sandstone 5 mable 5.5-->
+        <WorkToMake>0.8</WorkToMake> <!-- base 1.3 sandstone 1.1 marble 1.15-->
+        <Flammability>0</Flammability> <!-- base 0 -->
+        <MeleeWeapon_CooldownMultiplier>1.3</MeleeWeapon_CooldownMultiplier> <!-- base 1.3 -->
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>carnap_makechalkblocks</defName>
+    <label>make chalk blocks</label>
+    <description>Cuts chalk chunks into usable blocks.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkchalk</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkchalk</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <carnap_blockschalk>20</carnap_blockschalk>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="ChunkRockBase">
+    <defName>carnap_chunkchalk</defName>
+    <label>chalk chunk</label>
+    <graphicData>
+      <color>(235,238,236)</color>
+    </graphicData>
+    <statBases>
+      <Mass>25</Mass>
+    </statBases>
+    <soundDrop>ChunkRock_Drop</soundDrop>
+    <butcherProducts>
+      <carnap_blockschalk>20</carnap_blockschalk>
+    </butcherProducts>
+  </ThingDef>
+
+  <ThingDef ParentName="carnap_chalkBase" Name="carnap_smoothedchalkBase">
+    <defName>carnap_smoothedchalk</defName>
+    <label>smoothed chalk</label>
+    <description>A very soft rock formed from the skeletal remains of sea creatures. It has been polished to a flat, smooth surface.</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+    </graphicData>
+    <statBases>
+      <Beauty>-1</Beauty>
+      <MarketValue>21</MarketValue>
+    </statBases>
+    <building>
+      <isNaturalRock>false</isNaturalRock>
+      <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <smoothedThing />
+    </building>
+    <saveCompressible>false</saveCompressible>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+  <ThingDef ParentName="UglyRockBase" Name="carnap_chalkBase">
+    <defName>carnap_chalk</defName>
+    <label>chalk</label>
+    <description>A very soft rock formed from the skeletal remains of sea creatures.</description>
+    <graphicData>
+      <color>(235,238,236)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <Beauty>-1</Beauty>
+    </statBases>
+    <building>
+      <mineableThing>carnap_chunkchalk</mineableThing>
+      <mineableDropChance>0.25</mineableDropChance>
+      <smoothedThing>carnap_smoothedchalk</smoothedThing>
+    </building>
+  </ThingDef>
+
+
+  <RecipeDef ParentName="EM_MakeCobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Make_Cobblestonechalk</defName>
+    <label>make chalk cobblestone</label>
+    <description>Smashes chalk chunks into cobblestone.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkchalk</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkchalk</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <EM_Cobblestonechalk>35</EM_Cobblestonechalk>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="EM_CobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Cobblestonechalk</defName>
+    <label>chalk cobblestone</label>
+    <description>chalk smashed down to cobblestone. A very soft rock formed from the skeletal remains of sea creatures.</description>
+    <graphicData>
+      <color>(235,238,236)</color>
+    </graphicData>
+    <statBases>
+      <Mass>1.25</Mass>
+      <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+    </statBases>
+    <stuffProps>
+      <color>(235,238,236)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>chalk</stuffAdjective>
+      <statFactors>
+        <MaxHitPoints>0.5</MaxHitPoints>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+
+  <!--                              scoria                          -->
+  <ThingDef ParentName="StoneBlocksBase">
+    <defName>carnap_blocksscoria</defName>
+    <label>scoria blocks</label>
+    <description>Blocks of solid scoria.</description>
+    <graphicData>
+      <color>(119,88,84)</color>
+    </graphicData>
+    <statBases>
+      <Mass>0.5</Mass>
+    </statBases>
+    <stuffProps>
+      <commonality>0.05</commonality>
+      <color>(119,88,84)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>scoria</stuffAdjective>
+      <statFactors>
+        <MaxHitPoints>1.55</MaxHitPoints>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>carnap_makescoriablocks</defName>
+    <label>make scoria blocks</label>
+    <description>Cuts scoria chunks into usable blocks.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkscoria</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkscoria</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <carnap_blocksscoria>20</carnap_blocksscoria>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="ChunkRockBase">
+    <defName>carnap_chunkscoria</defName>
+    <label>scoria chunk</label>
+    <graphicData>
+      <color>(119,88,84)</color>
+    </graphicData>
+    <statBases>
+      <Mass>25</Mass>
+    </statBases>
+    <soundDrop>ChunkRock_Drop</soundDrop>
+    <butcherProducts>
+      <carnap_blocksscoria>20</carnap_blocksscoria>
+    </butcherProducts>
+  </ThingDef>
+
+  <ThingDef ParentName="carnap_scoriaBase" Name="carnap_smoothedscoriaBase">
+    <defName>carnap_smoothedscoria</defName>
+    <label>smoothed scoria</label>
+    <description>A volcanic rock. It has been polished to a flat, smooth surface.</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+    </graphicData>
+    <statBases>
+      <Beauty>-1</Beauty>
+      <MarketValue>21</MarketValue>
+    </statBases>
+    <building>
+      <isNaturalRock>false</isNaturalRock>
+      <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <smoothedThing />
+    </building>
+    <saveCompressible>false</saveCompressible>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+  <ThingDef ParentName="UglyRockBase" Name="carnap_scoriaBase">
+    <defName>carnap_scoria</defName>
+    <label>scoria</label>
+    <description>A volcanic rock.</description>
+    <graphicData>
+      <color>(119,88,84)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>700</MaxHitPoints>
+      <Beauty>-1</Beauty>
+    </statBases>
+    <building>
+      <mineableThing>carnap_chunkscoria</mineableThing>
+      <mineableDropChance>0.25</mineableDropChance>
+      <smoothedThing>carnap_smoothedscoria</smoothedThing>
+    </building>
+  </ThingDef>
+
+
+  <RecipeDef ParentName="EM_MakeCobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Make_Cobblestonescoria</defName>
+    <label>make scoria cobblestone</label>
+    <description>Smashes scoria chunks into cobblestone.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkscoria</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkscoria</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <EM_Cobblestonescoria>35</EM_Cobblestonescoria>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="EM_CobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Cobblestonescoria</defName>
+    <label>scoria cobblestone</label>
+    <description>scoria smashed down to cobblestone. A volcanic rock.</description>
+    <graphicData>
+      <color>(119,88,84)</color>
+    </graphicData>
+    <statBases>
+      <Mass>1.25</Mass>
+      <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+    </statBases>
+    <stuffProps>
+      <color>(119,88,84)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>scoria</stuffAdjective>
+      <statFactors>
+        <MaxHitPoints>1.5</MaxHitPoints>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+
+  <!--                              dacite                          -->
+
+  <ThingDef ParentName="StoneBlocksBase">
+    <defName>carnap_blocksdacite</defName>
+    <label>dacite blocks</label>
+    <description>Blocks of solid dacite.</description>
+    <graphicData>
+      <color>(168,165,163)</color>
+    </graphicData>
+    <statBases>
+      <Mass>1.1</Mass>
+    </statBases>
+    <stuffProps>
+      <commonality>0.05</commonality>
+      <color>(168,165,163)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>dacite</stuffAdjective>
+      <statFactors>
+        <MaxHitPoints>1.55</MaxHitPoints>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+
+  <RecipeDef ParentName="MakeStoneBlocksBase">
+    <defName>carnap_makedaciteblocks</defName>
+    <label>make dacite blocks</label>
+    <description>Cuts dacite chunks into usable blocks.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkdacite</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkdacite</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <carnap_blocksdacite>20</carnap_blocksdacite>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="ChunkRockBase">
+    <defName>carnap_chunkdacite</defName>
+    <label>dacite chunk</label>
+    <graphicData>
+      <color>(168,165,163)</color>
+    </graphicData>
+    <statBases>
+      <Mass>25</Mass>
+    </statBases>
+    <soundDrop>ChunkRock_Drop</soundDrop>
+    <butcherProducts>
+      <carnap_blocksdacite>20</carnap_blocksdacite>
+    </butcherProducts>
+  </ThingDef>
+
+  <ThingDef ParentName="carnap_daciteBase" Name="carnap_smootheddaciteBase">
+    <defName>carnap_smootheddacite</defName>
+    <label>smoothed dacite</label>
+    <description>A volcanic rock resembling andesite but containing free quartz. It has been polished to a flat, smooth surface.</description>
+    <graphicData>
+      <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+    </graphicData>
+    <statBases>
+      <Beauty>-1</Beauty>
+      <MarketValue>21</MarketValue>
+    </statBases>
+    <building>
+      <isNaturalRock>false</isNaturalRock>
+      <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <smoothedThing />
+    </building>
+    <saveCompressible>false</saveCompressible>
+    <repairEffect>Repair</repairEffect>
+  </ThingDef>
+
+  <ThingDef ParentName="UglyRockBase" Name="carnap_daciteBase">
+    <defName>carnap_dacite</defName>
+    <label>dacite</label>
+    <description>A volcanic rock resembling andesite but containing free quartz.</description>
+    <graphicData>
+      <color>(168,165,163)</color>
+    </graphicData>
+    <statBases>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Beauty>-1</Beauty>
+    </statBases>
+    <building>
+      <mineableThing>carnap_chunkdacite</mineableThing>
+      <mineableDropChance>0.25</mineableDropChance>
+      <smoothedThing>carnap_smootheddacite</smoothedThing>
+    </building>
+  </ThingDef>
+
+  <RecipeDef ParentName="EM_MakeCobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Make_Cobblestonedacite</defName>
+    <label>make dacite cobblestone</label>
+    <description>Smashes dacite chunks into cobblestone.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>carnap_chunkdacite</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>carnap_chunkdacite</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <EM_Cobblestonedacite>35</EM_Cobblestonedacite>
+    </products>
+  </RecipeDef>
+
+  <ThingDef ParentName="EM_CobblestoneBase" MayRequire="Argon.ExpandedMaterials.Stones">
+    <defName>EM_Cobblestonedacite</defName>
+    <label>dacite cobblestone</label>
+    <description>dacite smashed down to cobblestone. A volcanic rock resembling andesite but containing free quartz.</description>
+    <graphicData>
+      <color>(168,165,163)</color>
+    </graphicData>
+    <statBases>
+      <Mass>1.25</Mass>
+      <SharpDamageMultiplier>0.6</SharpDamageMultiplier>
+    </statBases>
+    <stuffProps>
+      <color>(168,165,163)</color>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <stuffAdjective>dacite</stuffAdjective>
+      <statFactors>
+        <MaxHitPoints>1.7</MaxHitPoints>
+      </statFactors>
+      <canSuggestUseDefaultStuff>true</canSuggestUseDefaultStuff>
+    </stuffProps>
+  </ThingDef>
+
+
+</Defs>

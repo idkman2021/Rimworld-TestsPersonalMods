@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the SettingsMenuDef with two tabs defined. All other tabs are added by patches -->
+<Defs>
+
+    <XmlExtensions.PatchDef Name="TMAddRarity2" Abstract="True">
+        <parameters>
+            <li>stone</li>
+        </parameters>
+        <apply>
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocks{stone}"]</xpath>
+                <value>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}2r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}2r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}2r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                </value>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+    <XmlExtensions.PatchDef Name="TMAddRarity3" Abstract="True">
+        <parameters>
+            <li>stone</li>
+        </parameters>
+        <apply>
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocks{stone}"]</xpath>
+                <value>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}2r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}3r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}2r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}2r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}3r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}3r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                </value>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+    <XmlExtensions.PatchDef Name="TMAddRarity4" Abstract="True">
+        <parameters>
+            <li>stone</li>
+        </parameters>
+        <apply>
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[defName="carnap_blocks{stone}"]</xpath>
+                <value>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}2r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}3r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_smoothed{stone}Base">
+                        <defName>carnap_smoothed{stone}4r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}2r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}2r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}3r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}3r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="carnap_{stone}Base">
+                        <defName>carnap_{stone}4r</defName>
+                        <building>
+                            <smoothedThing>carnap_smoothed{stone}4r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                </value>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+    <XmlExtensions.PatchDef Name="TMAddRarityName" Abstract="True">
+        <parameters>
+            <li>name</li>
+            <li>value</li>
+            <li>beauty</li>
+        </parameters>
+        <apply>
+            <Operation Class="PatchOperationInsert">
+                <success>Always</success>
+                <xpath>Defs/ThingDef[@Name="{name}"]</xpath>
+                <value>
+                    <ThingDef ParentName="{name}" Name="smoothed{name}base">
+                        <defName>smoothed{name}2r</defName>
+                        <label>smoothed {name}</label>
+                        <graphicData>
+                            <texPath>Things/Building/Linked/RockSmooth_Atlas</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Beauty>{beauty}</Beauty>
+                            <MarketValue>{value}</MarketValue>
+                        </statBases>
+                        <building>
+                            <isNaturalRock>false</isNaturalRock>
+                            <canBuildNonEdificesUnder>true</canBuildNonEdificesUnder>
+                            <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+                            <smoothedThing />
+                        </building>
+                        <saveCompressible>false</saveCompressible>
+                        <repairEffect>Repair</repairEffect>
+                    </ThingDef>
+                    <ThingDef ParentName="smoothed{name}base">
+                        <defName>smoothed{name}3r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="smoothed{name}base">
+                        <defName>smoothed{name}4r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="smoothed{name}base">
+                        <defName>smoothed{name}5r</defName>
+                    </ThingDef>
+                    <ThingDef ParentName="{name}">
+                        <defName>{name}_2r</defName>
+                        <building>
+                            <smoothedThing>smoothed{name}2r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="{name}">
+                        <defName>{name}_3r</defName>
+                        <building>
+                            <smoothedThing>smoothed{name}3r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="{name}">
+                        <defName>{name}_4r</defName>
+                        <building>
+                            <smoothedThing>smoothed{name}4r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                    <ThingDef ParentName="{name}">
+                        <defName>{name}_5r</defName>
+                        <building>
+                            <smoothedThing>smoothed{name}5r</smoothedThing>
+                        </building>
+                    </ThingDef>
+                </value>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+
+    <XmlExtensions.SettingsMenuDef>
+        <defName>TMaterialsStone_Settings</defName>
+        <modId>carnap2.TMaterials.Stone</modId>
+        <label>TMaterials - Stone</label>
+        <settings>
+
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>TMaterials_StoneRarity</key>
+                <label>Enable rock rarity (requires restart)</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>default = true</tooltip>
+            </li>
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>
+Makes common stones actually more common, so not every fifth cell has desert glass or meteorite rock.
+
+Vanilla stones will be five times more common; some stones from this mod - two to four. 
+
+Note: A minor sideffect of this is that you will rarely see duplicate rock types reported on some map tiles, like "rock types: sandtone, sandstone and granite". 
+
+If Expanded Materials - Stones and Mortars is loaded, stones from it will be five times more common as well. Doesn't touch stones from other mods.</text>
+            </li>
+
+        </settings>
+    </XmlExtensions.SettingsMenuDef>
+
+
+</Defs>

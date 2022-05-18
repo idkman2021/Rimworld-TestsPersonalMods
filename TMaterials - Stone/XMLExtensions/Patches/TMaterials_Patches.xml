@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>carnap2.TMaterials.Stone</modId>
+        <key>TMaterials_StoneRarity</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <!-- core 4 -->
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>SandstoneBase</li>
+                    <li>1</li>
+                    <li>18</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>GraniteBase</li>
+                    <li>1</li>
+                    <li>20</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>LimestoneBase</li>
+                    <li>1</li>
+                    <li>20</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>SlateBase</li>
+                    <li>1</li>
+                    <li>20</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>MarbleBase</li>
+                    <li>2</li>
+                    <li>25</li>
+                </arguments>
+            </Operation>
+
+
+            <!-- EM - Stones -->
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>EM_BasaltBase</li>
+                    <li>1</li>
+                    <li>20</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>EM_ShaleBase</li>
+                    <li>1</li>
+                    <li>18</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>EM_SiltstoneBase</li>
+                    <li>1</li>
+                    <li>18</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarityName</patchName>
+                <arguments>
+                    <li>EM_SchistBase</li>
+                    <li>1</li>
+                    <li>20</li>
+                </arguments>
+            </Operation>
+
+
+            <!-- 3-4 -->
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity4</patchName>
+                <arguments>
+                    <li>andesite</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity4</patchName>
+                <arguments>
+                    <li>claystone</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity4</patchName>
+                <arguments>
+                    <li>diorite</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity4</patchName>
+                <arguments>
+                    <li>mudstone</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity3</patchName>
+                <arguments>
+                    <li>tuff</li>
+                </arguments>
+            </Operation>
+
+            <!-- 2 -->
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>dacite</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>gabbro</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>gneiss</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>pegmatite</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>phyllite</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>scoria</li>
+                </arguments>
+            </Operation>
+
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>TMAddRarity2</patchName>
+                <arguments>
+                    <li>soapstone</li>
+                </arguments>
+            </Operation>
+
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+</Patch>
