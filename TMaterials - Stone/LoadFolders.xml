@@ -8,7 +8,7 @@
         <li IfModNotActive="sarg.alphabiomes">notA</li>
         <li IfModNotActive="Ogliss.Cupro.CuprosStones">notC</li>
         <li IfModNotActive="Kura.ExtraStone, Kura.ExtraStoneCupro">notE</li>
-
+        <li IfModNotActive="Argon.ExpandedMaterials.Stones">notEMStones</li>
         <li IfModActive="imranfish.xmlextensions">XMLExtensions</li>
     </v1.3>
 
