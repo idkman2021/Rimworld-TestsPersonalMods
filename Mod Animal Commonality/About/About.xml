@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Mod animal commonality</name>
+  <author>test</author>
+  <url>https://github.com/idkman2021/Rimworld-AssortedMods</url>
+  <packageId>tests.ModAnimalCommonality</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>change commonality of all animals in X mod</description>
+  <modDependencies>
+    <li>
+      <packageId>imranfish.xmlextensions</packageId>
+      <displayName>XML Extensions</displayName>
+      <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>imranfish.xmlextensions</li>
+    <li>sarg.alphaanimals</li>
+    <li>acpteam.acpvanillastyle</li>
+    <li>scurvyez.bastyon</li>
+    <li>alex.birdup.allinone</li>
+    <li>thegoofyone.boomaphants</li>
+    <li>deon.borderlandscreatures</li>
+    <li>averythekitty.devilstrandanimals</li>
+    <li>spincrus.dinosauria</li>
+    <li>cucumpear.doomalope</li>
+    <li>erin.amaro</li>
+    <li>erin.chocobos</li>
+    <li>pphhyy.escp.spriggan</li>
+    <li>forsakens.fauna</li>
+    <li>asgalligator.hlvrmonsters</li>
+    <li>hc.creatures.1</li>
+    <li>mlie.legacyark</li>
+    <li>sarg.magicalmenagerie</li>
+    <li>spino.megafauna</li>
+    <li>asgalligator.mhrw</li>
+    <li>mlie.monstrouscompendium</li>
+    <li>mooloh.dndmenagerie</li>
+    <li>sirmashedpotato.morrowrim.trolls</li>
+    <li>scruffy.content.onianimals</li>
+    <li>tigerblut.petcucumber</li>
+    <li>akairo.pinkmaterialsheep</li>
+    <li>sargoskar.racetotherim</li>
+    <li>regrowth2.extinctanimals</li>
+    <li>scaled.world</li>
+    <li>punkyroo.slimerancher</li>
+    <li>zylle.slimes</li>
+    <li>guy.starwarsanimalcollection</li>
+    <li>zal.tribbles</li>
+  </loadAfter>
+</ModMetaData>

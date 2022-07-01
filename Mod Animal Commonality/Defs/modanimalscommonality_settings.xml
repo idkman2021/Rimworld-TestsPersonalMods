@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <XmlExtensions.SettingsMenuDef>
+        <defName>tests_animalcommonality</defName> <!--Can be anything unique with no periods-->
+        <modId>tests.ModAnimalCommonality</modId> <!--MUST be the same as the one entered earlier-->
+        <label>Mod animal commonality</label> <!-- This is what displays as your mod's name-->
+        <settings>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Settings apply after restart.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>All settings are safe to have enabled even if you don't have the appropriate mods.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.GapLine" />
+            <li Class="XmlExtensions.Setting.Text">
+                <text>This list shows all supported mods. Ones you don't have in your game are displayed in a darker color, but that might not be accurate if you are using local copies or "(Continued)" versions of those mods. It is safe to change settings for mods you don't have - they simply won't find the animals and will do nothing.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Setting the multiplier to 2 will make all animals from that mod two times more common; at 0.5 they will be half as common. Setting it to 0 completely prevents those animals from spawning on the map, however they will still appear on traders and in quests. The slider ranges from 0 to 2, use the input box if you want higher numbers.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Text">
+                <text>Input boxes in rimworld are unfortunately quite buggy. If you want to input a specific value, the easiest way might be to write it somewhere else and ctrl+C - ctrl+V into rimworld, or use the slider.</text>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>testsMAC_EditMode</key>
+                <label>Edit mode</label>
+                <defaultValue>true</defaultValue>
+                <tooltip>You can disable this after setting the values to get an overview of the values you've set and avoid accidental editing. It will hide mods you haven't set values for.</tooltip>
+            </li>
+            <li Class="XmlExtensions.Setting.Gap">
+                <spacing>18</spacing>
+            </li>
+            <li Class="XmlExtensions.Setting.ToggleableSettings">
+                <key>testsMAC_EditMode</key>
+                <caseTrue>
+                    <li Class="XmlExtensions.Setting.SplitColumns">
+                        <gapSize>12</gapSize>
+                        <splits>
+                            <li>0.35</li>
+                        </splits>
+                        <settings>
+                            <li>
+                                <li Class="XmlExtensions.Setting.Text">
+                                    <text>Mod:</text>
+                                </li>
+                            </li>
+                            <li>
+                                <li Class="XmlExtensions.Setting.Text">
+                                    <text>Multiplier:</text>
+                                </li>
+                            </li>
+                        </settings>
+                    </li>
+                    <li Class="XmlExtensions.Setting.GapLine">
+                        <spacing>0</spacing>
+                    </li>
+                </caseTrue>
+
+                <!-- CASE FALSE -->
+                <caseFalse>
+                    <li Class="XmlExtensions.Setting.Text">
+                        <text>Currently active settings:</text>
+                    </li>
+                    <li Class="XmlExtensions.Setting.SplitColumns">
+                        <gapSize>12</gapSize>
+                        <splits>
+                            <li>0.35</li>
+                        </splits>
+                        <settings>
+                            <li>
+                                <li Class="XmlExtensions.Setting.Text">
+                                    <text>Mod:</text>
+                                </li>
+                            </li>
+                            <li>
+                                <li Class="XmlExtensions.Setting.Text">
+                                    <text>Active multiplier:</text>
+                                </li>
+                            </li>
+                        </settings>
+                    </li>
+                    <li Class="XmlExtensions.Setting.GapLine">
+                        <spacing>0</spacing>
+                    </li>
+                </caseFalse>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Gap">
+                <spacing>18</spacing>
+            </li>
+            <li Class="XmlExtensions.Setting.Checkbox">
+                <key>testsMAC_logging</key>
+                <label>debug</label>
+                <defaultValue>false</defaultValue>
+                <tooltip>Don't enable. Shows all animals with non 0 commonality defined in race/wildbiomes in log. If I set everything to 0, it should output nothing.</tooltip>
+            </li>
+
+            <li Class="XmlExtensions.Setting.Gap" />
+            <li Class="XmlExtensions.Setting.ResetSettings" />
+        </settings>
+    </XmlExtensions.SettingsMenuDef>
+</Defs>

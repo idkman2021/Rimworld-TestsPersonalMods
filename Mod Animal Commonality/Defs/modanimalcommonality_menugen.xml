@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <XmlExtensions.PatchDef Name="testspatches_act" Abstract="True">
+        <parameters>
+            <li>label</li>
+            <li>packageID</li>
+            <li>key</li>
+        </parameters>
+        <apply>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xmlDoc>editmode</xmlDoc>
+                <xpath>editmode/caseTrue</xpath>
+                <value>
+                    <li Class="XmlExtensions.Setting.SetColor">
+                        <color>(128,128,128)</color>
+                    </li>
+                    <li MayRequire="{packageID}" Class="XmlExtensions.Setting.SetColor" />
+                    <li Class="XmlExtensions.Setting.SplitColumns">
+                        <gapSize>12</gapSize>
+                        <splits>
+                            <li>0.35</li>
+                            <li>0.1</li>
+                        </splits>
+                        <settings>
+                            <li>
+                                <li Class="XmlExtensions.Setting.Checkbox">
+                                    <key>testsMAC_{key}</key>
+                                    <label>{label}</label>
+                                    <defaultValue>false</defaultValue>
+                                    <tooltip></tooltip>
+                                </li>
+                            </li>
+                            <li>
+                                <li Class="XmlExtensions.Setting.ToggleableSettings">
+                                    <key>testsMAC_{key}</key>
+                                    <caseTrue>
+                                        <li Class="XmlExtensions.Setting.Numeric">
+                                            <key>testsMAC_{key}k</key>
+                                            <defaultValue>1</defaultValue>
+                                            <min>0</min>
+                                            <max>100</max>
+                                        </li>
+                                    </caseTrue>
+                                </li>
+                            </li>
+                            <li>
+                                <li Class="XmlExtensions.Setting.ToggleableSettings">
+                                    <key>testsMAC_{key}</key>
+                                    <caseTrue>
+                                        <li Class="XmlExtensions.Setting.Slider">
+                                            <key>testsMAC_{key}k</key>
+                                            <defaultValue>1</defaultValue>
+                                            <min>0</min>
+                                            <max>2</max>
+                                            <decimals>3</decimals>
+                                        </li>
+                                    </caseTrue>
+                                </li>
+                            </li>
+                        </settings>
+                    </li>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xmlDoc>seemode</xmlDoc>
+                <xpath>seemode/caseFalse</xpath>
+                <value>
+                    <li Class="XmlExtensions.Setting.SetColor">
+                        <color>(150,150,150)</color>
+                    </li>
+                    <li MayRequire="{packageID}" Class="XmlExtensions.Setting.SetColor" />
+                    <li Class="XmlExtensions.Setting.ToggleableSettings">
+                        <key>testsMAC_{key}</key>
+                        <caseTrue>
+                            <li Class="XmlExtensions.Setting.SplitColumns">
+                                <gapSize>12</gapSize>
+                                <splits>
+                                    <li>0.35</li>
+                                </splits>
+                                <settings>
+                                    <li>
+                                        <li Class="XmlExtensions.Setting.Text">
+                                            <text>{label}</text>
+                                        </li>
+                                    </li>
+                                    <li>
+                                        <li Class="XmlExtensions.Setting.Text">
+                                            <text>{testsMAC_{key}k}</text>
+                                            <keys>
+                                                <li>testsMAC_{key}k</li>
+                                            </keys>
+                                        </li>
+                                    </li>
+                                </settings>
+                            </li>
+                        </caseTrue>
+                    </li>
+                </value>
+            </Operation>
+
+        </apply>
+    </XmlExtensions.PatchDef>
+
+    <XmlExtensions.PatchDef Name="testspatches_actsingle" Abstract="True">
+        <parameters>
+            <li>label</li>
+            <li>packageID</li>
+            <li>key</li>
+            <li>defName</li>
+        </parameters>
+        <apply>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>testspatches_act</patchName>
+                <arguments>
+                    <li>{label}</li>
+                    <li>{packageID}</li>
+                    <li>{key}</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.ModAnimalCommonality</modId>
+                <key>testsMAC_{key}</key>
+                <defaultValue>false</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.UseSetting">
+                        <modId>tests.ModAnimalCommonality</modId>
+                        <key>testsMAC_{key}k</key>
+                        <defaultValue>1</defaultValue>
+                        <apply>
+                            <Operation Class="XmlExtensions.PatchOperationMath">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[defName="{defName}"]/race/wildBiomes/*</xpath>
+                                <value>{testsMAC_{key}k}</value>
+                                <operation>*</operation>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationMath">
+                                <success>Always</success>
+                                <xpath>Defs/BiomeDef/wildAnimals/{defName}</xpath>
+                                <value>{testsMAC_{key}k}</value>
+                                <operation>*</operation>
+                            </Operation>
+                        </apply>
+                    </Operation>
+
+                </caseTrue>
+                <caseFalse></caseFalse>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+    <XmlExtensions.PatchDef Name="testspatches_actcontains" Abstract="True">
+        <parameters>
+            <li>label</li>
+            <li>packageID</li>
+            <li>key</li>
+            <li>contains</li>
+        </parameters>
+        <apply>
+            <Operation Class="XmlExtensions.ApplyPatch">
+                <patchName>testspatches_act</patchName>
+                <arguments>
+                    <li>{label}</li>
+                    <li>{packageID}</li>
+                    <li>{key}</li>
+                </arguments>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.ModAnimalCommonality</modId>
+                <key>testsMAC_{key}</key>
+                <defaultValue>false</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.UseSetting">
+                        <modId>tests.ModAnimalCommonality</modId>
+                        <key>testsMAC_{key}k</key>
+                        <defaultValue>1</defaultValue>
+                        <apply>
+                            <Operation Class="XmlExtensions.PatchOperationMath">
+                                <success>Always</success>
+                                <xpath>Defs/ThingDef[contains(defName,"{contains}")]/race/wildBiomes/*</xpath>
+                                <value>{testsMAC_{key}k}</value>
+                                <operation>*</operation>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationMath">
+                                <success>Always</success>
+                                <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"{contains}")]</xpath>
+                                <value>{testsMAC_{key}k}</value>
+                                <operation>*</operation>
+                            </Operation>
+                        </apply>
+                    </Operation>
+
+                </caseTrue>
+                <caseFalse></caseFalse>
+            </Operation>
+        </apply>
+    </XmlExtensions.PatchDef>
+
+
+</Defs>
