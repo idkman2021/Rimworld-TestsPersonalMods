@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <Operation Class="XmlExtensions.Log">
+        <text>animal defnames:</text>
+        <xpath>Defs/ThingDef[@ParentName="AnimalThingBase" or statBases/MoveSpeed or statBases/ComfyTemperatureMin or statBases/ComfyTemperatureMax or race]/defName</xpath>
+    </Operation>
+    
+</Patch>
