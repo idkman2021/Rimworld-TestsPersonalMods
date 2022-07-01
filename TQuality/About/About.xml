@@ -7,10 +7,43 @@
 		<li>1.3</li>
 	</supportedVersions>
 	<packageId>carnap2.tquality</packageId>
-	<description>Quality now affects all stats, including cooldown and most miscellaneous stats. Awful items are now worse and legendary - better. Other qualities have only slightly stronger scaling and remain close to vanilla.
-This mod affects armor, weapons and tools, shield belts.
+	<description>Quality now affects all stats, including cooldown and most miscellaneous stats. Based on Phlivan.WontDieInNoob's Quality Matters and Santakat's Improved Quality Scaling. Does not make any changes to vanilla scaling, only makes more stats scale with quality.
 
+Ranged cooldown scaling:
+Awful: 125%
+Bad: 110%
+Normal: 100%
+Good: 100%
+Excellent: 90%
+Masterwork: 80%
+Legendary: 60%
+Keep in mind that quality can only affect ranged cooldown, but there is also ranged warmup, so legendary items will fire only 20% faster on average.
 
-This mod is based on Santakat's Improved Quality Scaling, but the scaling is not as strong as in santakat's mod; and Phlivan.WontDieInNoob's Quality Matters, with scaling slightly stronger than in Phlivan.WontDieInNoob's mod.
+Melee cooldown scaling:
+Awful: 125%
+Bad: 110%
+Normal: 100%
+Good: 100%
+Excellent: 95%
+Masterwork: 90%
+Legendary: 75%
+Unlike ranged weapons, in melee weapons there is only cooldown.
+
+Miscellaneous stats scaling (scaling is inverted for stats where lower is better):
+Awful: 80%
+Bad: 90%
+Normal: 100%
+Good: 110%
+Excellent: 120%
+Masterwork: 140%
+Legendary: 200%
+Those only apply to weapons and apparel that have stat offsets - like chainsaws that increase plant harvest speed.
+List of stats: WorkSpeedGlobal; MiningSpeed; DeepDrillingSpeed; MiningYield; SmoothingSpeed; ResearchSpeed; AnimalGatherSpeed; AnimalGatherYield; PlantWorkSpeed; PlantHarvestYield; DrugHarvestYield; HuntingStealth; ConstructionSpeed; ConstructSuccessChance; FixBrokenDownBuildingSuccessChance; MedicalPotency; Ability_CastingTime; Ability_EntropyGain; Ability_PsyfocusCost; Ability_Range; Ability_Duration; Ability_EffectRadius; MoveSpeed; PsychicSensitivityOffset; GlobalLearningFactor; HungerRateMultiplier; RestRateMultiplier; EatingSpeed; ImmunityGainSpeed; InjuryHealingFactor; PainShockThreshold; ForagedNutritionPerDay; NegotiationAbility; PawnBeauty; ArrestSuccessChance; TradePriceImprovement; DrugSellPriceImprovement; SocialImpact; TameAnimalChance; TrainAnimalChance; MedicalTendSpeed; MedicalOperationSpeed; MedicalSurgerySuccessChance; MedicalTendQualityOffset; SmeltingSpeed; GeneralLaborSpeed; DrugSynthesisSpeed; CookSpeed; DrugCookingSpeed; ButcheryFleshSpeed; ButcheryMechanoidSpeed; ButcheryFleshEfficiency; ButcheryMechanoidEfficiency; SlaveSuppressionOffset; ConversionPower; AnimalProductsSellImprovement; SuppressionPower; HackingSpeed; PsychicEntropyMax; PsychicEntropyRecoveryRate; PsychicEntropyGain; MeditationFocusGain; MeleeDodgeChance; CarryingCapacity; ShootingAccuracyPawn.
+
+Comparison with other quality mods:
+Santakat's Improved Quality Scaling has an extremely strong damage scaling so high quality weapons in it are much more OP. TQuality doesn't touch vanilla damage scaling.
+Ranged cooldown scaling in Improved Quality Scaling and XeoNovaDan's Quality Cooldown is weaker, because of ranged warmup it is almost unnoticeable.
+Misc stats scaling in Phlivan.WontDieInNoob's Quality Matters is much weaker than in this mod.
+TQuality doesn't touch vanilla armor and insulation scaling, so Santakat's Improved Quality Scaling makes higher quality armor much stronger.
 	</description>
 </ModMetaData>
