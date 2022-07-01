@@ -17,19 +17,19 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Walls</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Walls</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door") or contains(label, "wall") or contains(label, "Wall")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Walls</li>
@@ -56,7 +56,7 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
+                <xpath>Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
                     (graphicData/linkFlags/li="Rock") or 
                     @ParentName="Wall" or 
                     holdsRoof="true"]/researchPrerequisites</xpath>
@@ -66,7 +66,7 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
+                <xpath>Defs/ThingDef[(graphicData/linkFlags/li="Wall") or 
                     (graphicData/linkFlags/li="Rock") or 
                     @ParentName="Wall" or 
                     holdsRoof="true"][not(researchPrerequisites)]</xpath>
@@ -78,14 +78,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Walls</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Walls</li>
@@ -94,14 +94,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Walls</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Walls</li>
@@ -117,19 +117,19 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Doors</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Doors</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "door") or contains(label, "Door")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Doors</li>
@@ -158,14 +158,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Doors</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_Door" or @Name="DoorBase"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Doors</li>
@@ -182,19 +182,19 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Fences</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Fences</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "fence") or contains(label, "Fence")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Fences</li>
@@ -221,18 +221,18 @@
             </Operation>
             <Operation Class="PatchOperationRemove">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites/li[text()="BasicResearch_Walls"]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "fence") or contains(label, "Fence")]/researchPrerequisites/li[text()="BasicResearch_Walls"]</xpath>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Fences</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "fence") or contains(label, "Fence") or contains(label, " gate")][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Fences</li>
@@ -253,14 +253,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_BasicBridges</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bridge") or contains(label, "Bridge")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_BasicBridges</li>
@@ -287,14 +287,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/TerrainDef[bridge="true"]/researchPrerequisites</xpath>
+                <xpath>Defs/TerrainDef[bridge="true"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_BasicBridges</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/TerrainDef[bridge="true"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/TerrainDef[bridge="true"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_BasicBridges</li>
@@ -309,7 +309,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_ResearchBench</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -371,14 +371,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_SimpleResearchBench</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[defName="SimpleResearchBench" or defName="HiTechResearchBench"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_SimpleResearchBench</li>
@@ -388,14 +388,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="MultiAnalyzer"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="MultiAnalyzer"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_SimpleResearchBench</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="MultiAnalyzer"][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="MultiAnalyzer"][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_SimpleResearchBench</li>
@@ -433,14 +433,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="TableSculpting"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="TableSculpting"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Art</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="TableSculpting"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[defName="TableSculpting"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Art</li>
@@ -449,7 +449,7 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[
+                <xpath>Defs/ResearchProjectDef[
                     defName="VFE_Res_Obelisk" or
                     defName="VFE_Res_Pottery" or
                     defName="VFE_Res_WallCarvings" or
@@ -466,7 +466,7 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[
+                <xpath>Defs/ResearchProjectDef[
                     defName="VFE_Res_Obelisk" or
                     defName="VFE_Res_Pottery" or
                     defName="VFE_Res_WallCarvings" or
@@ -496,14 +496,14 @@
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Stove</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "stove") or contains(label, "Stove")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Stove</li>
@@ -529,14 +529,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Stove</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "stove") or contains(label, "Stove") or defName="VCE_SushiPrepTable"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Stove</li>
@@ -558,14 +558,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_ButcherTable</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_ButcherTable</li>
@@ -593,14 +593,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_ButcherTable</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_ButcherTable</li>
@@ -609,7 +609,7 @@
             </Operation>
             <Operation Class="PatchOperationRemove">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="ButcherSpot"]/researchPrerequisites/li[text()="BasicResearch_ButcherTable"]</xpath>
+                <xpath>Defs/ThingDef[defName="ButcherSpot"]/researchPrerequisites/li[text()="BasicResearch_ButcherTable"]</xpath>
             </Operation>
 
 
@@ -624,14 +624,14 @@
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Beds</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bed") or contains(label, "Bed")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Beds</li>
@@ -658,14 +658,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Beds</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[@Name="BedBase" or building/bed_healPerDay or thingClass="Building_Bed"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Beds</li>
@@ -674,7 +674,7 @@
             </Operation>
             <Operation Class="PatchOperationRemove">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="SleepingSpot" or defName="DoubleSleepingSpot" or defName="AnimalSleepingSpot"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="SleepingSpot" or defName="DoubleSleepingSpot" or defName="AnimalSleepingSpot"]/researchPrerequisites</xpath>
             </Operation>
 
         </caseTrue>
@@ -684,7 +684,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Fire</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -706,14 +706,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Fire</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[comps/li/@Class="CompProperties_Refuelable"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Fire</li>
@@ -729,7 +729,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Recreation</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -751,14 +751,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[statBases/JoyGainFactor or building/joyKind]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[statBases/JoyGainFactor or building/joyKind]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Recreation</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[statBases/JoyGainFactor or building/joyKind][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[statBases/JoyGainFactor or building/joyKind][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Recreation</li>
@@ -780,14 +780,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Furniture</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "furniture") or contains(label, "Furniture")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Furniture</li>
@@ -814,14 +814,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="FurnitureBase"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[@Name="FurnitureBase"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Furniture</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="FurnitureBase"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[@Name="FurnitureBase"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Furniture</li>
@@ -830,7 +830,7 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="BasicResearch_Beds"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="BasicResearch_Beds"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Furniture</li>
                 </value>
@@ -845,7 +845,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_DBHWells</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
@@ -867,14 +867,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="PrimitiveWell"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="PrimitiveWell"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Wells</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="PrimitiveWell"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[defName="PrimitiveWell"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Wells</li>
@@ -885,14 +885,14 @@
 
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="DeepWells"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="DeepWells"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Wells</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="DeepWells"][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="DeepWells"][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Wells</li>
@@ -908,7 +908,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_DBHHygiene</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
 
@@ -931,14 +931,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BasedHygieneMom"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[@Name="BasedHygieneMom"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Hygiene</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BasedHygieneMom"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[@Name="BasedHygieneMom"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Hygiene</li>
@@ -949,14 +949,14 @@
 
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[tab="DubsBadHygiene" or defName="BasicResearch_Wells"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[tab="DubsBadHygiene" or defName="BasicResearch_Wells"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Hygiene</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd" MayRequire="Dubwise.DubsBadHygiene">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[tab="DubsBadHygiene"][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[tab="DubsBadHygiene"][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Hygiene</li>
@@ -972,7 +972,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Graves</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -994,14 +994,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li/focusTypes/li="Morbid"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[comps/li/focusTypes/li="Morbid"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Graves</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li/focusTypes/li="Morbid"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[comps/li/focusTypes/li="Morbid"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Graves</li>
@@ -1023,14 +1023,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Benches</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Benches</li>
@@ -1057,14 +1057,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BenchBase"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[@Name="BenchBase"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Benches</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[@Name="BenchBase"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[@Name="BenchBase"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Benches</li>
@@ -1080,7 +1080,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_FireCover</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
 
             <Operation Class="PatchOperationAdd">
@@ -1102,14 +1102,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_FireCover</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[(designationCategory="Security" and ((contains(label, "wall")) or (contains(label, "Wall")))) or defName="Sandbags" or defName="Barricade" or defName="COMIGO_FloatingWoodenBarricade" or defName="RE_PrefabBarricade"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_FireCover</li>
@@ -1120,14 +1120,14 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_FireCover</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[defName="VFES_MetalAlloyBarricades"][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_FireCover</li>
@@ -1164,14 +1164,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Traps</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[thingClass="Building_TrapDamager" or statBases/TrapMeleeDamage or statBases/TrapSpringChance or building/isTrap="true"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Traps</li>
@@ -1185,18 +1185,18 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Floors</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet")]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet") or defName="VFEC_Mosaics"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Floors</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "floor") or contains(label, "Floor") or contains(label, "carpet") or contains(label, "Carpet") or defName="VFEC_Mosaics"][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Floors</li>
@@ -1223,14 +1223,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))]/researchPrerequisites</xpath>
+                <xpath>Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Floors</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/TerrainDef[not(contains(label,"bridge") or contains(label,"Bridge"))][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Floors</li>
@@ -1265,14 +1265,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Styling</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[defName="StylingStation" or defName="VHE_TableBarber" or defName="VFE_TableFacePaints"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Styling</li>
@@ -1286,7 +1286,7 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Ranching</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
             
             <Operation Class="PatchOperationAdd">
@@ -1309,7 +1309,7 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Ranching</li>
                 </value>
@@ -1317,7 +1317,7 @@
 
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_AnimalPenMarker"]][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Ranching</li>
@@ -1333,18 +1333,18 @@
     <Operation Class="XmlExtensions.OptionalPatch">
         <modId>carnap2.BasicResearch</modId>
         <key>BasicResearch_Crafting</key>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove" or defName="BasicResearch_Styling"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench") or defName="BasicResearch_Art" or defName="BasicResearch_ButcherTable" or defName="BasicResearch_Stove" or defName="BasicResearch_Styling"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Crafting</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "bench") or contains(label, "Bench")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Crafting</li>
@@ -1372,14 +1372,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Crafting</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[defName="CraftingSpot" or @Name="BenchBase"][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Crafting</li>
@@ -1398,14 +1398,14 @@
         <caseTrue>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher") or defName="BasicResearch_ButcherTable"]/prerequisites</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher") or defName="BasicResearch_ButcherTable"]/prerequisites</xpath>
                 <value>
                     <li>BasicResearch_Butchering</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
+                <xpath>Defs/ResearchProjectDef[contains(label, "butcher") or contains(label, "Butcher")][not(prerequisites)]</xpath>
                 <value>
                     <prerequisites>
                         <li>BasicResearch_Butchering</li>
@@ -1433,14 +1433,14 @@
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
+                <xpath>Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")]/researchPrerequisites</xpath>
                 <value>
                     <li>BasicResearch_Butchering</li>
                 </value>
             </Operation>
             <Operation Class="PatchOperationAdd">
                 <success>Always</success>
-                <xpath>/Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
+                <xpath>Defs/ThingDef[contains(label, "butcher") or contains(label, "Butcher")][not(researchPrerequisites)]</xpath>
                 <value>
                     <researchPrerequisites>
                         <li>BasicResearch_Butchering</li>
