@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <Infusion.InfusionDef Abstract="True" Name="TI_Melee">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <melee>true</melee>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="TI_Blunt" ParentName="TI_Melee">
+    <matches>
+      <li Class="Infusion.Matchers.WeaponClasses">
+        <defs>
+          <li>MeleeBlunt</li>
+        </defs>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="TI_Sharp" ParentName="TI_Melee">
+    <matches>
+      <li Class="Infusion.Matchers.WeaponClasses">
+        <defs>
+          <li>MeleePiercer</li>
+        </defs>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" Name="TI_Ranged">
+    <matches>
+      <li Class="Infusion.Matchers.EquipmentType">
+        <ranged>true</ranged>
+      </li>
+    </matches>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" Name="TI_Bullet" ParentName="TI_Ranged">
+    <matches>
+      <li Class="Infusion.Matchers.ProjectileBullet" />
+    </matches>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.TierDef Name="TI_Negative">
+    <defName>TI_Negative</defName>
+    <label>negative</label>
+    <priority>10</priority>
+    <color>(1, 0.5, 0.5)</color>
+    <infuserValue>100</infuserValue>
+    <extractionChance>1</extractionChance>
+    <weights>
+      <awful>1</awful>
+      <poor>1</poor>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>1</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <chances>
+      <awful>0.35</awful>
+      <poor>0.25</poor>
+      <normal>0.1</normal>
+      <good>0.05</good>
+      <excellent>0</excellent>
+      <masterwork>0</masterwork>
+      <legendary>0</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Melee" Name="TI_MeleeNegative">
+    <tier>TI_Negative</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Blunt" Name="TI_BluntNegative">
+    <tier>TI_Negative</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Sharp" Name="TI_SharpNegative">
+    <tier>TI_Negative</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Ranged" Name="TI_RangedNegative">
+    <tier>TI_Negative</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Bullet" Name="TI_BulletNegative">
+    <tier>TI_Negative</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>-0.25</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.TierDef Name="TI_Common">
+    <defName>TI_Common</defName>
+    <label>common</label>
+    <priority>10</priority>
+    <color>(1, 1, 1)</color>
+    <infuserValue>200</infuserValue>
+    <extractionChance>0.75</extractionChance>
+    <weights>
+      <awful>1</awful>
+      <poor>1</poor>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>1</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <chances>
+      <awful>0.5</awful>
+      <poor>0.5</poor>
+      <normal>0.5</normal>
+      <good>0.5</good>
+      <excellent>0.5</excellent>
+      <masterwork>0.5</masterwork>
+      <legendary>0.5</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Melee" Name="TI_MeleeCommon">
+    <tier>TI_Common</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Blunt" Name="TI_BluntCommon">
+    <tier>TI_Common</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Sharp" Name="TI_SharpCommon">
+    <tier>TI_Common</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Ranged" Name="TI_RangedCommon">
+    <tier>TI_Common</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Bullet" Name="TI_BulletCommon">
+    <tier>TI_Common</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  
+  <Infusion.TierDef Name="TI_Rare">
+    <defName>TI_Rare</defName>
+    <label>rare</label>
+    <priority>10</priority>
+    <color>(0, 1, 0)</color>
+    <infuserValue>800</infuserValue>
+    <extractionChance>0.25</extractionChance>
+    <weights>
+      <awful>1</awful>
+      <poor>1</poor>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>1</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <chances>
+      <awful>0.2</awful>
+      <poor>0.2</poor>
+      <normal>0.2</normal>
+      <good>0.2</good>
+      <excellent>0.2</excellent>
+      <masterwork>0.2</masterwork>
+      <legendary>0.2</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Melee" Name="TI_MeleeRare">
+    <tier>TI_Rare</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Blunt" Name="TI_BluntRare">
+    <tier>TI_Rare</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Sharp" Name="TI_SharpRare">
+    <tier>TI_Rare</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Ranged" Name="TI_RangedRare">
+    <tier>TI_Rare</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Bullet" Name="TI_BulletRare">
+    <tier>TI_Rare</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  
+  <Infusion.TierDef Name="TI_Legendary">
+    <defName>TI_Legendary</defName>
+    <label>legendary</label>
+    <priority>10</priority>
+    <color>(1, 1, 0)</color>
+    <infuserValue>2400</infuserValue>
+    <extractionChance>0.2</extractionChance>
+    <weights>
+      <awful>1</awful>
+      <poor>1</poor>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>1</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <chances>
+      <awful>0.05</awful>
+      <poor>0.05</poor>
+      <normal>0.05</normal>
+      <good>0.05</good>
+      <excellent>0.05</excellent>
+      <masterwork>0.075</masterwork>
+      <legendary>0.1</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Melee" Name="TI_MeleeLegendary">
+    <tier>TI_Legendary</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Blunt" Name="TI_BluntLegendary">
+    <tier>TI_Legendary</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Sharp" Name="TI_SharpLegendary">
+    <tier>TI_Legendary</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Ranged" Name="TI_RangedLegendary">
+    <tier>TI_Legendary</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Bullet" Name="TI_BulletLegendary">
+    <tier>TI_Legendary</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  
+  <Infusion.TierDef Name="TI_Mythical">
+    <defName>TI_Mythical</defName>
+    <label>mythical</label>
+    <priority>10</priority>
+    <color>(1, 0, 1)</color>
+    <infuserValue>5200</infuserValue>
+    <extractionChance>0.01</extractionChance>
+    <weights>
+      <awful>1</awful>
+      <poor>1</poor>
+      <normal>1</normal>
+      <good>1</good>
+      <excellent>1</excellent>
+      <masterwork>1</masterwork>
+      <legendary>1</legendary>
+    </weights>
+    <chances>
+      <awful>0.01</awful>
+      <poor>0.01</poor>
+      <normal>0.01</normal>
+      <good>0.01</good>
+      <excellent>0.01</excellent>
+      <masterwork>0.01</masterwork>
+      <legendary>0.02</legendary>
+    </chances>
+  </Infusion.TierDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Melee" Name="TI_MeleeMythical">
+    <tier>TI_Mythical</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Blunt" Name="TI_BluntMythical">
+    <tier>TI_Mythical</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Sharp" Name="TI_SharpMythical">
+    <tier>TI_Mythical</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Ranged" Name="TI_RangedMythical">
+    <tier>TI_Mythical</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+  <Infusion.InfusionDef Abstract="True" ParentName="TI_Bullet" Name="TI_BulletMythical">
+    <tier>TI_Mythical</tier>
+    <stats>
+      <li>
+        <key>MarketValue</key>
+        <value>
+          <multiplier>0.05</multiplier>
+        </value>
+      </li>
+    </stats>
+  </Infusion.InfusionDef>
+
+
+
+
+</Defs>
