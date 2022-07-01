@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
+	<!--
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/StatDef[defName = "MeleeWeapon_DamageMultiplier"]/parts/li[@Class="StatPart_Quality"]/factorAwful</xpath>
 		<value>
@@ -12,8 +13,8 @@
 			<factorPoor>0.85</factorPoor>
 		</value>
 	</Operation>
+-->
 
-	
 	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/StatDef[defName="MeleeWeapon_CooldownMultiplier"]/parts</xpath>
 		<nomatch Class="PatchOperationAdd">
@@ -21,13 +22,13 @@
 			<value>
 				<parts>
 					<li Class="StatPart_Quality">
-						<factorAwful>1.5</factorAwful>
+						<factorAwful>1.25</factorAwful>
 						<factorPoor>1.1</factorPoor>
 						<factorNormal>1</factorNormal>
-						<factorGood>.95</factorGood>
-						<factorExcellent>.9</factorExcellent>
-						<factorMasterwork>.8</factorMasterwork>
-						<factorLegendary>.6</factorLegendary>
+						<factorGood>1</factorGood>
+						<factorExcellent>.95</factorExcellent>
+						<factorMasterwork>.9</factorMasterwork>
+						<factorLegendary>.75</factorLegendary>
 					</li>
 				</parts>
 			</value>
@@ -40,13 +41,13 @@
 				<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]/parts/li[@Class="StatPart_Quality"]</xpath>
 				<value>
 					<li Class="StatPart_Quality">
-						<factorAwful>1.5</factorAwful>
+						<factorAwful>1.25</factorAwful>
 						<factorPoor>1.1</factorPoor>
 						<factorNormal>1</factorNormal>
-						<factorGood>.95</factorGood>
-						<factorExcellent>.9</factorExcellent>
-						<factorMasterwork>.8</factorMasterwork>
-						<factorLegendary>.6</factorLegendary>
+						<factorGood>1</factorGood>
+						<factorExcellent>.95</factorExcellent>
+						<factorMasterwork>.9</factorMasterwork>
+						<factorLegendary>.75</factorLegendary>
 					</li>
 				</value>
 			</match>
@@ -54,13 +55,13 @@
 				<xpath>Defs/StatDef[defName = "MeleeWeapon_CooldownMultiplier"]/parts</xpath>
 				<value>
 					<li Class="StatPart_Quality">
-						<factorAwful>1.5</factorAwful>
+						<factorAwful>1.25</factorAwful>
 						<factorPoor>1.1</factorPoor>
 						<factorNormal>1</factorNormal>
-						<factorGood>.95</factorGood>
-						<factorExcellent>.9</factorExcellent>
-						<factorMasterwork>.8</factorMasterwork>
-						<factorLegendary>.6</factorLegendary>
+						<factorGood>1</factorGood>
+						<factorExcellent>.95</factorExcellent>
+						<factorMasterwork>.9</factorMasterwork>
+						<factorLegendary>.75</factorLegendary>
 					</li>
 				</value>
 			</nomatch>
@@ -68,5 +69,4 @@
 	</Operation>
 
 
-	
 </Patch>
