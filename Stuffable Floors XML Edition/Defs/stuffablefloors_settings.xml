@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+   <!-- dropdowns in case architect/vfearchitect addons and patches isn't loaded -->
+   <!-- architect-->
+   <DesignatorDropdownGroupDef>
+      <defName>VFEArch_WoodFloor</defName>
+      <label>wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>VFEArch_WoodenParquet</defName>
+      <label>wooden parquet</label>
+   </DesignatorDropdownGroupDef>
+   <!-- addons and patches -->
+   <!--[T] MoreFLoors-->
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodModern</defName>
+      <label>modern wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodMosaic</defName>
+      <label>mosaic wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodWide</defName>
+      <label>wide wooden floorboards</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodVertical</defName>
+      <label>vertical wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodRustic</defName>
+      <label>rustic wooden floorboards</label>
+   </DesignatorDropdownGroupDef>
+   <!--Refined Floors-->
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorFineWoodPlank</defName>
+      <label>fine wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorFineWoodTile</defName>
+      <label>fine wood tile</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorFineWoodMosaic</defName>
+      <label>fine wood mosaic</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodBrickBond</defName>
+      <label>wood brick bond floor</label>
+   </DesignatorDropdownGroupDef>
+   <DesignatorDropdownGroupDef>
+      <defName>SFloorWoodMixedPlank</defName>
+      <label>mixed wood floor</label>
+   </DesignatorDropdownGroupDef>
+   <!--Vanilla Furniture Expanded - Architect-->
+   <DesignatorDropdownGroupDef>
+      <defName>SSteelBridge</defName>
+      <label>steel bridge</label>
+   </DesignatorDropdownGroupDef>
+
+
+   <!-- patchdef, where list of patches per each loaded floor will be added by another patchdef. That way the list of floors only needs to be initialized once -->
+   <XmlExtensions.PatchDef Name="tests_StuffableFloorsA" Abstract="True">
+      <parameters>
+         <li>Stone</li>
+         <li>Label</li>
+         <li>Color</li>
+      </parameters>
+      <brackets>ZZ</brackets>
+      <apply></apply>
+   </XmlExtensions.PatchDef>
+
+   <!-- patchdef that adds a floor into the first patchdef -->
+   <XmlExtensions.PatchDef Name="tests_StuffableFloorsASpaghetti" Abstract="True">
+      <parameters>
+         <li>TerrainBase</li>
+         <li>FloorName</li> <!-- ZLabelZ -->
+         <li>FloorCost</li>
+      </parameters>
+      <apply>
+         <Operation Class="XmlExtensions.PatchOperationAdd">
+            <xmlDoc>PatchDef</xmlDoc>
+            <xpath>PatchDef/apply</xpath>
+            <value>
+               <Operation Class="PatchOperationSequence">
+                  <success>Always</success>
+                  <operations>
+                     <li Class="XmlExtensions.Test">
+                        <xmlDoc>StoneFloors</xmlDoc>
+                        <xpath>StoneFloors/TerrainDef[@ParentName="{TerrainBase}" and costList/ZStoneZ]</xpath>
+                        <success>Invert</success>
+                     </li>
+                     <li Class="PatchOperationAdd">
+                        <success>Always</success>
+                        <xpath>Defs</xpath>
+                        <value>
+                           <TerrainDef ParentName="{TerrainBase}">
+                              <defName>{TerrainBase}_ZStoneZ</defName>
+                              <label>{FloorName}</label>
+                              <color>ZColorZ</color>
+                              <costList>
+                                 <ZStoneZ>{FloorCost}</ZStoneZ>
+                              </costList>
+                           </TerrainDef>
+                        </value>
+                     </li>
+                  </operations>
+               </Operation>
+            </value>
+         </Operation>
+
+      </apply>
+   </XmlExtensions.PatchDef>
+
+   <XmlExtensions.SettingsMenuDef>
+      <defName>tests_stuffablefloors</defName> <!--Can be anything unique with no periods-->
+      <modId>tests.StuffableFloors</modId> <!--MUST be the same as the one entered earlier-->
+      <label>Stuffable Floors XML </label> <!-- This is what displays as your mod's name-->
+      <settings>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Settings apply after restart.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.GapLine" />
+
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Stone floors can be made out of:</text>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsSF_Stone</key>
+            <label>All normal stone blocks</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>default = TRUE
+               
+Adds missing stone floors for all vanilla and modded stone blocks. Not all stone materials are stone blocks, for example jade isn't.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox" MayRequire="sarg.alphabiomes">
+            <key>testsSF_AAStone</key>
+            <label>Alpha Biomes stone blocks</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>default = TRUE
+               
+Alpha Biomes stone blocks are technically not normal stone blocks.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsSF_Stony</key>
+            <label>All stony materials (not recommended)</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>default = FALSE
+
+This option can affect loading times!
+               
+This includes jade and probably other gemstones from mods, as well as various other materials that aren't stone blocks. 
+               
+Note that each stone floor has a certain fixed beauty value regardless of stone it is made out of, so jade/gemstone floors WON'T have more beauty than normal stone floors.</tooltip>
+         </li>
+         <!--
+         <li Class="XmlExtensions.Setting.GapLine" />
+         <li Class="XmlExtensions.Setting.Checkbox" MayRequire="VanillaExpanded.VFEArchitect">
+            <key>testsSF_Wood</key>
+            <label>Stuffable wooden floors</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>default = FALSE
+               
+Allows to build wooden floors out of any wood materials. Note that many modded wooden floors are not recolorable, stuff color can't be properly applied to them, so this option won't affect them. Install VFEArchitect Addon and Patches to make more modded wood floors recolorable.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox" MayRequire="VanillaExpanded.VFEArchitect">
+            <key>testsSF_Wood</key>
+            <label>Metal tiles from each metallic material</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>default = FALSE
+               
+Allows to build metal tiles out of any metallic material, with beauty calculated from material beauty. Might not add all metals depending on how they are coded.</tooltip>
+         </li>
+      -->
+
+
+         <li Class="XmlExtensions.Setting.Gap" />
+         <li Class="XmlExtensions.Setting.ResetSettings" />
+      </settings>
+   </XmlExtensions.SettingsMenuDef>
+</Defs>

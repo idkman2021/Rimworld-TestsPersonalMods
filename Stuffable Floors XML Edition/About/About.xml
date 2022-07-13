@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Stuffable Floors XML Edition</name>
+  <author>test</author>
+  <url>https://github.com/idkman2021/Rimworld-AssortedMods</url>
+  <packageId>tests.StuffableFloors</packageId>
+  <supportedVersions>
+    <li>1.3</li>
+  </supportedVersions>
+  <description>stuff</description>
+  <modDependencies>
+    <li>
+      <packageId>imranfish.xmlextensions</packageId>
+      <displayName>XML Extensions</displayName>
+      <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>imranfish.xmlextensions</li>
+    <li>wemd.expandedfloors</li>
+    <li>telkir.tmods.morefloors</li>
+    <li>vanillaexpanded.vfearchitect</li>
+    <li>sarg.alphamemes</li>
+    <li>vanillaexpanded.vmemese</li>
+    <li>averythekitty.refinedfloors</li>
+    <li>everytea.floors</li>
+    <li>dubwise.dubsbadhygiene</li>
+    <li>oskarpotocki.vfe.classical</li>
+    <li>audreysstyles.jazzy</li>
+    <li>sarg.alphaanimals</li>
+    <li>dajian.chiteaditional.expanded</li>
+
+    <li>carnap2.TMaterials.Stone</li>
+    <li>carnap2.tmaterials.stuff</li>
+    <li>kura.extrastone</li>
+    <li>argon.expandedmaterials.stones</li>
+    <li>hol.dfstone</li>
+    <li>void.szstonesandterrains</li>
+    <li>ogliss.cupro.cuprosstones</li>
+    <li>wolf478.wolfhaulcore.stones</li>
+    <li>kura.extrastonecupro</li>
+  </loadAfter>
+</ModMetaData>

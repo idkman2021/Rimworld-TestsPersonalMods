@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+   <!-- document with a patchdef which will contain a list of patches per each loaded floor. That way the list of floors only needs to be initialized once -->
+   <Operation Class="XmlExtensions.CreateDocument">
+      <docName>PatchDef</docName>
+      <xpath>Defs/XmlExtensions.PatchDef[@Name="tests_StuffableFloorsA"]/apply</xpath>
+   </Operation>
+
+   <!-- document with all supported stone floors where all lookups are going to happen for performance -->
+   <Operation Class="XmlExtensions.CreateDocument">
+      <docName>StoneFloors</docName>
+      <xpath>Defs/TerrainDef[
+      @ParentName="TileStoneBase" or
+      @ParentName="FlagstoneBase" or
+      @ParentName="FineTileStoneBase" or
+      @ParentName="MorbidStoneTile" or
+      @ParentName="SpikecoreStoneTile" or
+      @ParentName="TotemicStoneTile" or
+      @ParentName="CobblestoneBase" or
+      @ParentName="PolishedStoneFloorBase" or
+      @ParentName="StoneSlabsBase" or
+      @ParentName="StoneBridgeBase" or
+      @ParentName="ATK_SlabStoneBase" or
+      @ParentName="ATK_PebblesBase" or
+      @ParentName="ATK_DecoratedTileStoneBase" or
+      @ParentName="TFloorBaseStoneSlabs" or
+      @ParentName="TFloorBaseStoneStaggered" or
+      @ParentName="TFloorBaseStoneRough" or
+      @ParentName="TFloorBaseStoneAlternating" or
+      @ParentName="TFloorBaseStoneChequeredSingle" or
+      @ParentName="TFloorBaseStoneHerringbone" or
+      @ParentName="TFloorBaseStoneHex" or
+      @ParentName="TFloorBaseStoneDigital" or
+      @ParentName="TFloorBaseStoneMosaic" or
+      @ParentName="TFloorBaseStoneRandom" or
+      @ParentName="TFloorBaseStoneDiamond" or
+      @ParentName="TFloorBaseStoneArabesque" or
+      @ParentName="FloorBaseEvtStoneA" or
+      @ParentName="FloorBaseEvtStoneB" or
+      @ParentName="FloorBaseEvtStoneC" or
+      @ParentName="FloorBaseEvtStoneD" or
+      @ParentName="FloorBaseEvtStoneE" or
+      @ParentName="FloorBaseEvtStoneF" or
+      @ParentName="FloorBaseEvtStoneG" or
+      @ParentName="FloorBaseEvtStoneH" or
+      @ParentName="WDRoughStoneTileBase" or
+      @ParentName="WDStoneTileBase" or
+      @ParentName="WDCheckStoneTileBase" or
+      @ParentName="WDCheckStoneFloorBase" or
+      @ParentName="WDMosaicStoneFloorBase" or
+      @ParentName="WDPolishedStoneFloorBase" or
+      @ParentName="WDStonePlateFloorBase" or
+      @ParentName="DBHMosaicBase" or
+      @ParentName="VFEC_MosaicsStoneBase" or
+      @ParentName="VME_CorporateFineStoneTiles" or
+      @ParentName="VME_ShintaoFineStoneTiles" or
+      @ParentName="AM_JewishTileStoneBase" or
+      @ParentName="AM_JewishFineStoneTiles" or
+      @ParentName="AM_KemeticTileStoneBase" or
+      @ParentName="AM_KemeticFineStoneTiles" or
+      @ParentName="AM_SteampunkTileStoneBase" or
+      @ParentName="JazzyStoneBase" or
+      @ParentName="AA_OcularStone" or 
+      @ParentName="ChiFllorBase" or 
+      @ParentName="ChiFllorBaseB" or 
+      @ParentName="ChiFllorBaseC" or 
+      @ParentName="ChiFllorBaseD" or 
+      @ParentName="LTS_EvenBase" or 
+      @ParentName="LTS_UnevenBase" or 
+      @ParentName="LTS_GravelBase" or 
+      @ParentName="LTS_RoughSquareDiagonalBase" or 
+      @ParentName="LTS_RoughSquareStraightBase" or 
+      @ParentName="LTS_RoughTileBase_H" or 
+      @ParentName="LTS_RoughTileBase_V" or 
+      @ParentName="AM_NeolithicTileStoneBase"
+      ]</xpath>
+   </Operation>
+
+   <!-- automatically get a list of all stone floors. Not using this because it is impossible to get the label -->
+   <!--
+   <Operation Class="XmlExtensions.ForEach">
+      <xpath>Defs/TerrainDef[costList/Slate and (not(statBases or texturePath or designatorDropdown)]</xpath>
+      <storeIn>Terrain</storeIn>
+      <prefixLength>2</prefixLength>
+      <apply>
+         <Operation Class="XmlExtensions.CreateVariable">
+            <storeIn>TerrainBase</storeIn>
+            <value>{Terrain}/attribute::name</value>
+            <fromXml>true</fromXml>
+            <apply>
+               <Operation Class="XmlExtensions.CreateVariable">
+                  <storeIn>Label</storeIn>
+                  <value>Defs/TerrainDef</value>
+                  <fromXml>true</fromXml>
+                  <apply>
+                     <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xmlDoc>PatchDef</xmlDoc>
+                        <xpath>PatchDef/value</xpath>
+                        <value>
+                           <TerrainDef ParentName="CobblestoneBase">
+                              <defName>{TerrainBase}_{Stone}</defName>
+                              <label>sandstone cobblestone floor</label>
+                              <color>{Color}</color>
+                              <costList>
+                                 <BlocksSandstone>4</BlocksSandstone>
+                              </costList>
+                           </TerrainDef>
+                        </value>
+                     </Operation>
+                  </apply>
+               </Operation>
+            </apply>
+         </Operation>
+      </apply>
+   </Operation>
+-->
+
+   <!-- add patches for all loaded floors into the patchdef -->
+   <!-- Core -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TileStoneBase</li>
+               <li>ZLabelZ tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FlagstoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FlagstoneBase</li>
+               <li>ZLabelZ flagstone</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <!-- roaylty -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FineTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FineTileStoneBase</li>
+               <li>fine ZLabelZ tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- ideo -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="MorbidStoneTile"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>MorbidStoneTile</li>
+               <li>ZLabelZ morbid tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="SpikecoreStoneTile"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>SpikecoreStoneTile</li>
+               <li>ZLabelZ spikecore tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TotemicStoneTile"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TotemicStoneTile</li>
+               <li>ZLabelZ totemic tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- VFE Architect -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="CobblestoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>CobblestoneBase</li>
+               <li>ZLabelZ cobblestone floor</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="PolishedStoneFloorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>PolishedStoneFloorBase</li>
+               <li>ZLabelZ polished stone floor</li>
+               <li>12</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="StoneSlabsBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>StoneSlabsBase</li>
+               <li>ZLabelZ slabs</li>
+               <li>8</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="StoneBridgeBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghettiCopy</patchName>
+            <arguments>
+               <li>StoneBridgeBase</li>
+               <li>ZLabelZ bridge</li>
+               <li>12</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- Refined Floors -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ATK_SlabStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ATK_SlabStoneBase</li>
+               <li>ZLabelZ slab</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ATK_PebblesBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ATK_PebblesBase</li>
+               <li>ZLabelZ pebbles</li>
+               <li>2</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ATK_DecoratedTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ATK_DecoratedTileStoneBase</li>
+               <li>ZLabelZ decorated tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- [T] MoreFloors -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneSlabs"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneSlabs</li>
+               <li>ZLabelZ stone slabs</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneStaggered"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneStaggered</li>
+               <li>ZLabelZ staggered stone slabs</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneRough"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneRough</li>
+               <li>ZLabelZ rough paving</li>
+               <li>2</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneAlternating"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneAlternating</li>
+               <li>ZLabelZ alternating brick paving</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneChequeredSingle"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneChequeredSingle</li>
+               <li>ZLabelZ chequered slabs</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneHerringbone"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneHerringbone</li>
+               <li>ZLabelZ herringbone paving</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneHex"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneHex</li>
+               <li>ZLabelZ hex paving</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneDigital"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneDigital</li>
+               <li>ZLabelZ digital paving</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneMosaic"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneMosaic</li>
+               <li>ZLabelZ mosaic paving</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneRandom"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneRandom</li>
+               <li>ZLabelZ random paving</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneDiamond"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneDiamond</li>
+               <li>ZLabelZ diamond paving</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="TFloorBaseStoneArabesque"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>TFloorBaseStoneArabesque</li>
+               <li>ZLabelZ arabesque flooring</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- evt -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneA"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneA</li>
+               <li>ZLabelZ decorated brick floor</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneB"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghettiCopy</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneB</li>
+               <li>ZLabelZ brick tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneC"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneC</li>
+               <li>ZLabelZ mosaic tile</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneD"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneD</li>
+               <li>ZLabelZ square tile</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <!-- E -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneE"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneE</li>
+               <li>ZLabelZ paver floor</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneF"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneF</li>
+               <li>ZLabelZ brick veneer tile</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneG"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneG</li>
+               <li>ZLabelZ style sandstone floor</li>
+               <li>5</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+   <!-- H -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="FloorBaseEvtStoneH"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghettiCopy</patchName>
+            <arguments>
+               <li>FloorBaseEvtStoneH</li>
+               <li>ZLabelZ riverside floor</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <!-- [WD] Expanded Floors -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDRoughStoneTileBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDRoughStoneTileBase</li>
+               <li>ZLabelZ rough tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDStoneTileBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDStoneTileBase</li>
+               <li>ZLabelZ smooth tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDCheckStoneTileBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDCheckStoneTileBase</li>
+               <li>ZLabelZ check tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDCheckStoneFloorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDCheckStoneFloorBase</li>
+               <li>ZLabelZ check floor</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDMosaicStoneFloorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDMosaicStoneFloorBase</li>
+               <li>ZLabelZ mosaic floor</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDPolishedStoneFloorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDPolishedStoneFloorBase</li>
+               <li>ZLabelZ polished floor</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="WDStonePlateFloorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>WDStonePlateFloorBase</li>
+               <li>ZLabelZ plate floor</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- dubstep -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="DBHMosaicBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>DBHMosaicBase</li>
+               <li>ZLabelZ mosaic tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- vfe classical -->
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="VFEC_MosaicsStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>VFEC_MosaicsStoneBase</li>
+               <li>ZLabelZ mosaics</li>
+               <li>10</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- vanilla ideology expanded - memes and structures -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="VME_CorporateFineStoneTiles"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>VME_CorporateFineStoneTiles</li>
+               <li>ZLabelZ corporate fine tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="VME_ShintaoFineStoneTiles"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>VME_ShintaoFineStoneTiles</li>
+               <li>ZLabelZ shintao fine tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- alpha memes -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_JewishTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_JewishTileStoneBase</li>
+               <li>ZLabelZ jewish tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_JewishFineStoneTiles"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_JewishFineStoneTiles</li>
+               <li>ZLabelZ jewish fine tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_KemeticTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_KemeticTileStoneBase</li>
+               <li>ZLabelZ kemetic tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_KemeticFineStoneTiles"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_KemeticFineStoneTiles</li>
+               <li>ZLabelZ kemetic fine tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_SteampunkTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_SteampunkTileStoneBase</li>
+               <li>ZLabelZ steampunk tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- Audrey's Styles: Jazzy -->
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="JazzyStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>JazzyStoneBase</li>
+               <li>ZLabelZ jazzy tile</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- alpha animals -->
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AA_OcularStone"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AA_OcularStone</li>
+               <li>ZLabelZ ocular floor</li>
+               <li>20</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- 【SZ】含商咀徵——神州文化扩展 Chinese Traditional Cultural Things Expanded -->
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ChiFllorBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ChiFllorBase</li>
+               <li>ZLabelZ chinese floor A</li>
+               <li>15</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ChiFllorBaseB"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ChiFllorBaseB</li>
+               <li>ZLabelZ chinese floor B</li>
+               <li>15</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ChiFllorBaseC"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ChiFllorBaseC</li>
+               <li>ZLabelZ chinese floor C</li>
+               <li>15</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="ChiFllorBaseD"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>ChiFllorBaseD</li>
+               <li>ZLabelZ chinese floor D</li>
+               <li>15</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- LTS -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_EvenBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_EvenBase</li>
+               <li>ZLabelZ large tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_UnevenBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_UnevenBase</li>
+               <li>ZLabelZ elaborate tile</li>
+               <li>4</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_GravelBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_GravelBase</li>
+               <li>ZLabelZ gravel</li>
+               <li>2</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_RoughSquareDiagonalBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_RoughSquareDiagonalBase</li>
+               <li>ZLabelZ rough square diagonal path</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_RoughSquareStraightBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_RoughSquareStraightBase</li>
+               <li>ZLabelZ rough square straight path</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_RoughTileBase_H"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_RoughTileBase_H</li>
+               <li>ZLabelZ rough horizontal path</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="LTS_RoughTileBase_V"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>LTS_RoughTileBase_V</li>
+               <li>ZLabelZ rough vertical path</li>
+               <li>3</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="AM_NeolithicTileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>AM_NeolithicTileStoneBase</li>
+               <li>ZLabelZ neolithic packed dirt floor</li>
+               <li>1</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="XmlExtensions.MergeDocument">
+      <docName>PatchDef</docName>
+   </Operation>
+
+   <!-- for each material the patchdef gets applied, adding all missing stone floors made from this material -->
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.StuffableFloors</modId>
+      <key>testsSF_Stone</key>
+      <defaultValue>true</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.ForEachDescendant">
+            <xpathParent>Defs/ThingDef[@Name="StoneBlocksBase"]</xpathParent>
+            <concreteOnly>true</concreteOnly>
+            <storeIn>StonePath</storeIn>
+            <apply>
+
+               <Operation Class="XmlExtensions.AggregateValues">
+                  <valueOperations>
+                     <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>Stone</storeIn>
+                        <value>{StonePath}/defName</value>
+                        <!--<defaultValue>BlocksSandstone</defaultValue>-->
+                        <fromXml>true</fromXml>
+                     </Operation>
+                     <Operation Class="XmlExtensions.CreateVariable">
+                        <storeIn>Color</storeIn>
+                        <value>{StonePath}/stuffProps/color</value>
+                        <fromXml>true</fromXml>
+                        <defaultValue>(127,127,127)</defaultValue>
+                     </Operation>
+                  </valueOperations>
+                  <apply>
+                     <Operation Class="PatchOperationConditional">
+                        <xpath>{StonePath}/stuffProps/stuffAdjective</xpath>
+                        <match Class="XmlExtensions.CreateVariable">
+                           <success>Always</success>
+                           <storeIn>Label</storeIn>
+                           <value>{StonePath}/stuffProps/stuffAdjective</value>
+                           <fromXml>true</fromXml>
+                           <apply>
+                              <Operation Class="XmlExtensions.ApplyPatch">
+                                 <patchName>tests_StuffableFloorsA</patchName>
+                                 <arguments>
+                                    <li>{Stone}</li>
+                                    <li>{Label}</li>
+                                    <li>{Color}</li>
+                                 </arguments>
+                              </Operation>
+                           </apply>
+                        </match>
+                        <nomatch Class="XmlExtensions.CreateVariable">
+                           <storeIn>Label</storeIn>
+                           <value>{StonePath}/label</value>
+                           <fromXml>true</fromXml>
+                           <defaultValue>stone</defaultValue>
+                           <apply>
+                              <Operation Class="XmlExtensions.ApplyPatch">
+                                 <patchName>tests_StuffableFloorsA</patchName>
+                                 <arguments>
+                                    <li>{Stone}</li>
+                                    <li>{Label}</li>
+                                    <li>{Color}</li>
+                                 </arguments>
+                              </Operation>
+                           </apply>
+                        </nomatch>
+
+                     </Operation>
+
+
+                  </apply>
+               </Operation>
+
+            </apply>
+         </Operation>
+      </caseTrue>
+   </Operation>
+
+   <Operation Class="PatchOperationFindMod">
+      <mods>
+         <li>Alpha Biomes</li>
+      </mods>
+      <match Class="XmlExtensions.OptionalPatch">
+         <modId>tests.StuffableFloors</modId>
+         <key>testsSF_AAStone</key>
+         <defaultValue>true</defaultValue>
+         <caseTrue>
+            <Operation Class="XmlExtensions.ForEachDescendant">
+               <xpathParent>Defs/ThingDef[@Name="GU_StoneBlocksBase"]</xpathParent>
+               <concreteOnly>true</concreteOnly>
+               <storeIn>StonePath</storeIn>
+               <apply>
+
+                  <Operation Class="XmlExtensions.AggregateValues">
+                     <valueOperations>
+                        <Operation Class="XmlExtensions.CreateVariable">
+                           <storeIn>Stone</storeIn>
+                           <value>{StonePath}/defName</value>
+                           <!--<defaultValue>BlocksSandstone</defaultValue>-->
+                           <fromXml>true</fromXml>
+                        </Operation>
+                        <Operation Class="XmlExtensions.CreateVariable">
+                           <storeIn>Color</storeIn>
+                           <value>{StonePath}/stuffProps/color</value>
+                           <fromXml>true</fromXml>
+                           <defaultValue>(127,127,127)</defaultValue>
+                        </Operation>
+                     </valueOperations>
+                     <apply>
+                        <Operation Class="PatchOperationConditional">
+                           <xpath>{StonePath}/stuffProps/stuffAdjective</xpath>
+                           <match Class="XmlExtensions.CreateVariable">
+                              <success>Always</success>
+                              <storeIn>Label</storeIn>
+                              <value>{StonePath}/stuffProps/stuffAdjective</value>
+                              <fromXml>true</fromXml>
+                              <apply>
+                                 <Operation Class="XmlExtensions.ApplyPatch">
+                                    <patchName>tests_StuffableFloorsA</patchName>
+                                    <arguments>
+                                       <li>{Stone}</li>
+                                       <li>{Label}</li>
+                                       <li>{Color}</li>
+                                    </arguments>
+                                 </Operation>
+                              </apply>
+                           </match>
+                           <nomatch Class="XmlExtensions.CreateVariable">
+                              <storeIn>Label</storeIn>
+                              <value>{StonePath}/label</value>
+                              <fromXml>true</fromXml>
+                              <defaultValue>stone</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.ApplyPatch">
+                                    <patchName>tests_StuffableFloorsA</patchName>
+                                    <arguments>
+                                       <li>{Stone}</li>
+                                       <li>{Label}</li>
+                                       <li>{Color}</li>
+                                    </arguments>
+                                 </Operation>
+                              </apply>
+                           </nomatch>
+
+                        </Operation>
+
+
+                     </apply>
+                  </Operation>
+
+               </apply>
+            </Operation>
+         </caseTrue>
+
+      </match>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.StuffableFloors</modId>
+      <key>testsSF_Stony</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.ForEachDescendant">
+            <xpathParent>Defs/ThingDef[@Name="ResourceBase"]</xpathParent>
+            <concreteOnly>true</concreteOnly>
+            <storeIn>StonePath</storeIn>
+            <apply>
+               <Operation Class="XmlExtensions.ConditionalInherited">
+                  <xpathDef>{StonePath}</xpathDef>
+                  <xpathLocal>stuffProps/categories[li="Stony"]</xpathLocal>
+                  <caseTrue>
+                     <Operation Class="XmlExtensions.AggregateValues">
+                        <valueOperations>
+                           <Operation Class="XmlExtensions.CreateVariable">
+                              <storeIn>Stone</storeIn>
+                              <value>{StonePath}/defName</value>
+                              <!--<defaultValue>BlocksSandstone</defaultValue>-->
+                              <fromXml>true</fromXml>
+                           </Operation>
+                           <Operation Class="XmlExtensions.CreateVariable">
+                              <storeIn>Color</storeIn>
+                              <value>{StonePath}/stuffProps/color</value>
+                              <fromXml>true</fromXml>
+                              <defaultValue>(127,127,127)</defaultValue>
+                           </Operation>
+                        </valueOperations>
+                        <apply>
+                           <Operation Class="PatchOperationConditional">
+                              <xpath>{StonePath}/stuffProps/stuffAdjective</xpath>
+                              <match Class="XmlExtensions.CreateVariable">
+                                 <success>Always</success>
+                                 <storeIn>Label</storeIn>
+                                 <value>{StonePath}/stuffProps/stuffAdjective</value>
+                                 <fromXml>true</fromXml>
+                                 <apply>
+                                    <Operation Class="XmlExtensions.ApplyPatch">
+                                       <patchName>tests_StuffableFloorsA</patchName>
+                                       <arguments>
+                                          <li>{Stone}</li>
+                                          <li>{Label}</li>
+                                          <li>{Color}</li>
+                                       </arguments>
+                                    </Operation>
+                                 </apply>
+                              </match>
+                              <nomatch Class="XmlExtensions.CreateVariable">
+                                 <storeIn>Label</storeIn>
+                                 <value>{StonePath}/label</value>
+                                 <fromXml>true</fromXml>
+                                 <defaultValue>stone</defaultValue>
+                                 <apply>
+                                    <Operation Class="XmlExtensions.ApplyPatch">
+                                       <patchName>tests_StuffableFloorsA</patchName>
+                                       <arguments>
+                                          <li>{Stone}</li>
+                                          <li>{Label}</li>
+                                          <li>{Color}</li>
+                                       </arguments>
+                                    </Operation>
+                                 </apply>
+                              </nomatch>
+
+                           </Operation>
+
+
+                        </apply>
+                     </Operation>
+                  </caseTrue>
+               </Operation>
+
+            </apply>
+         </Operation>
+      </caseTrue>
+   </Operation>
+
+
+</Patch>
