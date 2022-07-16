@@ -27,7 +27,7 @@
                                     <key>testsMAC_{key}</key>
                                     <label>{label}</label>
                                     <defaultValue>false</defaultValue>
-                                    <tooltip></tooltip>
+                                    <tooltip>{packageID}</tooltip>
                                 </li>
                             </li>
                             <li>
@@ -82,6 +82,7 @@
                                     <li>
                                         <li Class="XmlExtensions.Setting.Text">
                                             <text>{label}</text>
+                                            <tooltip>{packageID}</tooltip>
                                         </li>
                                     </li>
                                     <li>

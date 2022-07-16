@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_logging</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_logging</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
 
-            <Operation Class="XmlExtensions.StopwatchStart" />
+         <Operation Class="XmlExtensions.StopwatchStart" />
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <Operation Class="XmlExtensions.CreateDocument">
-        <docName>editmode</docName>
-        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_animalcommonality"]/settings/li[key="testsMAC_EditMode"]/caseTrue</xpath>
-        <emptyDocument>false</emptyDocument>
-    </Operation>
-    <Operation Class="XmlExtensions.CreateDocument">
-        <docName>seemode</docName>
-        <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_animalcommonality"]/settings/li[key="testsMAC_EditMode"]/caseFalse</xpath>
-        <emptyDocument>false</emptyDocument>
-    </Operation>
+   <Operation Class="XmlExtensions.CreateDocument">
+      <docName>editmode</docName>
+      <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_animalcommonality"]/settings/li[key="testsMAC_EditMode"]/caseTrue</xpath>
+      <emptyDocument>false</emptyDocument>
+   </Operation>
+   <Operation Class="XmlExtensions.CreateDocument">
+      <docName>seemode</docName>
+      <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_animalcommonality"]/settings/li[key="testsMAC_EditMode"]/caseFalse</xpath>
+      <emptyDocument>false</emptyDocument>
+   </Operation>
 
-    <!-- Core -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Core</li>
-            <li>ludeon.rimworld</li>
-            <li>Core</li>
-        </arguments>
-    </Operation>
+   <!-- Core -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Core</li>
+         <li>ludeon.rimworld</li>
+         <li>Core</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_Core</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_Corek</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Core</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Corek</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Bear_Grizzly" or 
                             defName="Bear_Polar" or 
                             defName="Ostrich" or 
@@ -108,12 +108,12 @@
                             defName="Fox_Red" or 
                             defName="Fox_Arctic"
                                 ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_Corek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_Corek}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                                 Defs/BiomeDef/wildAnimals/Bear_Grizzly |  
                                 Defs/BiomeDef/wildAnimals/Bear_Polar |  
                                 Defs/BiomeDef/wildAnimals/Ostrich |  
@@ -175,72 +175,72 @@
                                 Defs/BiomeDef/wildAnimals/Fox_Red |  
                                 Defs/BiomeDef/wildAnimals/Fox_Arctic
                             </xpath>
-                        <value>{testsMAC_Corek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_Corek}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Alpha Animals -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Alpha Animals</li>
-            <li>sarg.alphaanimals</li>
-            <li>AlphaAnimals</li>
-            <li>AA_</li>
-        </arguments>
-    </Operation>
+   <!-- Alpha Animals -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Alpha Animals</li>
+         <li>sarg.alphaanimals</li>
+         <li>AlphaAnimals</li>
+         <li>AA_</li>
+      </arguments>
+   </Operation>
 
-    <!-- Animal Collab Project Vanilla-Style -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Animal Collab Project Vanilla-Style</li>
-            <li>acpteam.acpvanillastyle</li>
-            <li>AnimalCollabProjectVanillaStyle</li>
-            <li>ACP</li>
-        </arguments>
-    </Operation>
+   <!-- Animal Collab Project Vanilla-Style -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Animal Collab Project Vanilla-Style</li>
+         <li>acpteam.acpvanillastyle</li>
+         <li>AnimalCollabProjectVanillaStyle</li>
+         <li>ACP</li>
+      </arguments>
+   </Operation>
 
-    <!-- Bastyon -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Bastyon</li>
-            <li>scurvyez.bastyon</li>
-            <li>Bastyon</li>
-            <li>Bast_</li>
-        </arguments>
-    </Operation>
+   <!-- Bastyon -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Bastyon</li>
+         <li>scurvyez.bastyon</li>
+         <li>Bastyon</li>
+         <li>Bast_</li>
+      </arguments>
+   </Operation>
 
-    <!-- BIRD UP -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>BIRD UP!</li>
-            <li>alex.birdup.allinone</li>
-            <li>BIRDUP</li>
-        </arguments>
-    </Operation>
+   <!-- BIRD UP -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>BIRD UP!</li>
+         <li>alex.birdup.allinone</li>
+         <li>BIRDUP</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_BIRDUP</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_BIRDUPk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_BIRDUP</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_BIRDUPk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Budgerigar" or 
                             defName="Cockatiel" or 
                             defName="Peregrine_falcon" or 
@@ -248,12 +248,12 @@
                             defName="Raven" or 
                             defName="Vulture"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_BIRDUPk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_BIRDUPk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Budgerigar | 
                             Defs/BiomeDef/wildAnimals/Cockatiel | 
                              Defs/BiomeDef/wildAnimals/Peregrine_falcon | 
@@ -261,49 +261,49 @@
                              Defs/BiomeDef/wildAnimals/Raven | 
                              Defs/BiomeDef/wildAnimals/Vulture
                             </xpath>
-                        <value>{testsMAC_BIRDUPk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_BIRDUPk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- boomlaphants -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actsingle</patchName>
-        <arguments>
-            <li>Boomaphants</li>
-            <li>thegoofyone.boomaphants</li>
-            <li>Boomaphants</li>
-            <li>Boomaphant</li>
-        </arguments>
-    </Operation>
+   <!-- boomlaphants -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actsingle</patchName>
+      <arguments>
+         <li>Boomaphants</li>
+         <li>thegoofyone.boomaphants</li>
+         <li>Boomaphants</li>
+         <li>Boomaphant</li>
+      </arguments>
+   </Operation>
 
 
-    <!-- Borderlands Creatures -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Borderlands: Creatures</li>
-            <li>deon.borderlandscreatures</li>
-            <li>BorderlandsCreatures</li>
-        </arguments>
-    </Operation>
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_BorderlandsCreatures</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_BorderlandsCreaturesk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- Borderlands Creatures -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Borderlands: Creatures</li>
+         <li>deon.borderlandscreatures</li>
+         <li>BorderlandsCreatures</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_BorderlandsCreatures</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_BorderlandsCreaturesk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Tyrant" or 
                             defName="Ratch" or 
                             defName="Skag" or 
@@ -313,12 +313,12 @@
                             defName="Rakk" or 
                             defName="Bullymong"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_BorderlandsCreaturesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_BorderlandsCreaturesk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Tyrant | 
                             Defs/BiomeDef/wildAnimals/Ratch |
                             Defs/BiomeDef/wildAnimals/Skag |
@@ -328,51 +328,154 @@
                             Defs/BiomeDef/wildAnimals/Rakk |
                             Defs/BiomeDef/wildAnimals/Bullymong
                         </xpath>
-                        <value>{testsMAC_BorderlandsCreaturesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_BorderlandsCreaturesk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- CIWSpk Animal  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>CIWSpk Animal</li>
+         <li>UNKNOWN.CIWS.Animal</li>
+         <li>CIWSpkAnimal</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_CIWSpkAnimal</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_CIWSpkAnimalk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                            defName="GoldChicken" or 
+                            defName="CIWSDaXiongMao" or 
+                            defName="ZhanXiong" or 
+                            defName="CIWSPackHorse"
+                            ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_CIWSpkAnimalk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                            Defs/BiomeDef/wildAnimals/GoldChicken | 
+                            Defs/BiomeDef/wildAnimals/CIWSDaXiongMao |
+                            Defs/BiomeDef/wildAnimals/ZhanXiong |
+                            Defs/BiomeDef/wildAnimals/CIWSPackHorse
+                        </xpath>
+                  <value>{testsMAC_CIWSpkAnimalk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Devilstrand animals -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Devilstrand Animals</li>
-            <li>averythekitty.devilstrandanimals</li>
-            <li>DevilstrandAnimals</li>
-            <li>ATK_</li>
-        </arguments>
-    </Operation>
+   <!-- Combined Animals  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Combined Animals</li>
+         <li>idontexist.combinedanimals</li>
+         <li>CombinedAnimals</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_CombinedAnimals</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_CombinedAnimalsk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                            defName="BoomAnimal_Boomchicken" or 
+                            defName="BoomAnimal_BoomFox" or 
+                            defName="BoomAnimal_Boomtortoise" or 
+                            defName="BoomAnimal_Boomuffalo" or 
+                            defName="ThrumboPlus_Thrumbochicken" or 
+                            defName="BoomAnimal_Thrumboom"
+                            ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_CombinedAnimalsk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                            Defs/BiomeDef/wildAnimals/BoomAnimal_Boomchicken | 
+                            Defs/BiomeDef/wildAnimals/BoomAnimal_BoomFox |
+                            Defs/BiomeDef/wildAnimals/BoomAnimal_Boomtortoise |
+                            Defs/BiomeDef/wildAnimals/BoomAnimal_Boomuffalo |
+                            Defs/BiomeDef/wildAnimals/ThrumboPlus_Thrumbochicken |
+                            Defs/BiomeDef/wildAnimals/BoomAnimal_Thrumboom
+                        </xpath>
+                  <value>{testsMAC_CombinedAnimalsk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Dinosauria  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Dinosauria</li>
-            <li>spincrus.dinosauria</li>
-            <li>Dinosauria</li>
-        </arguments>
-    </Operation>
+   <!-- Devilstrand animals -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Devilstrand Animals</li>
+         <li>averythekitty.devilstrandanimals</li>
+         <li>DevilstrandAnimals</li>
+         <li>ATK_</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_Dinosauria</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_Dinosauriak</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+
+   <!-- Dinosauria  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Dinosauria</li>
+         <li>spincrus.dinosauria</li>
+         <li>Dinosauria</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Dinosauria</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Dinosauriak</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="TyrannosaurusRex" or 
                             defName="Yutyrannus" or 
                             defName="Carnotaurus" or 
@@ -406,12 +509,12 @@
                             defName="Quetzalcoatlus" or 
                             defName="Pteranodon"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_Dinosauriak}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_Dinosauriak}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/TyrannosaurusRex | 
                             Defs/BiomeDef/wildAnimals/Yutyrannus | 
                             Defs/BiomeDef/wildAnimals/Carnotaurus | 
@@ -445,148 +548,172 @@
                             Defs/BiomeDef/wildAnimals/Quetzalcoatlus | 
                             Defs/BiomeDef/wildAnimals/Pteranodon
                         </xpath>
-                        <value>{testsMAC_Dinosauriak}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_Dinosauriak}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- doomalope -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Doomalope</li>
-            <li>cucumpear.doomalope</li>
-            <li>Doomalope</li>
-        </arguments>
-    </Operation>
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_Doomalope</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_Doomalopek</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="Doomalope" or defName="CCPBoomalotter"]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_Doomalopek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/Doomalope | Defs/BiomeDef/wildAnimals/CCPBoomalotter</xpath>
-                        <value>{testsMAC_Doomalopek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+   <!-- doomalope -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Doomalope</li>
+         <li>cucumpear.doomalope</li>
+         <li>Doomalope</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Doomalope</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Doomalopek</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[defName="Doomalope" or defName="CCPBoomalotter"]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_Doomalopek}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/Doomalope | Defs/BiomeDef/wildAnimals/CCPBoomalotter</xpath>
+                  <value>{testsMAC_Doomalopek}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- erins amaro -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actsingle</patchName>
-        <arguments>
-            <li>Erin's Amaro</li>
-            <li>erin.amaro</li>
-            <li>ErinAmaro</li>
-            <li>ERN_Amaro</li>
-        </arguments>
-    </Operation>
-    <!-- erins chocobos -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actsingle</patchName>
-        <arguments>
-            <li>Erin's Chocobos</li>
-            <li>erin.chocobos</li>
-            <li>ErinsChocobos</li>
-            <li>ERN_Chocobo</li>
-        </arguments>
-    </Operation>
-
-    <!-- ESCP - Spriggan -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>ESCP - Spriggan</li>
-            <li>pphhyy.escp.spriggan</li>
-            <li>ESCPSpriggan</li>
-        </arguments>
-    </Operation>
-
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_ESCPSpriggan</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_ESCPSpriggank</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[@ParentName="ESCP_SprigganThingBase" or @Name="ESCP_SprigganThingBase" or contains(defName,"ESCP_Spriggan")]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_ESCPSpriggank}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"ESCP_Spriggan")]</xpath>
-                        <value>{testsMAC_ESCPSpriggank}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+   <!-- Ducks -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Ducks</li>
+         <li>zylle.Ducks</li>
+         <li>Ducks</li>
+         <li>ZDuck_</li>
+      </arguments>
+   </Operation>
 
 
-    <!-- Forsakens: Fauna -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Forsakens: Fauna</li>
-            <li>forsakens.fauna</li>
-            <li>ForsakensFauna</li>
-            <li>FO_</li>
-        </arguments>
-    </Operation>
+   <!-- Elephants -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Elephants</li>
+         <li>zylle.Elephants</li>
+         <li>Elephants</li>
+         <li>ZEle_</li>
+      </arguments>
+   </Operation>
 
-    <!-- Half Life Creatures -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Half-Life Creatures</li>
-            <li>asgalligator.hlvrmonsters</li>
-            <li>HalfLifeCreatures</li>
-        </arguments>
-    </Operation>
+   <!-- erins amaro -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actsingle</patchName>
+      <arguments>
+         <li>Erin's Amaro</li>
+         <li>erin.amaro</li>
+         <li>ErinAmaro</li>
+         <li>ERN_Amaro</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_HalfLifeCreatures</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_HalfLifeCreaturesk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- erins chocobos -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actsingle</patchName>
+      <arguments>
+         <li>Erin's Chocobos</li>
+         <li>erin.chocobos</li>
+         <li>ErinsChocobos</li>
+         <li>ERN_Chocobo</li>
+      </arguments>
+   </Operation>
+
+   <!-- ESCP - Spriggan -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>ESCP - Spriggan</li>
+         <li>pphhyy.escp.spriggan</li>
+         <li>ESCPSpriggan</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_ESCPSpriggan</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_ESCPSpriggank</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[@ParentName="ESCP_SprigganThingBase" or @Name="ESCP_SprigganThingBase" or contains(defName,"ESCP_Spriggan")]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_ESCPSpriggank}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"ESCP_Spriggan")]</xpath>
+                  <value>{testsMAC_ESCPSpriggank}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+
+   <!-- Forsakens: Fauna -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Forsakens: Fauna</li>
+         <li>forsakens.fauna</li>
+         <li>ForsakensFauna</li>
+         <li>FO_</li>
+      </arguments>
+   </Operation>
+
+   <!-- Half Life Creatures -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Half-Life Creatures</li>
+         <li>asgalligator.hlvrmonsters</li>
+         <li>HalfLifeCreatures</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HalfLifeCreatures</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HalfLifeCreaturesk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Monster_Bullsquid" or 
                             defName="Monster_Houndeye" or 
                             defName="Monster_Antlion" or 
@@ -602,12 +729,12 @@
                             
                             
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_HalfLifeCreaturesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_HalfLifeCreaturesk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Monster_Bullsquid | 
                             Defs/BiomeDef/wildAnimals/Monster_Houndeye |
                             Defs/BiomeDef/wildAnimals/Monster_Antlion |
@@ -621,39 +748,257 @@
                             Defs/BiomeDef/wildAnimals/Monster_BigMomma |
                             Defs/BiomeDef/wildAnimals/Monster_Gargantua
                         </xpath>
-                        <value>{testsMAC_HalfLifeCreaturesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_HalfLifeCreaturesk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- HC Creatures -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>HC_Creatures_1</li>
-            <li>hc.creatures.1</li>
-            <li>HC_Creatures_1</li>
-        </arguments>
-    </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_HC_Creatures_1</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_HC_Creatures_1k</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- HC Animal 1 -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>HC_Animal_1</li>
+         <li>HC.Animal.1</li>
+         <li>HC_Animal_1</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HC_Animal_1</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HC_Animal_1k</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                            defName="HC_KomodoDragon" or 
+                            defName="HC_Pangolin" or 
+                            defName="HC_Samoyed" or 
+                            defName="HC_Serval" or 
+                            defName="HC_Weasel"
+                            
+                            ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_HC_Animal_1k}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                            Defs/BiomeDef/wildAnimals/HC_KomodoDragon | 
+                            Defs/BiomeDef/wildAnimals/HC_Pangolin |
+                            Defs/BiomeDef/wildAnimals/HC_Samoyed |
+                            Defs/BiomeDef/wildAnimals/HC_Serval |
+                            Defs/BiomeDef/wildAnimals/HC_Weasel
+
+                        </xpath>
+                  <value>{testsMAC_HC_Animal_1k}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- HC Animal 2 -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>HC_Animal_2</li>
+         <li>HC.Animal.2</li>
+         <li>HC_Animal_2</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HC_Animal_2</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HC_Animal_2k</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                               defName="HC_Alligatorturtle" or 
+                               defName="HC_Anacondas" or 
+                               defName="HC_Bullfrog" or 
+                               defName="HC_Galapagostortoise" or 
+                               defName="HC_Leopardgecko" or 
+                               defName="HC_Watermonitor"
+                               
+                               ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_HC_Animal_2k}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                               Defs/BiomeDef/wildAnimals/HC_Alligatorturtle | 
+                               Defs/BiomeDef/wildAnimals/HC_Anacondas |
+                               Defs/BiomeDef/wildAnimals/HC_Bullfrog |
+                               Defs/BiomeDef/wildAnimals/HC_Galapagostortoise |
+                               Defs/BiomeDef/wildAnimals/HC_Leopardgecko |
+                               Defs/BiomeDef/wildAnimals/HC_Watermonitor
+   
+                           </xpath>
+                  <value>{testsMAC_HC_Animal_2k}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- HC Animal 3 -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>HC_Animal_3</li>
+         <li>HC.Animal.3</li>
+         <li>HC_Animal_3</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HC_Animal_3</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HC_Animal_3k</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                                  defName="HC_Cheetah" or 
+                                  defName="HC_Hyena" or 
+                                  defName="HC_Jaguar" or 
+                                  defName="HC_Lion" or 
+                                  defName="HC_Snowleopard" or 
+                                  defName="HC_Tiger"
+                                  
+                                  ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_HC_Animal_3k}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                                  Defs/BiomeDef/wildAnimals/HC_Cheetah | 
+                                  Defs/BiomeDef/wildAnimals/HC_Hyena |
+                                  Defs/BiomeDef/wildAnimals/HC_Jaguar |
+                                  Defs/BiomeDef/wildAnimals/HC_Lion |
+                                  Defs/BiomeDef/wildAnimals/HC_Snowleopard |
+                                  Defs/BiomeDef/wildAnimals/HC_Tiger
+      
+                              </xpath>
+                  <value>{testsMAC_HC_Animal_3k}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- HC Animal 4 -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>HC_Animal_4</li>
+         <li>HC.Animal.4</li>
+         <li>HC_Animal_4</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HC_Animal_4</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HC_Animal_4k</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                                        defName="HC_Alligator" or 
+                                        defName="HC_Baboon" or 
+                                        defName="HC_Crocodale" or 
+                                        defName="HC_Giraffe" or 
+                                        defName="HC_Hippo"
+                                        
+                                        ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_HC_Animal_4k}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                                        Defs/BiomeDef/wildAnimals/HC_Alligator | 
+                                        Defs/BiomeDef/wildAnimals/HC_Baboon |
+                                        Defs/BiomeDef/wildAnimals/HC_Crocodale |
+                                        Defs/BiomeDef/wildAnimals/HC_Giraffe |
+                                        Defs/BiomeDef/wildAnimals/HC_Hippo
+            
+                                    </xpath>
+                  <value>{testsMAC_HC_Animal_4k}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+
+   <!-- HC Creatures -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>HC_Creatures_1</li>
+         <li>hc.creatures.1</li>
+         <li>HC_Creatures_1</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_HC_Creatures_1</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_HC_Creatures_1k</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="HC_Carbuncle" or 
                             defName="HC_Nightmares" or 
                             defName="HC_Gorgon" or 
@@ -667,12 +1012,12 @@
                             
                             
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_HC_Creatures_1k}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_HC_Creatures_1k}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/HC_Carbuncle | 
                             Defs/BiomeDef/wildAnimals/HC_Nightmares |
                             Defs/BiomeDef/wildAnimals/HC_Gorgon |
@@ -684,40 +1029,51 @@
                             Defs/BiomeDef/wildAnimals/HC_Yeti |
                             Defs/BiomeDef/wildAnimals/HC_Roc
                         </xpath>
-                        <value>{testsMAC_HC_Creatures_1k}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_HC_Creatures_1k}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Legacy Ark  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Legacy Ark</li>
-            <li>mlie.legacyark</li>
-            <li>LegacyArk</li>
-        </arguments>
-    </Operation>
+   <!-- Hybrid Animals  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Hybrid Animals</li>
+         <li>zylle.HybridAnimals</li>
+         <li>HybridAnimals</li>
+         <li>ZHY_</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_LegacyArk</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_LegacyArkk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- Legacy Ark  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Legacy Ark</li>
+         <li>mlie.legacyark</li>
+         <li>LegacyArk</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_LegacyArk</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_LegacyArkk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             @ParentName="ArkCowBase" or 
                             @Name="ArkCowBase" or 
                             defName="AngusCow" or 
@@ -773,12 +1129,12 @@
                             defName="RedRattler" or 
                             defName="BorderLeicesterSheep"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_LegacyArkk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_LegacyArkk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/AngusCow | 
                             Defs/BiomeDef/wildAnimals/HerefordCow | 
                             Defs/BiomeDef/wildAnimals/HarianaCow | 
@@ -828,50 +1184,50 @@
                             Defs/BiomeDef/wildAnimals/RedRattler | 
                             Defs/BiomeDef/wildAnimals/BorderLeicesterSheep
                         </xpath>
-                        <value>{testsMAC_LegacyArkk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_LegacyArkk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- Magical Menagerie -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Magical Menagerie</li>
-            <li>sarg.magicalmenagerie</li>
-            <li>MagicalMenagerie</li>
-            <li>MM_</li>
-        </arguments>
-    </Operation>
+   <!-- Magical Menagerie -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Magical Menagerie</li>
+         <li>sarg.magicalmenagerie</li>
+         <li>MagicalMenagerie</li>
+         <li>MM_</li>
+      </arguments>
+   </Operation>
 
-    <!-- Megafauna -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Megafauna</li>
-            <li>spino.megafauna</li>
-            <li>Megafauna</li>
-        </arguments>
-    </Operation>
+   <!-- Megafauna -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Megafauna</li>
+         <li>spino.megafauna</li>
+         <li>Megafauna</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_Megafauna</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_Megafaunak</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Megafauna</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Megafaunak</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Arthropleura" or 
                             defName="Doedicurus" or 
                             defName="Daeodon" or 
@@ -911,12 +1267,12 @@
                             defName="Castoroides" or 
                             defName="Enhydriodon"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_Megafaunak}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_Megafaunak}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Arthropleura |
                             Defs/BiomeDef/wildAnimals/Doedicurus |
                             Defs/BiomeDef/wildAnimals/Daeodon |
@@ -956,39 +1312,39 @@
                             Defs/BiomeDef/wildAnimals/Castoroides |
                             Defs/BiomeDef/wildAnimals/Enhydriodon
                             </xpath>
-                        <value>{testsMAC_Megafaunak}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_Megafaunak}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Monster Hunter RimWorld -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Monster Hunter RimWorld</li>
-            <li>asgalligator.mhrw</li>
-            <li>MonsterHunterRimWorld</li>
-        </arguments>
-    </Operation>
+   <!-- Monster Hunter RimWorld -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Monster Hunter RimWorld</li>
+         <li>asgalligator.mhrw</li>
+         <li>MonsterHunterRimWorld</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_MonsterHunterRimWorld</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_MonsterHunterRimWorldk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_MonsterHunterRimWorld</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_MonsterHunterRimWorldk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/ThingDef[
 
                             defName="KuluYaKu" or 
@@ -1044,12 +1400,12 @@
                             
                             ]/race/wildBiomes/*
                         </xpath>
-                        <value>{testsMAC_MonsterHunterRimWorldk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_MonsterHunterRimWorldk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/KuluYaKu | 
                             Defs/BiomeDef/wildAnimals/Genprey | 
                             Defs/BiomeDef/wildAnimals/Velociprey | 
@@ -1102,39 +1458,39 @@
                             Defs/BiomeDef/wildAnimals/Bullfango
                             
                         </xpath>
-                        <value>{testsMAC_MonsterHunterRimWorldk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_MonsterHunterRimWorldk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Monstrous Compendium -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Monstrous Compendium</li>
-            <li>mlie.monstrouscompendium</li>
-            <li>MonstrousCompendium</li>
-        </arguments>
-    </Operation>
+   <!-- Monstrous Compendium -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Monstrous Compendium</li>
+         <li>mlie.monstrouscompendium</li>
+         <li>MonstrousCompendium</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_MonstrousCompendium</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_MonstrousCompendiumk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_MonstrousCompendium</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_MonstrousCompendiumk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Beetle" or 
                             defName="FireBeetle" or 
                             defName="Deviljho" or 
@@ -1144,12 +1500,12 @@
                             @Name="OozeRace" or 
                             defName="Purpleworm"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_MonstrousCompendiumk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_MonstrousCompendiumk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Beetle | 
                             Defs/BiomeDef/wildAnimals/FireBeetle |
                             Defs/BiomeDef/wildAnimals/Deviljho |
@@ -1159,89 +1515,89 @@
                             Defs/BiomeDef/wildAnimals/ooze_green |
                             Defs/BiomeDef/wildAnimals/Purpleworm
                         </xpath>
-                        <value>{testsMAC_MonstrousCompendiumk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_MonstrousCompendiumk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- mooloh dnd menagerie -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Mooloh's Dnd Menagerie</li>
-            <li>mooloh.dndmenagerie</li>
-            <li>MoolohsDndMenagerie</li>
-            <li>DND</li>
-        </arguments>
-    </Operation>
+   <!-- mooloh dnd menagerie -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Mooloh's Dnd Menagerie</li>
+         <li>mooloh.dndmenagerie</li>
+         <li>MoolohsDndMenagerie</li>
+         <li>DND</li>
+      </arguments>
+   </Operation>
 
-    <!-- MorrowRim - Trolls  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>MorrowRim - Trolls</li>
-            <li>sirmashedpotato.morrowrim.trolls</li>
-            <li>MorrowRimTrolls</li>
-        </arguments>
-    </Operation>
+   <!-- MorrowRim - Trolls  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>MorrowRim - Trolls</li>
+         <li>sirmashedpotato.morrowrim.trolls</li>
+         <li>MorrowRimTrolls</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_MorrowRimTrolls</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_MorrowRimTrollsk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[contains(defName,"MorrowRim_Troll") or @ParentName="MorrowRim_TrollThingBase" or @ParentName="MorrowRim_TrollThingBase_T2" or @Name="MorrowRim_TrollThingBase" or @Name="MorrowRim_TrollThingBase_T2"]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_MorrowRimTrollsk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"MorrowRim_Troll")]</xpath>
-                        <value>{testsMAC_MorrowRimTrollsk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_MorrowRimTrolls</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_MorrowRimTrollsk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[contains(defName,"MorrowRim_Troll") or @ParentName="MorrowRim_TrollThingBase" or @ParentName="MorrowRim_TrollThingBase_T2" or @Name="MorrowRim_TrollThingBase" or @Name="MorrowRim_TrollThingBase_T2"]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_MorrowRimTrollsk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"MorrowRim_Troll")]</xpath>
+                  <value>{testsMAC_MorrowRimTrollsk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Oxygen Not Included Animals Module  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Oxygen Not Included Animals Module</li>
-            <li>scruffy.content.onianimals</li>
-            <li>OxygenNotIncludedAnimalsModule</li>
-        </arguments>
-    </Operation>
+   <!-- Oxygen Not Included Animals Module  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Oxygen Not Included Animals Module</li>
+         <li>scruffy.content.onianimals</li>
+         <li>OxygenNotIncludedAnimalsModule</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_OxygenNotIncludedAnimalsModule</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_OxygenNotIncludedAnimalsModulek</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_OxygenNotIncludedAnimalsModule</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_OxygenNotIncludedAnimalsModulek</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Drecko" or 
                             defName="GlossyDrecko" or 
                             defName="SmoothHatch" or 
@@ -1271,12 +1627,12 @@
                             defName="Pip" or 
                             defName="Morb"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_OxygenNotIncludedAnimalsModulek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_OxygenNotIncludedAnimalsModulek}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Drecko |  
                             Defs/BiomeDef/wildAnimals/GlossyDrecko |  
                             Defs/BiomeDef/wildAnimals/SmoothHatch |  
@@ -1306,102 +1662,113 @@
                             Defs/BiomeDef/wildAnimals/Pip |  
                             Defs/BiomeDef/wildAnimals/Morb
                         </xpath>
-                        <value>{testsMAC_OxygenNotIncludedAnimalsModulek}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_OxygenNotIncludedAnimalsModulek}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-
-    <!-- Pet Cucumber -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actsingle</patchName>
-        <arguments>
-            <li>Pet Cucumber</li>
-            <li>tigerblut.petcucumber</li>
-            <li>PetCucumber</li>
-            <li>SeaCucumber</li>
-        </arguments>
-    </Operation>
-
-    <!-- Pink Material Sheep  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Pink Material Sheep</li>
-            <li>akairo.pinkmaterialsheep</li>
-            <li>PinkMaterialSheep</li>
-        </arguments>
-    </Operation>
-
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_PinkMaterialSheep</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_PinkMaterialSheepk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[defName="aka_BSheep" or ParentName="Suzumetan"]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_PinkMaterialSheepk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/aka_BSheep</xpath>
-                        <value>{testsMAC_PinkMaterialSheepk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
-
-    <!-- Race to the Rim -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>Race to the Rim</li>
-            <li>sargoskar.racetotherim</li>
-            <li>RacetotheRim</li>
-            <li>RttR</li>
-        </arguments>
-    </Operation>
+   <!-- Parrots  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Parrots</li>
+         <li>zylle.Parrots</li>
+         <li>Parrots</li>
+         <li>ZPT_</li>
+      </arguments>
+   </Operation>
 
 
-    <!-- ReGrowth Remastered: Extinct Animals  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>ReGrowth Remastered: Extinct Animals</li>
-            <li>regrowth2.extinctanimals</li>
-            <li>ReGrowthRemasteredExtinctAnimals</li>
-        </arguments>
-    </Operation>
+   <!-- Pet Cucumber -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actsingle</patchName>
+      <arguments>
+         <li>Pet Cucumber</li>
+         <li>tigerblut.petcucumber</li>
+         <li>PetCucumber</li>
+         <li>SeaCucumber</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_ReGrowthRemasteredExtinctAnimals</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_ReGrowthRemasteredExtinctAnimalsk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- Pink Material Sheep  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Pink Material Sheep</li>
+         <li>akairo.pinkmaterialsheep</li>
+         <li>PinkMaterialSheep</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_PinkMaterialSheep</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_PinkMaterialSheepk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[defName="aka_BSheep" or ParentName="Suzumetan"]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_PinkMaterialSheepk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/aka_BSheep</xpath>
+                  <value>{testsMAC_PinkMaterialSheepk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- Race to the Rim -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Race to the Rim</li>
+         <li>sargoskar.racetotherim</li>
+         <li>RacetotheRim</li>
+         <li>RttR</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- ReGrowth Remastered: Extinct Animals  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>ReGrowth Remastered: Extinct Animals</li>
+         <li>regrowth2.extinctanimals</li>
+         <li>ReGrowthRemasteredExtinctAnimals</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_ReGrowthRemasteredExtinctAnimals</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_ReGrowthRemasteredExtinctAnimalsk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="RG_WoollyMammoth" or 
                             defName="RG_WoollyRhinoceros" or 
                             defName="RG_WoollyStegosaurus" or 
@@ -1417,12 +1784,12 @@
                             
                             
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_ReGrowthRemasteredExtinctAnimalsk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_ReGrowthRemasteredExtinctAnimalsk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/RG_WoollyMammoth | 
                             Defs/BiomeDef/wildAnimals/RG_WoollyRhinoceros |
                             Defs/BiomeDef/wildAnimals/RG_WoollyStegosaurus |
@@ -1436,51 +1803,104 @@
                             Defs/BiomeDef/wildAnimals/RG_Thrinaxodon |
                             Defs/BiomeDef/wildAnimals/RG_Velociraptor
                         </xpath>
-                        <value>{testsMAC_ReGrowthRemasteredExtinctAnimalsk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_ReGrowthRemasteredExtinctAnimalsk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    
-    <!-- Alpha Animals -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actcontains</patchName>
-        <arguments>
-            <li>[Ry]Rimcraft Animals</li>
-            <li>Ryflamer.Rimcraft.Animals</li>
-            <li>RimcraftAnimals</li>
-            <li>WoW_Animal_</li>
-        </arguments>
-    </Operation>
 
-    <!-- Scaled World  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Scaled World</li>
-            <li>scaled.world</li>
-            <li>ScaledWorld</li>
-        </arguments>
-    </Operation>
+   <!-- [Ry]Rimcraft Animals -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>[Ry]Rimcraft Animals</li>
+         <li>Ryflamer.Rimcraft.Animals</li>
+         <li>RimcraftAnimals</li>
+         <li>WoW_Animal_</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_ScaledWorld</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_ScaledWorldk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- RimStarve  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>RimStarve</li>
+         <li>Mlie.RimStarve</li>
+         <li>RimStarve</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_RimStarve</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_RimStarvek</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                     @Name="RimStarveBasePawn" or 
+                     @ParentName="RimStarveBasePawn" or 
+                            defName="Beefalo" or 
+                            defName="Catcoon" or 
+                            defName="Hound" or 
+                            defName="Rabbit" or 
+                            defName="VoltGoat"
+                            ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_RimStarvek}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                            Defs/BiomeDef/wildAnimals/Beefalo | 
+                            Defs/BiomeDef/wildAnimals/Catcoon |
+                            Defs/BiomeDef/wildAnimals/Hound |
+                            Defs/BiomeDef/wildAnimals/Rabbit |
+                            Defs/BiomeDef/wildAnimals/VoltGoat
+                        </xpath>
+                  <value>{testsMAC_RimStarvek}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
+
+   <!-- Scaled World  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Scaled World</li>
+         <li>scaled.world</li>
+         <li>ScaledWorld</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_ScaledWorld</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_ScaledWorldk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Skrill" or 
                             defName="Monstrous_Nightmare" or 
                             defName="Fury" or 
@@ -1494,12 +1914,12 @@
                             defName="Boneknapper" or 
                             defName="Hideous_Zippleback"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_ScaledWorldk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_ScaledWorldk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Skrill | 
                             Defs/BiomeDef/wildAnimals/Monstrous_Nightmare |
                             Defs/BiomeDef/wildAnimals/Fury |
@@ -1513,46 +1933,46 @@
                             Defs/BiomeDef/wildAnimals/Boneknapper | 
                             Defs/BiomeDef/wildAnimals/Hideous_Zippleback
                         </xpath>
-                        <value>{testsMAC_ScaledWorldk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_ScaledWorldk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <!-- Slime Rancher  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Slime Rancher</li>
-            <li>punkyroo.slimerancher</li>
-            <li>SlimeRancher</li>
-        </arguments>
-    </Operation>
+   <!-- Slime Rancher  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Slime Rancher</li>
+         <li>punkyroo.slimerancher</li>
+         <li>SlimeRancher</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_SlimeRancher</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_SlimeRancherk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[@ParentName="SlimeThingBase" or @Name="SlimeThingBase"]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_SlimeRancherk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/GreenSlime | 
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_SlimeRancher</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_SlimeRancherk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[@ParentName="SlimeThingBase" or @Name="SlimeThingBase"]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_SlimeRancherk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/GreenSlime | 
                             Defs/BiomeDef/wildAnimals/PuddleSlime | 
                             Defs/BiomeDef/wildAnimals/FireSlime | 
                             Defs/BiomeDef/wildAnimals/BoomSlime | 
@@ -1566,80 +1986,80 @@
                             Defs/BiomeDef/wildAnimals/HoneySlime | 
                             Defs/BiomeDef/wildAnimals/RockSlime
                         </xpath>
-                        <value>{testsMAC_SlimeRancherk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+                  <value>{testsMAC_SlimeRancherk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- Slimes  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>Slimes</li>
-            <li>zylle.slimes</li>
-            <li>Slimes</li>
-        </arguments>
-    </Operation>
+   <!-- Slimes  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Slimes</li>
+         <li>zylle.slimes</li>
+         <li>Slimes</li>
+      </arguments>
+   </Operation>
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_Slimes</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_Slimesk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[@ParentName="ZSL_SlimeBase" or @Name="ZSL_SlimeBase" or (contains(defName,"ZSL") and contains(defName,"Slime"))]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_Slimesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"ZSL") and contains(local-name(),"Slime")]</xpath>
-                        <value>{testsMAC_Slimesk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Slimes</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Slimesk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[@ParentName="ZSL_SlimeBase" or @Name="ZSL_SlimeBase" or (contains(defName,"ZSL") and contains(defName,"Slime"))]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_Slimesk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/BiomeDef/wildAnimals/*[contains(local-name(),"ZSL") and contains(local-name(),"Slime")]</xpath>
+                  <value>{testsMAC_Slimesk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
-
-
-    <!-- StarWars Animal Collection  -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_act</patchName>
-        <arguments>
-            <li>StarWars Animal Collection</li>
-            <li>guy.starwarsanimalcollection</li>
-            <li>StarWarsAnimalCollection</li>
-        </arguments>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_StarWarsAnimalCollection</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
-            <Operation Class="XmlExtensions.UseSetting">
-                <modId>tests.ModAnimalCommonality</modId>
-                <key>testsMAC_StarWarsAnimalCollectionk</key>
-                <defaultValue>1</defaultValue>
-                <apply>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>Defs/ThingDef[
+   <!-- StarWars Animal Collection  -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>StarWars Animal Collection</li>
+         <li>guy.starwarsanimalcollection</li>
+         <li>StarWarsAnimalCollection</li>
+      </arguments>
+   </Operation>
+
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_StarWarsAnimalCollection</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_StarWarsAnimalCollectionk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
                             defName="Dewback" or 
                             defName="Rancor" or 
                             defName="Bantha" or 
@@ -1654,12 +2074,12 @@
                             defName="Vulptex" or 
                             defName="Wampa"
                             ]/race/wildBiomes/*</xpath>
-                        <value>{testsMAC_StarWarsAnimalCollectionk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                    <Operation Class="XmlExtensions.PatchOperationMath">
-                        <success>Always</success>
-                        <xpath>
+                  <value>{testsMAC_StarWarsAnimalCollectionk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
                             Defs/BiomeDef/wildAnimals/Dewback | 
                             Defs/BiomeDef/wildAnimals/Rancor |
                             Defs/BiomeDef/wildAnimals/Bantha |
@@ -1674,53 +2094,63 @@
                             Defs/BiomeDef/wildAnimals/Vulptex |
                             Defs/BiomeDef/wildAnimals/Wampa
                         </xpath>
-                        <value>{testsMAC_StarWarsAnimalCollectionk}</value>
-                        <operation>*</operation>
-                    </Operation>
-                </apply>
-            </Operation>
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+                  <value>{testsMAC_StarWarsAnimalCollectionk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
-    <!-- Tribbles! -->
-    <Operation Class="XmlExtensions.ApplyPatch">
-        <patchName>testspatches_actsingle</patchName>
-        <arguments>
-            <li>Tribbles!</li>
-            <li>zal.tribbles</li>
-            <li>Tribbles</li>
-            <li>SHTribble</li>
-        </arguments>
-    </Operation>
+   <!-- Turtles -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actcontains</patchName>
+      <arguments>
+         <li>Turtles</li>
+         <li>zylle.Turtles</li>
+         <li>Turtles</li>
+         <li>ZTT_</li>
+      </arguments>
+   </Operation>
+
+   <!-- Tribbles! -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_actsingle</patchName>
+      <arguments>
+         <li>Tribbles!</li>
+         <li>zal.tribbles</li>
+         <li>Tribbles</li>
+         <li>SHTribble</li>
+      </arguments>
+   </Operation>
 
 
+   <Operation Class="XmlExtensions.MergeDocument">
+      <docName>editmode</docName>
+   </Operation>
 
-    <Operation Class="XmlExtensions.MergeDocument">
-        <docName>editmode</docName>
-    </Operation>
-
-    <Operation Class="XmlExtensions.MergeDocument">
-        <docName>seemode</docName>
-    </Operation>
+   <Operation Class="XmlExtensions.MergeDocument">
+      <docName>seemode</docName>
+   </Operation>
 
 
-    <Operation Class="XmlExtensions.OptionalPatch">
-        <modId>tests.ModAnimalCommonality</modId>
-        <key>testsMAC_logging</key>
-        <defaultValue>false</defaultValue>
-        <caseTrue>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_logging</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
 
-            <Operation Class="XmlExtensions.Log">
-                <success>Always</success>
-                <text>Mod animal commonality debug - non-zeroes</text>
-                <xpath>Defs/ThingDef[race/wildBiomes/*>0]/defName</xpath>
-            </Operation>
-            <Operation Class="XmlExtensions.StopwatchStop" />
+         <Operation Class="XmlExtensions.Log">
+            <success>Always</success>
+            <text>Mod animal commonality debug - non-zeroes</text>
+            <xpath>Defs/ThingDef[race/wildBiomes/*>0]/defName</xpath>
+         </Operation>
+         <Operation Class="XmlExtensions.StopwatchStop" />
 
-        </caseTrue>
-        <caseFalse></caseFalse>
-    </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
 
 </Patch>
