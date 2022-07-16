@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+   <!--
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Enabled</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Beds</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Culinary</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Decor</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Husbandry</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Lighting</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Storage</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Turrets</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Industrial</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Ideology</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Medical</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Meditation</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_DesignationAlphaBiomes</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_DesignationGlitterNet</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_DesignationRimatomics</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_DesignationVFEMechanoids</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Spots</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue></caseTrue>
+    </Operation>
+   -->
+
+</Patch>

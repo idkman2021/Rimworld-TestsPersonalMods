@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+   <XmlExtensions.SettingsMenuDef>
+      <defName>tests_docworldarchitect</defName> <!--Can be anything unique with no periods-->
+      <modId>tests.DocWorldA</modId> <!--MUST be the same as the one entered earlier-->
+      <label>Docworld+ Architect Menu </label> <!-- This is what displays as your mod's name-->
+      <settings>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Settings apply after restart.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>All settings are safe to have enabled even if you don't have the appropriate mods.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.GapLine" />
+         <!--
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Enabled</key>
+            <label>Enable mod</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>disabling this disables the mod</tooltip>
+        </li>
+      -->
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Beds</key>
+            <label>Bedroom category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Beds and bed linkables like dressers and end tables.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Culinary</key>
+            <label>Culinary category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Everything related to making food and drinks.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Decor</key>
+            <label>Decorations category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Decorations that have no other function.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Husbandry</key>
+            <label>Husbandry category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Everything related to  plant and animal farms, including sun lamps, hydroponics, etc.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Industrial</key>
+            <label>Industrial category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Automation and infrastructure.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Ideology</key>
+            <label>Ideology category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Ideological buildings like lecterns and ideo symbols, as well as all ideology-restricted buildings.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Lighting</key>
+            <label>Lighting category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Torches and lamps.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Meditation</key>
+            <label>Meditation category</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Useful if you have Royalty DLC, contains all buildings for meditation including graves.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Medical</key>
+            <label>Medical category</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>All hospital buildings - hospital beds and linkables.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Spots</key>
+            <label>Spots category</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>All spots like sleeping spot, crafting spot, etc.</tooltip>
+         </li>
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Storage</key>
+            <label>Storage category (WIP)</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Buildings that can store items.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_Turrets</key>
+            <label>Turrets category</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Turrets and mortars, since security tab can get very cluttered otherwise.</tooltip>
+         </li>
+
+         <li Class="XmlExtensions.Setting.GapLine" />
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationAlphaBiomes</key>
+            <label>Organise Alpha Biomes</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Removes Alpha Biomes tab and distributes all its buildings into other tabs.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationGlitterNet</key>
+            <label>Organise GlitterNet</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Removes GlitterNet tab and moves all buildings into Industrial tab.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationRimatomics</key>
+            <label>Organise Rimatomics</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Removes Rimatomics tab and moves all buildings into Industrial ands Security tabs.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationVFEMechanoids</key>
+            <label>Organise Vanilla Factions Expanded - Mechanoids</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Removes VFE Mechanoids tab and moves all buildings into Industrial tab.</tooltip>
+         </li>
+
+
+         <li Class="XmlExtensions.Setting.Gap" />
+         <li Class="XmlExtensions.Setting.ResetSettings" />
+      </settings>
+   </XmlExtensions.SettingsMenuDef>
+</Defs>

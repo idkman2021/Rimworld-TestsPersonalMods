@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DocWorldA</modId>
+      <key>testsDW_Enabled</key>
+      <defaultValue>true</defaultValue>
+      <caseTrue>
+
+         <!-- stopwatch -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.Log">
+                  <text>Stopwatch: Docworld - contains</text>
+               </Operation>
+               <Operation Class="XmlExtensions.StopwatchStart" />
+            </caseTrue>
+         </Operation>
+
+
+         <!-- culinary -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Culinary</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- lighting -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Lighting</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>Erin's Japanese Furniture</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                          defName="Erin_ElectricAndon" or
+                          defName="Erin_TorchAndon"
+                          ]</xpath>
+                     <value>
+                        <designationCategory>DZ_Lighting</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- bedroom -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Beds</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>[RH2] Uncle Boris' - Used Furniture</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                          defName="RH2_BarrackBed" or
+                          defName="RH2_CanvasBed" or 
+                          defName="RH2_ClassicFootlocker"
+                          ]</xpath>
+                     <value>
+                        <designationCategory>DZ_Beds</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+
+         <!-- storage -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Storage</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- turrets -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Turrets</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+
+         <!-- husbandry -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Husbandry</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- medical -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Medical</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xpath>Defs/ThingDef[defName="VitalsMonitor" or defName="HospitalBed"]</xpath>
+                  <value>
+                     <designationCategory>NQoL_Medical</designationCategory>
+                  </value>
+               </Operation>
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>Vanilla Furniture Expanded - Medical Module</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                          defName="Bed_OperatingTable" or 
+                          defName="Bed_CryptoBed" or 
+                          defName="Facility_IVDrip" or
+                          defName="Facility_VitalsCentre"
+                          ]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+               <!--
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>CTS - Complete Tech Solutions (Continued)</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[defName="CTSHiTechHospitalBed"]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+            -->
+
+               <!--Move items to Beds tab.-->
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>MedPod</li>
+                  </mods>
+                  <match Class="PatchOperationSequence">
+                     <success>Always</success>
+                     <operations>
+                        <li Class="XmlExtensions.PatchOperationAddOrReplace">
+                           <xpath>Defs/ThingDef[@Name="MedPodBedBase"]</xpath>
+                           <value>
+                              <designationCategory>NQoL_Medical</designationCategory>
+                           </value>
+                        </li>
+                     </operations>
+                  </match>
+               </Operation>
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>Vanilla Factions Expanded - Ancients</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                          defName="VFEA_AncientCryptosleepSuspender"
+                          ]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+               <!--
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>Rim-Effect: Core</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                       defName="RE_PrefabMedicalBed"
+                       ]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>RimLife Expansion Furniture</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                    defName="RLE_AdHospitalBed"
+                    ]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>More Linkables</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                 defName="SurgicalLamp" or 
+                 defName="SurgicalInstruments"
+                 ]</xpath>
+                     <value>
+                        <designationCategory>NQoL_Medical</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+            -->
+
+
+            </caseTrue>
+         </Operation>
+
+
+         <!-- spots -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Spots</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+
+         <!-- royalty/meditation -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Meditation</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- ideology -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Ideology</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- decor -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Decor</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="PatchOperationFindMod">
+                  <mods>
+                     <li>[RH2] Uncle Boris' - Used Furniture</li>
+                  </mods>
+                  <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                     <xpath>Defs/ThingDef[
+                          defName="RH2_Trashcan_Office" or
+                          defName="RH2_CzechHedgehogBarricade"
+                          ]</xpath>
+                     <value>
+                        <designationCategory>DZ_Decor</designationCategory>
+                     </value>
+                  </match>
+               </Operation>
+
+
+            </caseTrue>
+         </Operation>
+
+         <!-- Industrial -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Industrial</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+         <!-- Industrial -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Decor</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue></caseTrue>
+         </Operation>
+
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.StopwatchStop" />
+            </caseTrue>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse />
+   </Operation>
+
+</Patch>

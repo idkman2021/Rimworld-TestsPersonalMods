@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DocWorldA</modId>
+      <key>testsDW_Enabled</key>
+      <defaultValue>true</defaultValue>
+      <caseTrue>
+
+         <!-- stopwatch -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.Log">
+                  <text>Stopwatch: Docworld - contains 2</text>
+               </Operation>
+               <Operation Class="XmlExtensions.StopwatchStart" />
+            </caseTrue>
+         </Operation>
+
+         <!-- culinary -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Culinary</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[
+                     <!-- definitely doesn't have any of the parent names that are in the doc, so I filter them out right away, and whitelist is also filtered. -->
+                     <!-- not doing if checking 1 inheritance up -->
+                     <!-- designationCategory and -->
+                     (not(
+                     <!-- CULINARY BLACKLIST -->
+                     defName="GR_NutrientVat"
+                            
+                            ))]
+                            [
+                            contains(label, "stove") or 
+                            contains(label, "Stove") or 
+                            contains(@Name, "stove") or 
+                            contains(@Name, "Stove") or
+                            contains(label, "ferment") or 
+                            contains(label, "Ferment") or 
+                            contains(@Name, "ferment") or 
+                            contains(@Name, "Ferment") or 
+                            contains(label, "nutrient") or 
+                            contains(label, "Nutrient") or 
+                            contains(@Name, "nutrient") or 
+                            contains(@Name, "Nutrient") or 
+                            contains(label, "butcher") or 
+                            contains(label, "Butcher") or 
+                            contains(@Name, "butcher") or 
+                            contains(@Name, "Butcher") or
+                            thingClass="Building_FermentingBarrel" or
+                     <!-- CULINARY WHITELIST -->
+                     defName="Brewery" or defName="Hopper" or
+                     <!-- alpha memes -->
+                     defName="AM_GrogDispenser" or
+                     <!-- replimat -->
+                     designationCategory="Replimat_Replimat" or
+                     <!-- rimbees -->
+                     defName="RB_Beekeeping_Workbench_Building" or
+                     <!-- VFEC -->
+                     defName="VFEC_MeatDryingRack" or
+                     <!-- VPEMP -->
+                     defName="VCE_VegMilkExtractor" or
+                     <!-- more linkables -->
+                     defName="KitchenCupboard" or
+                     <!-- rimstro -->
+                     designationCategory="RS_Category" or
+                     <!-- VFES -->
+                     defName="Building_ChemshineBarrel" or
+                     <!-- VFEM -->
+                     defName="VFEM_WineBarrel" or
+                     <!-- VFEP -->
+                     defName="VFE_TableStoveLarge" or 
+                            defName="VFE_TableButcherElectric" or 
+                            defName="VPE_GasStove" or
+                     <!-- VFEV -->
+                     defName="VFEV_MeadFermentingBarrel" or
+                     <!-- VCES -->
+                     defName="VCE_SushiPrepTable" or 
+                            defName="VCE_SoyFermenter" or
+                     <!-- VCES -->
+                     defName="VCE_StewPot" or
+                     <!-- VCE -->
+                     defName="VCE_CheesePress" or 
+                            defName="VCE_CondimentPrepTable" or 
+                            defName="VCE_CanningMachine" or 
+                            defName="VCE_DeepFrier" or 
+                            defName="VCE_ElectricPot" or 
+                            defName="VCE_Grill" or
+                     <!-- VBECaT -->
+                     defName="VBE_EspressoMachineBuilding" or
+                     <!-- VBE -->
+                     defName="VBE_Bar" or 
+                            defName="VBE_SodaFountain" or 
+                            defName="VBE_AmbrandyDistillery" or 
+                            defName="VBE_WhiskeyCask" or 
+                            defName="VBE_TequilaBarrel" or 
+                            defName="VBE_VodkaDrum" or 
+                            defName="VBE_GinStill" or
+                     <!-- universal fermenter -->
+                     defName="UniversalFermenter"
+                            ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Culinary</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- lighting -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Lighting</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[
+
+                        @ParentName="LampBase" or 
+                        @ParentName="StandingLampBase" or
+                        contains(label, "lamp") or 
+                        contains(label, "torch") or 
+                        contains(label, "Lamp") or 
+                        contains(label, "Torch") or 
+                        contains(label, "wall light") or 
+                        contains(label, "Wall light") or 
+                        contains(@Name, "lamp") or 
+                        contains(@Name, "torch") or 
+                        contains(@Name, "Lamp") or 
+                        contains(@Name, "Torch") or
+                        contains(label, "lantern") or 
+                        contains(label, "Lantern") or 
+                        contains(@Name, "lantern") or 
+                        contains(@Name, "Lantern") or
+                     <!-- LIGHTING WHITELIST -->
+                     @Name="LTS_LightBase"
+                        
+                        ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Lighting</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- bedroom -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Beds</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     <!-- buildings with bed nodes -->
+                     Designations/ThingDef[designationCategory or 
+                            @ParentName="FurnitureBase" or
+                            @ParentName="FurnitureWithQualityBase" or
+                            @ParentName="ArtableFurnitureBase" or
+                            @ParentName="ArtableFurnitureRegardlessOfQualityBase"]
+                                    
+                            [comps/li/compClass="CompAssignableToPawn_Bed" or 
+                            thingClass="Building_Bed" or 
+                            building/buildingTags/li="Bed"]
+
+                            |
+                     <!-- straightforward beds -->
+                     Designations/ThingDef[@ParentName="BedBase" or
+                            @ParentName="BedWithQualityBase" or 
+                            @ParentName="ArtableBedBase"]
+
+                            |
+                     <!-- linkables -->
+                     Designations/ThingDef[
+                            designationCategory or 
+                            @ParentName="FurnitureBase" or
+                            @ParentName="FurnitureWithQualityBase" or
+                            @ParentName="ArtableFurnitureBase" or
+                            @ParentName="ArtableFurnitureRegardlessOfQualityBase" or
+                            @ParentName="TableBase"
+                            ][comps/li[@Class="CompProperties_Facility"]][
+                            contains(label, "dresser") or 
+                            contains(label, "Dresser") or 
+                            contains(@Name, "dresser") or 
+                            contains(@Name, "Dresser") or
+                            contains(label, "end table") or 
+                            contains(label, "End table") or 
+                            contains(@Name, "EndTable") or 
+                            contains(@Name, "Endtable") or
+                            contains(label, "wardrobe") or 
+                            contains(label, "Wardrobe") or 
+                            contains(@Name, "wardrobe") or 
+                            contains(@Name, "Wardrobe") or 
+                            contains(label, "bed") or 
+                            contains(label, "Bed") or 
+                            contains(@Name, "bed") or 
+                            contains(@Name, "Bed")]
+
+                            |
+                     <!-- BEDROOM WHITELIST -->
+                     Designations/ThingDef[
+                     <!-- not in doc anymore -->
+                     <!-- will be after inheritance check? -->
+                     defName="LTS_KoppangD" or 
+                            defName="LTS_IdanasN" or 
+                            defName="LTS_IdanasD" or 
+
+                     @Name="LTS_BedBase" or 
+                            @Name="LTS_ArtBedBase" or
+                            defName="Table_LightEndTable"
+                            
+                            ]
+                     <!--
+                            [
+                            contains(label, "sleep") or 
+                            contains(label, "Sleep") or 
+                            contains(@Name, "sleep") or 
+                            contains(@Name, "Sleep") or
+                            contains(label, "bed") or 
+                            contains(label, "Bed") or 
+                            contains(@Name, "bed") or 
+                            contains(@Name, "Bed")]
+                            -->
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Beds</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+
+         <!-- storage -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Storage</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>Designations/ThingDef[
+                                    designationCategory or 
+                                    @ParentName="FurnitureBase" or
+                                    @ParentName="FurnitureWithQualityBase" or
+                                    @ParentName="ArtableFurnitureBase" or
+                                    @ParentName="ArtableFurnitureRegardlessOfQualityBase"
+                                    ][
+                                    building/fixedStorageSettings/filter/categories/li="Root"]</xpath>
+                  <value>
+                     <designationCategory>DZ_Storage</designationCategory>
+                  </value>
+               </Operation>
+            </caseTrue>
+         </Operation>
+
+         <!-- turrets -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Turrets</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[
+                                    (
+                                    designationCategory and 
+                                    (thingClass="Building_TurretGun" or statBases/ShootingAccuracyTurret or building/buildingTags/li="Artillery" or building/turretBurstWarmupTime or building/turretBurstCooldownTime or building/turretGunDef or building/turretTopDrawSize)
+                                    ) 
+                                    or @ParentName="BaseArtilleryBuilding" or @ParentName="AutocannonTurret"
+                                    ][
+                     <!-- TURRETS BLACKLIST -->
+                     not(defName="VFES_Turret_Decoy")
+                                    
+                                    ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Turrets</designationCategory>
+                  </value>
+               </Operation>
+            </caseTrue>
+         </Operation>
+
+
+         <!-- husbandry -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Husbandry</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[designationCategory or @ParentName="LampBase"][
+                            contains(label, "hydroponic") or 
+                            contains(label, "sun") or 
+                            contains(label, "Hydroponic") or 
+                            contains(label, "Sun") or 
+                            contains(@Name, "hydroponic") or 
+                            contains(@Name, "sun") or 
+                            contains(@Name, "Hydroponic") or 
+                            contains(@Name, "Sun") or
+                            thingClass="Building_PlantGrower" or 
+                            thingClass="Building_SunLamp" or 
+                            building/defaultPlantToGrow]
+                        
+                        |
+                    
+                        Designations/ThingDef[
+                     <!-- HUSBANDRY WHITELIST -->
+                     @Name="LTS_GrowingBase"
+                        
+                        ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Husbandry</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- medical -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Medical</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <success>Always</success>
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef
+                     <!--[designationCategory or @ParentName="LampBase"]-->
+                     [
+                            contains(label, "hospital") or 
+                            contains(label, "Hospital") or 
+                            contains(@Name, "hospital") or 
+                            contains(@Name, "Hospital") or
+
+                            contains(@Name, "medical") or 
+                            contains(@Name, "Medical") or
+                            contains(label, "medical") or 
+                            contains(label, "Medical") or 
+
+                            contains(label, "surgical") or 
+                            contains(label, "Surgical") or 
+                            contains(@Name, "surgical") or 
+                            contains(@Name, "Surgical")
+                            ]
+                  </xpath>
+                  <value>
+                     <designationCategory>NQoL_Medical</designationCategory>
+                  </value>
+               </Operation>
+
+
+            </caseTrue>
+         </Operation>
+
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Spots</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>Designations/ThingDef[
+                      contains(label, "spot") or 
+                      contains(label, "Spot") or 
+                      contains(@Name, "spot") or 
+                      contains(@Name, "Spot")]</xpath>
+                  <value>
+                     <designationCategory>NQoL_Spots</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+
+         <!-- royalty/meditation -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Meditation</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>Designations/ThingDef[
+                            designationCategory or 
+                            @ParentName="FurnitureBase" or
+                            @ParentName="FurnitureWithQualityBase" or
+                            @ParentName="ArtableFurnitureBase" or
+                            @ParentName="ArtableFurnitureRegardlessOfQualityBase" or
+                            @ParentName="NatureShrineBase"
+                            ][
+                            comps/li/focusTypes/li="Natural" or
+                            comps/li/focusTypes/li="Dignified" or
+                            comps/li/focusTypes/li="Morbid"
+                            ]
+                        </xpath>
+                  <value>
+                     <designationCategory>DZ_Meditation</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- ideology -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Ideology</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[(
+                            designationCategory or 
+                            @ParentName="IdeoBuildingBase" or
+                            @ParentName="AltarBase" or
+                            @ParentName="IdeoBuildingConsumableBase" or
+                            @ParentName="IdeoBurnableBase" or
+                            @ParentName="IdeoSmokerBase")
+                            and 
+
+                            (not(
+                     <!-- IDEOLOGY BLACKLIST -->
+                     defName="ShipArchotechSpore"
+                     or defName="Table1x2c"
+                     or defName="Table2x2c"
+                     or defName="Table2x4c"
+                     or defName="Table3x3c"
+                                
+                            ))
+
+                            
+                            ][
+                            placeWorkers/li="PlaceWorker_RitualFocus" or
+                            isAltar="true" or
+                            building/buildingTags/li="RitualFocus" or
+                            placeWorkers/li="PlaceWorker_RitualFocusNoArrow" or
+                            ideoBuildingNamerBase
+                            ]
+
+                            |
+                     <!-- IDEOLOGY WHITELIST -->
+                     Designations/ThingDef[
+                            defName="AM_RelicSmashingAltar" or 
+                            defName="AM_Megalith" or 
+                            defName="VME_Obelisk" or 
+                            defName="AM_AnimalDatabase" or 
+                            defName="VME_MechanoidEffigy"
+                            
+                            ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Ideology</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+         <!-- decor -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Decor</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+
+
+               <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                  <success>Always</success>
+                  <xmlDoc>Designations</xmlDoc>
+                  <xpath>
+                     Designations/ThingDef[
+                     <!-- DECOR WHITELIST -->
+                     designationCategory="PropsandDecor" or
+                            defName="LTS_StoneBorderCorner" or 
+                            defName="LTS_StoneBorderEdge" or 
+                            defName="LTS_LumberBorderCorner" or 
+                            defName="LTS_LumberBorderEdge" or 
+                            defName="LTS_PathA" or 
+                            defName="LTS_PathB" or 
+                            defName="LTS_BearRug" or 
+                            defName="LTS_RugCarpet" or
+                            @Name="LTS_ArchBase" or 
+                            @Name="LTS_DoorFrameBase" or 
+                            @Name="LTS_BorderBase" or 
+                            @Name="LTS_PathBase" or 
+                            @Name="LTS_CarpetBase"
+                            ]
+                  </xpath>
+                  <value>
+                     <designationCategory>DZ_Decor</designationCategory>
+                  </value>
+               </Operation>
+
+            </caseTrue>
+         </Operation>
+
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.StopwatchStop" />
+            </caseTrue>
+         </Operation>
+
+      </caseTrue>
+      <caseFalse />
+   </Operation>
+
+</Patch>

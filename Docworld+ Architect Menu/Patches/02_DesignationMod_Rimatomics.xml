@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+   <Operation Class="XmlExtensions.FindMod">
+      <mods>
+         <li>Dubs Rimatomics</li>
+      </mods>
+      <caseTrue>
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Enabled</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.OptionalPatch">
+                  <modId>tests.DocWorldA</modId>
+                  <key>testsDW_DesignationRimatomics</key>
+                  <defaultValue>false</defaultValue>
+                  <caseTrue>
+                     <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Industrial</key>
+                        <defaultValue>true</defaultValue>
+                        <caseTrue>
+
+                           <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                              <xpath>Designations/ThingDef[defName="DU_Blastdoor" or defName="RadiationShielding"]</xpath>
+                              <value>
+                                 <designationCategory>Structure</designationCategory>
+                              </value>
+                           </Operation>
+                           <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                              <xpath>Designations/ThingDef[@Name="BasedWeapon"]</xpath>
+                              <value>
+                                 <designationCategory>Security</designationCategory>
+                              </value>
+                           </Operation>
+
+                           <Operation Class="PatchOperationAdd">
+                              <xpath>Defs/DesignationCategoryDef[defName="DZ_Industrial"]/specialDesignatorClasses</xpath>
+                              <value>
+                                 <li>Rimatomics.Designator_RemovePipe</li>
+                              </value>
+                           </Operation>
+                           <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                              <xpath>Designations/ThingDef/designationCategory[text()="Rimatomics"]</xpath>
+                              <value>
+                                 <designationCategory>DZ_Industrial</designationCategory>
+                              </value>
+                           </Operation>
+
+                        </caseTrue>
+                        <caseFalse></caseFalse>
+                     </Operation>
+
+                  </caseTrue>
+               </Operation>
+
+
+            </caseTrue>
+            <caseFalse />
+         </Operation>
+      </caseTrue>
+   </Operation>
+</Patch>

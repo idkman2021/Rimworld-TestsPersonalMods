@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+    
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Logging</key>
+        <defaultValue>false</defaultValue>
+        <caseTrue>
+            <Operation Class="XmlExtensions.Log">
+                <text>Stopwatch: Docworld - mods</text>
+            </Operation>
+            <Operation Class="XmlExtensions.StopwatchStart" />
+        </caseTrue>
+    </Operation>
+
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>Alpha Biomes</li>
+        </mods>
+        <caseTrue>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.DocWorldA</modId>
+                <key>testsDW_Enabled</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_DesignationAlphaBiomes</key>
+                        <defaultValue>true</defaultValue>
+                        <caseTrue>
+
+                           <Operation Class="PatchOperationReplace">
+                              <xpath>Defs/TerrainDef[defName="AB_AsphaltBridge"]/designationCategory</xpath>
+                              <value>
+                                  <designationCategory>Structure</designationCategory>
+                              </value>
+                          </Operation>
+                            <Operation Class="PatchOperationReplace">
+                                <xpath>Defs/TerrainDef/designationCategory[text()="AB_AlphaBiomesBuildings"]</xpath>
+                                <value>
+                                    <designationCategory>Floors</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[defName="AB_AlcyoniteSolar"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Power</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[@Name="AB_SmelterBase" or defName="AB_PropaneStove" or defName="AB_CoreSampleDrill" or defName="AB_PropanePump" or defName="AB_TarPump"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Production</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[defName="AB_OcularGasSpewer" or defName="AB_TrapIED_Tar"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Security</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[defName="AB_AlienComplianceCenter"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Joy</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[defName="AB_PropaneHeater"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Temperature</designationCategory>
+                                </value>
+                            </Operation>
+                            <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <xmlDoc>Designations</xmlDoc>
+                                <xpath>Designations/ThingDef[@Name="AB_ExoticDoorBase" or defName="AB_ExoticWall" or defName="AB_ExoticColumn"]/designationCategory</xpath>
+                                <value>
+                                    <designationCategory>Structure</designationCategory>
+                                </value>
+                            </Operation>
+
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>tests.DocWorldA</modId>
+                                <key>testsDW_Culinary</key>
+                                <defaultValue>true</defaultValue>
+                                <caseTrue>
+                                    <Operation Class="PatchOperationReplace">
+                                       <xmlDoc>Designations</xmlDoc>
+                                        <xpath>Designations/ThingDef[defName="AB_PropaneStove"]/designationCategory</xpath>
+                                        <value>
+                                            <designationCategory>DZ_Culinary</designationCategory>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </Operation>
+
+                        </caseTrue>
+                    </Operation>
+
+
+                </caseTrue>
+                <caseFalse />
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

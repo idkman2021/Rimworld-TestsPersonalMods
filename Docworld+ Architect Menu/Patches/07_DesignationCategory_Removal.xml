@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DocWorldA</modId>
+      <key>testsDW_Enabled</key>
+      <defaultValue>true</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.Log">
+                  <text>Stopwatch: Docworld - category removal</text>
+               </Operation>
+               <Operation Class="XmlExtensions.StopwatchStart" />
+            </caseTrue>
+         </Operation>
+
+         <Operation Class="XmlExtensions.CreateDocument">
+            <docName>ExistingDesignators</docName>
+            <xpath>Defs/*/designationCategory</xpath>
+         </Operation>
+         <!--
+         <Operation Class="XmlExtensions.ForEach">
+            <xpath>Defs/DesignationCategoryDef/defName</xpath>
+            <storeIn>defNamePath</storeIn>
+            <prefixLength>3</prefixLength>
+            <apply>
+               <Operation Class="XmlExtensions.CreateVariable">
+                  <storeIn>defName</storeIn>
+                  <value>{defNamePath}</value>
+                  <fromXml>true</fromXml>
+                  <apply>
+                     <Operation Class="PatchOperationConditional">
+                        <xpath>Defs/ThingDef[designationCategory="{defName}"] | Defs/TerrainDef[designationCategory="{defName}"]</xpath>
+                        <nomatch Class="PatchOperationRemove">
+                           <xpath>Defs/DesignationCategoryDef[defName="{defName}"]</xpath>
+                        </nomatch>
+                     </Operation>
+                  </apply>
+               </Operation>
+            </apply>
+         </Operation>
+      -->
+         <!--
+         <Operation Class="PatchOperationRemove">
+            <xpath>Defs/DesignationCategoryDef[defName="LTSFurniture"]</xpath>
+         </Operation>
+         <Operation Class="PatchOperationRemove">
+            <xpath>Defs/DesignationCategoryDef[defName="LTSStructure"]</xpath>
+         </Operation>
+      -->
+         <Operation Class="XmlExtensions.ForEach">
+            <xpath>
+               Defs/DesignationCategoryDef/defName[not(
+            text()="Orders" or 
+            text()="Zone" or 
+            text()="Structure" or 
+            text()="Production" or 
+            text()="Furniture" or 
+            text()="Power" or 
+            text()="Security" or 
+            text()="Misc" or 
+            text()="Floors" or 
+            text()="Joy" or 
+            text()="Ship" or 
+            text()="Temperature" or 
+
+            text()="DZ_Culinary" or 
+            text()="DZ_Lighting" or 
+            text()="DZ_Beds" or 
+            text()="DZ_Storage" or 
+            text()="DZ_Turrets" or 
+            text()="DZ_Husbandry" or
+               <!--text()="DZ_Industrial" or  - could be empty -->
+               text()="NQoL_Medical" or 
+            text()="NQoL_Spots" or 
+            text()="DZ_Meditation" or 
+            text()="DZ_Ideology" or 
+            text()="DZ_Decor" or
+               <!-- BLACKLIST -->
+               <!-- rimmsqol -->
+               text()="PFDir" or
+               <!-- more planning -->
+               text()="Planning" or
+               <!-- path avoid -->
+               text()="Pathing" or
+               <!-- blueprints -->
+               text()="Blueprints"
+
+
+
+            )]
+            </xpath>
+            <storeIn>defNamePath</storeIn>
+            <prefixLength>3</prefixLength>
+            <apply>
+               <Operation Class="XmlExtensions.CreateVariable">
+                  <storeIn>defName</storeIn>
+                  <value>{defNamePath}</value>
+                  <fromXml>true</fromXml>
+                  <apply>
+                     <Operation Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                           <li Class="XmlExtensions.Test">
+                              <xmlDoc>ExistingDesignators</xmlDoc>
+                              <success>Invert</success>
+                              <xpath>ExistingDesignators[designationCategory="{defName}"]</xpath>
+                           </li>
+                           <li Class="PatchOperationRemove">
+                              <xpath>Defs/DesignationCategoryDef[defName="{defName}"]</xpath>
+                           </li>
+                           <!-- etc -->
+                        </operations>
+                     </Operation>
+                  </apply>
+               </Operation>
+            </apply>
+         </Operation>
+
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Logging</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.StopwatchStop" />
+            </caseTrue>
+         </Operation>
+
+      </caseTrue>
+   </Operation>
+
+</Patch>

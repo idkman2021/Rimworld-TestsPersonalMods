@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+   <Operation Class="XmlExtensions.FindMod">
+      <mods>
+         <li>GlitterNet</li>
+      </mods>
+      <caseTrue>
+
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DocWorldA</modId>
+            <key>testsDW_Enabled</key>
+            <defaultValue>true</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.OptionalPatch">
+                  <modId>tests.DocWorldA</modId>
+                  <key>testsDW_DesignationVFEMechanoids</key>
+                  <defaultValue>false</defaultValue>
+                  <caseTrue>
+                     <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Industrial</key>
+                        <defaultValue>true</defaultValue>
+                        <caseTrue>
+
+                           <Operation Class="PatchOperationRemove">
+                              <xpath>Defs/DesignationCategoryDef[defName="VFE_Factory"]</xpath>
+                           </Operation>
+
+                           <Operation Class="PatchOperationAdd">
+                              <xpath>Defs/DesignationCategoryDef[defName="DZ_Industrial"]/specialDesignatorClasses</xpath>
+                              <value>
+                                 <li>Designator_RemoveFloor</li>
+                              </value>
+                           </Operation>
+
+                           <Operation Class="PatchOperationReplace">
+                              <xpath>Defs/DesignationCategoryDef/defName[text()="DZ_Industrial"]</xpath>
+                              <value>
+                                 <defName>VFE_Factory</defName>
+                              </value>
+                           </Operation>
+
+
+                           <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <success>Always</success>
+                              <xmlDoc>Designations</xmlDoc>
+                              <xpath>Designations/ThingDef/designationCategory[text()="DZ_Industrial"]</xpath>
+                              <value>
+                                 <designationCategory>VFE_Factory</designationCategory>
+                              </value>
+                           </Operation>
+                           <Operation Class="XmlExtensions.PatchOperationReplace">
+                              <success>Always</success>
+                              <xmlDoc>Designations</xmlDoc>
+                              <xpath>Designations/TerrainDef/designationCategory[text()="DZ_Industrial"]</xpath>
+                              <value>
+                                 <designationCategory>VFE_Factory</designationCategory>
+                              </value>
+                           </Operation>
+
+
+                        </caseTrue>
+                        <caseFalse></caseFalse>
+                     </Operation>
+
+                  </caseTrue>
+               </Operation>
+
+
+            </caseTrue>
+            <caseFalse />
+         </Operation>
+      </caseTrue>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DocWorldA</modId>
+      <key>testsDW_Logging</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.StopwatchStop" />
+      </caseTrue>
+   </Operation>
+
+
+</Patch>

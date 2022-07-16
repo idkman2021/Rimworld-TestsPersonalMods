@@ -1,0 +1,156 @@
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.StuffableFloors</modId>
+      <key>testsSF_Wood</key>
+      <defaultValue>true</defaultValue>
+      <caseTrue>
+         <!-- document with all supported wood floors where all lookups are going to happen for performance -->
+         <Operation Class="XmlExtensions.CreateDocument">
+            <docName>WoodFloors</docName>
+            <xpath>Defs/TerrainDef[
+
+      @ParentName="VFEArch_WoodenParquetBase" or
+      @ParentName="SWoodPlankFloorBase" or 
+      @ParentName="SFloorBaseWidePlanks" or 
+      @ParentName="SFloorBaseCheckWooden" or 
+      @ParentName="SFloorBaseParquet" or 
+      @ParentName="SFloorBaseMosaicWooden" or 
+      @ParentName="SFloorBaseWoodModern" or 
+      @ParentName="SFloorBaseWoodMosaic" or 
+      @ParentName="SFloorBaseWoodWide" or 
+      @ParentName="SFloorBaseWoodVertical" or 
+      @ParentName="SFloorBaseWoodRustic" or 
+      @ParentName="SFloorBaseFineWoodPlank" or 
+      @ParentName="SFloorBaseFineWoodTile" or 
+      @ParentName="SFloorBaseFineWoodMosaic" or 
+      @ParentName="SFloorBaseWoodBrickBond" or 
+      @ParentName="SFloorBaseWoodMixedPlank" or 
+      @ParentName="SFineWoodenFloorBase"
+      
+      ]</xpath>
+         </Operation>
+
+         <!-- bases are added if they don't exist -->
+         <!-- vanilla plank floor -->
+         <Operation Class="PatchOperationConditional">
+            <xmlDoc>WoodFloors</xmlDoc>
+            <xpath>WoodFloors/TerrainDef[@ParentName="SWoodPlankFloorBase"]</xpath>
+            <nomatch Class="XmlExtensions.PatchOperationAdd">
+               <xmlDoc>WoodFloors</xmlDoc>
+               <xpath>WoodFloors</xpath>
+               <TerrainDef Name="SWoodPlankFloorBase" ParentName="FloorBase" Abstract="True">
+                  <designatorDropdown>VFEArch_WoodFloor</designatorDropdown>
+                  <renderPrecedence>250</renderPrecedence>
+                  <description>Wood plank flooring for that warm, homey feeling. While it is quick to lay, it is also very flammable.</description>
+                  <texturePath>Terrain/Surfaces/WoodFloor</texturePath>
+                  <burnedDef>BurnedWoodPlankFloor</burnedDef>
+                  <statBases>
+                     <WorkToBuild>85</WorkToBuild>
+                     <Flammability>0.22</Flammability>
+                  </statBases>
+                  <constructEffect>ConstructWood</constructEffect>
+               </TerrainDef>
+            </nomatch>
+         </Operation>
+
+         <Operation Class="PatchOperationConditional">
+            <xmlDoc>WoodFloors</xmlDoc>
+            <xpath>WoodFloors/TerrainDef[@ParentName="SFloorBaseFineWoodPlank"]</xpath>
+            <nomatch Class="XmlExtensions.PatchOperationAdd">
+               <xmlDoc>WoodFloors</xmlDoc>
+               <xpath>WoodFloors</xpath>
+               <TerrainDef Name="SFloorBaseFineWoodPlank" ParentName="FloorBase" Abstract="True">
+                  <label>fine wood floor</label>
+                  <renderPrecedence>250</renderPrecedence>
+                  <description>Wooden flooring assembled from precisely cut wood for a more beautiful, patterned appearance. Takes much longer to build and requires more material than normal wood floor but is just as flammable.</description>
+                  <texturePath>Terrain/Surfaces/FineWoodFloorA</texturePath>
+                  <burnedDef>ATK_BurnedFineWoodPlankFloor</burnedDef>
+                  <color>(108,78,55)</color>
+                  <statBases>
+                     <WorkToBuild>1500</WorkToBuild>
+                     <Flammability>0.22</Flammability>
+                     <Beauty>2</Beauty>
+                  </statBases>
+                  <costList>
+                  </costList>
+                  <constructEffect>ConstructWood</constructEffect>
+                  <designatorDropdown>Floor_Wood_Fine</designatorDropdown>
+                  <tags>
+                     <li>FineFloor</li>
+                  </tags>
+                  <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+               </TerrainDef>
+            </nomatch>
+         </Operation>
+
+         <Operation Class="XmlExtensions.ForEachDescendant">
+            <xpathParent>Defs/ThingDef[@Name="ResourceBase"]</xpathParent>
+            <concreteOnly>true</concreteOnly>
+            <storeIn>StonePath</storeIn>
+            <apply>
+               <Operation Class="PatchOperationConditional">
+                  <xpath>{StonePath}/stuffProps/categories[li="Stony"]</xpath>
+
+                  <match Class="XmlExtensions.AggregateValues">
+                     <valueOperations>
+                        <Operation Class="XmlExtensions.CreateVariable">
+                           <storeIn>Stone</storeIn>
+                           <value>{StonePath}/defName</value>
+                           <!--<defaultValue>BlocksSandstone</defaultValue>-->
+                           <fromXml>true</fromXml>
+                        </Operation>
+                        <Operation Class="XmlExtensions.CreateVariable">
+                           <storeIn>Color</storeIn>
+                           <value>{StonePath}/stuffProps/color</value>
+                           <fromXml>true</fromXml>
+                           <defaultValue>(127,127,127)</defaultValue>
+                        </Operation>
+                     </valueOperations>
+                     <apply>
+                        <Operation Class="PatchOperationConditional">
+                           <xpath>{StonePath}/stuffProps/stuffAdjective</xpath>
+                           <match Class="XmlExtensions.CreateVariable">
+                              <success>Always</success>
+                              <storeIn>Label</storeIn>
+                              <value>{StonePath}/stuffProps/stuffAdjective</value>
+                              <fromXml>true</fromXml>
+                              <apply>
+                                 <Operation Class="XmlExtensions.ApplyPatch">
+                                    <patchName>tests_StuffableFloorsA</patchName>
+                                    <arguments>
+                                       <li>{Stone}</li>
+                                       <li>{Label}</li>
+                                       <li>{Color}</li>
+                                    </arguments>
+                                 </Operation>
+                              </apply>
+                           </match>
+                           <nomatch Class="XmlExtensions.CreateVariable">
+                              <storeIn>Label</storeIn>
+                              <value>{StonePath}/label</value>
+                              <fromXml>true</fromXml>
+                              <defaultValue>stone</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.ApplyPatch">
+                                    <patchName>tests_StuffableFloorsA</patchName>
+                                    <arguments>
+                                       <li>{Stone}</li>
+                                       <li>{Label}</li>
+                                       <li>{Color}</li>
+                                    </arguments>
+                                 </Operation>
+                              </apply>
+                           </nomatch>
+
+                        </Operation>
+
+
+                     </apply>
+                  </match>
+               </Operation>
+
+            </apply>
+         </Operation>
+      </caseTrue>
+   </Operation>
+
