@@ -3,6 +3,7 @@
 
    <!-- dropdowns in case architect/vfearchitect addons and patches isn't loaded -->
    <!-- architect-->
+   <!--
    <DesignatorDropdownGroupDef>
       <defName>VFEArch_WoodFloor</defName>
       <label>wood floor</label>
@@ -11,8 +12,10 @@
       <defName>VFEArch_WoodenParquet</defName>
       <label>wooden parquet</label>
    </DesignatorDropdownGroupDef>
+-->
    <!-- addons and patches -->
    <!--[T] MoreFLoors-->
+   <!--
    <DesignatorDropdownGroupDef>
       <defName>SFloorWoodModern</defName>
       <label>modern wood floor</label>
@@ -33,7 +36,9 @@
       <defName>SFloorWoodRustic</defName>
       <label>rustic wooden floorboards</label>
    </DesignatorDropdownGroupDef>
+-->
    <!--Refined Floors-->
+   <!--
    <DesignatorDropdownGroupDef>
       <defName>SFloorFineWoodPlank</defName>
       <label>fine wood floor</label>
@@ -54,12 +59,14 @@
       <defName>SFloorWoodMixedPlank</defName>
       <label>mixed wood floor</label>
    </DesignatorDropdownGroupDef>
+-->
    <!--Vanilla Furniture Expanded - Architect-->
+   <!--
    <DesignatorDropdownGroupDef>
       <defName>SSteelBridge</defName>
       <label>steel bridge</label>
    </DesignatorDropdownGroupDef>
-
+-->
 
    <!-- patchdef, where list of patches per each loaded floor will be added by another patchdef. That way the list of floors only needs to be initialized once -->
    <XmlExtensions.PatchDef Name="tests_StuffableFloorsA" Abstract="True">
@@ -93,7 +100,6 @@
                         <success>Invert</success>
                      </li>
                      <li Class="PatchOperationAdd">
-                        <success>Always</success>
                         <xpath>Defs</xpath>
                         <value>
                            <TerrainDef ParentName="{TerrainBase}">
@@ -113,6 +119,7 @@
 
       </apply>
    </XmlExtensions.PatchDef>
+
 
    <XmlExtensions.SettingsMenuDef>
       <defName>tests_stuffablefloors</defName> <!--Can be anything unique with no periods-->

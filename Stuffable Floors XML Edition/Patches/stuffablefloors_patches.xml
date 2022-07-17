@@ -74,6 +74,10 @@
       @ParentName="LTS_RoughTileBase_H" or 
       @ParentName="LTS_RoughTileBase_V" or 
       @ParentName="AM_NeolithicTileStoneBase"
+      or @ParentName="RE_TileStoneBase"
+      or @ParentName="MipeSB_PlatformBaseStone"
+      or @ParentName="mipeSB_PlatformBaseReinforced"
+      or @ParentName="mipeSB_PlatformBaseContainer"
       ]</xpath>
    </Operation>
 
@@ -190,7 +194,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>MorbidStoneTile</li>
-               <li>ZLabelZ morbid tile</li>
+               <li>morbid ZLabelZ tile</li>
                <li>20</li>
             </arguments>
          </li>
@@ -293,6 +297,7 @@
       </operations>
    </Operation>
 
+   <!-- BRIDGES -->
    <Operation Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -301,8 +306,57 @@
             <xmlDoc>StoneFloors</xmlDoc>
             <xpath>StoneFloors/TerrainDef[@ParentName="StoneBridgeBase"]</xpath>
          </li>
+         <Operation Class="PatchOperationSequence">
+            <success>Invert</success>
+            <operations>
+               <li Class="XmlExtensions.Test">
+                  <success>Normal</success>
+                  <xmlDoc>StoneFloors</xmlDoc>
+                  <xpath>StoneFloors/TerrainDef[defName="SBridgeDeepSandstone"]</xpath>
+               </li>
+               <li Class="XmlExtensions.PatchOperationAdd">
+                  <xmlDoc>PatchDef</xmlDoc>
+                  <xpath>PatchDef/apply</xpath>
+                  <value>
+                     <Operation Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                           <li Class="XmlExtensions.Test">
+                              <xmlDoc>StoneFloors</xmlDoc>
+                              <xpath>StoneFloors/TerrainDef[@ParentName="StoneBridgeBase" and costList/ZStoneZ]</xpath>
+                              <success>Invert</success>
+                           </li>
+                           <li Class="PatchOperationAdd">
+                              <xpath>Defs</xpath>
+                              <value>
+                                 <TerrainDef ParentName="StoneBridgeBase">
+                                    <defName>StoneBridgeBase_ZStoneZ</defName>
+                                    <label>ZLabelZ bridge</label>
+                                    <color>ZColorZ</color>
+                                    <costList>
+                                       <ZStoneZ>12</ZStoneZ>
+                                    </costList>
+                                 </TerrainDef>
+                                 <TerrainDef ParentName="StoneBridgeBase">
+                                    <defName>StoneBridgeBase_DeepZStoneZ</defName>
+                                    <label>deep water ZLabelZ bridge</label>
+                                    <color>ZColorZ</color>
+                                    <costList>
+                                       <ZStoneZ>16</ZStoneZ>
+                                    </costList>
+                                    <terrainAffordanceNeeded>BridgeableDeep</terrainAffordanceNeeded>
+                                 </TerrainDef>
+                              </value>
+                           </li>
+                        </operations>
+                     </Operation>
+                  </value>
+               </li>
+               <!-- etc -->
+            </operations>
+         </Operation>
          <li Class="XmlExtensions.ApplyPatch">
-            <patchName>tests_StuffableFloorsASpaghettiCopy</patchName>
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>StoneBridgeBase</li>
                <li>ZLabelZ bridge</li>
@@ -363,7 +417,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>ATK_DecoratedTileStoneBase</li>
-               <li>ZLabelZ decorated tile</li>
+               <li>decorated ZLabelZ tile</li>
                <li>20</li>
             </arguments>
          </li>
@@ -618,6 +672,7 @@
          </li>
       </operations>
    </Operation>
+   <!--
    <Operation Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -636,6 +691,7 @@
          </li>
       </operations>
    </Operation>
+-->
    <Operation Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -728,6 +784,7 @@
       </operations>
    </Operation>
    <!-- H -->
+   <!--
    <Operation Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -746,6 +803,7 @@
          </li>
       </operations>
    </Operation>
+-->
 
 
    <!-- [WD] Expanded Floors -->
@@ -937,7 +995,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>VME_CorporateFineStoneTiles</li>
-               <li>ZLabelZ corporate fine tile</li>
+               <li>corporate fine ZLabelZ tile</li>
                <li>20</li>
             </arguments>
          </li>
@@ -1000,6 +1058,10 @@
                <li>20</li>
             </arguments>
          </li>
+         <!-- don't have color -->
+         <li Class="PatchOperationRemove">
+            <xpath>Defs/TerrainDef[@ParentName="AM_JewishFineStoneTiles"]/color</xpath>
+         </li>
       </operations>
    </Operation>
 
@@ -1015,7 +1077,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>AM_KemeticTileStoneBase</li>
-               <li>ZLabelZ kemetic tile</li>
+               <li>kemetic ZLabelZ tile</li>
                <li>4</li>
             </arguments>
          </li>
@@ -1035,7 +1097,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>AM_KemeticFineStoneTiles</li>
-               <li>ZLabelZ kemetic fine tile</li>
+               <li>kemetic fine ZLabelZ tile</li>
                <li>20</li>
             </arguments>
          </li>
@@ -1055,7 +1117,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>AM_SteampunkTileStoneBase</li>
-               <li>ZLabelZ steampunk tile</li>
+               <li>steampunk ZLabelZ tile</li>
                <li>4</li>
             </arguments>
          </li>
@@ -1076,7 +1138,7 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>JazzyStoneBase</li>
-               <li>ZLabelZ jazzy tile</li>
+               <li>jazzy ZLabelZ floor</li>
                <li>20</li>
             </arguments>
          </li>
@@ -1328,8 +1390,86 @@
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
                <li>AM_NeolithicTileStoneBase</li>
-               <li>ZLabelZ neolithic packed dirt floor</li>
+               <li>neolithic ZLabelZ packed dirt floor</li>
                <li>1</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- rim-effect extended cut -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="RE_TileStoneBase"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>RE_TileStoneBase</li>
+               <li>ZLabelZ colonial recreation tile</li>
+               <li>12</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <!-- skyblock -->
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="MipeSB_PlatformBaseStone"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>MipeSB_PlatformBaseStone</li>
+               <li>ZLabelZ sky platform</li>
+               <li>16</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="mipeSB_PlatformBaseReinforced"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>mipeSB_PlatformBaseReinforced</li>
+               <li>reinforced ZLabelZ sky platform</li>
+               <li>30</li>
+            </arguments>
+         </li>
+      </operations>
+   </Operation>
+
+   <Operation Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+         <li Class="XmlExtensions.Test">
+            <success>Normal</success>
+            <xmlDoc>StoneFloors</xmlDoc>
+            <xpath>StoneFloors/TerrainDef[@ParentName="mipeSB_PlatformBaseContainer"]</xpath>
+         </li>
+         <li Class="XmlExtensions.ApplyPatch">
+            <patchName>tests_StuffableFloorsASpaghetti</patchName>
+            <arguments>
+               <li>mipeSB_PlatformBaseContainer</li>
+               <li>ZLabelZ terrain support</li>
+               <li>30</li>
             </arguments>
          </li>
       </operations>
