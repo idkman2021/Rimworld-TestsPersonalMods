@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+   <!-- platforms can be build in sky -->
+   <TerrainAffordanceDef>
+      <defName>mipeSB_Sky</defName>
+      <label>sky</label>
+      <order>2500</order>
+   </TerrainAffordanceDef>
+
+   <!-- sky can be "built" on platforms to emulate deconstructing -->
+   <TerrainAffordanceDef>
+      <defName>mipeSB_Platform</defName>
+      <label>removeable platform</label>
+      <order>2500</order>
+   </TerrainAffordanceDef>
+
+   <!-- dropdown in hopes that sky will have custom "remove platform" label -->
+   <DesignatorDropdownGroupDef>
+      <defName>mipeSB_PlatformRemove</defName>
+      <label>remove platform</label>
+   </DesignatorDropdownGroupDef>
+
+   <!-- impassable sky -->
+   <TerrainDef Name="mipeSB_Sky">
+      <defName>mipeSB_SkyA</defName>
+      <label>sky</label>
+      <texturePath>skyblock/sky</texturePath>
+      <color>(215,232,253)</color>
+      <renderPrecedence>397</renderPrecedence>
+      <edgeType>Hard</edgeType><!-- if set to water, instead of rendering texture it applies some kind of shader with parallax based on the texture, kinda looks like sky. HOWEVER water has soft edges, looks terrible with bridges. -->
+      <fertility>0</fertility>
+      <avoidWander>true</avoidWander>
+      <holdSnow>false</holdSnow>
+      <takeSplashes>false</takeSplashes>
+      <extinguishesFire>false</extinguishesFire>
+      <extraNonDraftedPerceivedPathCost>180</extraNonDraftedPerceivedPathCost>
+      <extraDraftedPerceivedPathCost>18</extraDraftedPerceivedPathCost>
+      <filthAcceptanceMask>
+         <li>None</li>
+      </filthAcceptanceMask>
+      <passability>Impassable</passability>
+      <pathCost>300</pathCost>
+      <!--<changeable>false</changeable>-->
+      <affordances>
+         <li>mipeSB_Sky</li>
+      </affordances>
+      <tags>
+         <li>Water</li>
+      </tags>
+      <designationCategory>Structure</designationCategory> <!-- buildable on sky platforms to emulate deconstructing -->
+      <statBases>
+         <WorkToBuild>1000</WorkToBuild>
+      </statBases>
+      <terrainAffordanceNeeded>mipeSB_Platform</terrainAffordanceNeeded>
+      <designatorDropdown>mipeSB_PlatformRemove</designatorDropdown>
+   </TerrainDef>
+
+</Defs>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+   <TerrainDef ParentName="NaturalTerrainBase" Name="mipeSB_ArtificialSkyTerrainBase" Abstract="True">
+      <!-- "bridge" graphics - edges should look a floating island -->
+      <layerable>true</layerable>
+      <bridge>true</bridge>
+      <modExtensions>
+         <li Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>
+      </modExtensions>
+      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can fill terrain support platforms -->
+      <designationCategory>Floors</designationCategory>
+   </TerrainDef>
+
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialSoil</defName>
+      <label>soil (artificial)</label>
+      <texturePath>Terrain/Surfaces/Soil</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>340</renderPrecedence>
+      <pathCost>2</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <scatterType>Rocky</scatterType>
+      <affordances>
+         <li>Light</li>
+         <li>GrowSoil</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>1.0</fertility>
+      <takeFootprints>True</takeFootprints>
+      <tools>
+         <li>
+            <label>dirt</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>DirtInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+      <tags>
+         <li>Soil</li>
+      </tags>
+   </TerrainDef>
+
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialMossyTerrain</defName>
+      <label>lichen-covered soil (artificial)</label>
+      <texturePath>Terrain/Surfaces/Mossy</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>315</renderPrecedence>
+      <pathCost>3</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <affordances>
+         <li>Light</li>
+         <li>GrowSoil</li>
+         <li>Diggable</li>
+      </affordances>
+      <fertility>1</fertility>
+      <takeFootprints>True</takeFootprints>
+      <avoidWander>false</avoidWander>
+      <tags>
+         <li>Soil</li>
+      </tags>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialMarshyTerrain</defName>
+      <label>marshy soil (artificial)</label>
+      <texturePath>Terrain/Surfaces/MarshyTerrain</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>337</renderPrecedence>
+      <pathCost>14</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-2</Cleanliness>
+      </statBases>
+      <scatterType>Rocky</scatterType>
+      <affordances>
+         <li>Light</li>
+         <li>GrowSoil</li>
+         <li>Diggable</li>
+         <li>Bridgeable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>1.0</fertility>
+      <takeFootprints>True</takeFootprints>
+      <driesTo>Soil</driesTo>
+      <tools>
+         <li>
+            <label>mud</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>MudInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+      <tags>
+         <li>Soil</li>
+      </tags>
+   </TerrainDef>
+
+   <!-- Rich soils -->
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialSoilRich</defName>
+      <label>rich soil (artificial)</label>
+      <texturePath>Terrain/Surfaces/SoilRich</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>335</renderPrecedence>
+      <pathCost>2</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <affordances>
+         <li>Light</li>
+         <li>GrowSoil</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>1.4</fertility>
+      <takeFootprints>True</takeFootprints>
+      <tools>
+         <li>
+            <label>dirt</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>DirtInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+      <tags>
+         <li>Soil</li>
+      </tags>
+   </TerrainDef>
+
+   <!-- Poor soils -->
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialGravel</defName>
+      <label>stony soil (artificial)</label>
+      <texturePath>Terrain/Surfaces/Gravel</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>320</renderPrecedence>
+      <pathCost>2</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <scatterType>Rocky</scatterType>
+      <affordances>
+         <li>Light</li>
+         <li>GrowSoil</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>0.7</fertility>
+      <takeFootprints>True</takeFootprints>
+      <tools>
+         <li>
+            <label>gravel</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>GravelInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+      <tags>
+         <li>Soil</li>
+      </tags>
+   </TerrainDef>
+
+   <!-- Sand -->
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialSand</defName>
+      <label>sand (artificial)</label>
+      <texturePath>Terrain/Surfaces/Sand</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>350</renderPrecedence>
+      <pathCost>4</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <scatterType>SoftDry</scatterType>
+      <affordances>
+         <li>Light</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Sand</generatedFilth>
+      <fertility>0.10</fertility>
+      <takeFootprints>True</takeFootprints>
+      <tools>
+         <li>
+            <label>sand</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>SandInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialSoftSand</defName>
+      <label>soft sand (artificial)</label>
+      <texturePath>Terrain/Surfaces/SoftSand</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>352</renderPrecedence>
+      <pathCost>14</pathCost>
+      <driesTo>Sand</driesTo>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-1</Cleanliness>
+      </statBases>
+      <affordances>
+         <li>Light</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Sand</generatedFilth>
+      <fertility>0</fertility>
+      <takeFootprints>true</takeFootprints>
+      <tools>
+         <li>
+            <label>sand</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>SandInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+   </TerrainDef>
+
+
+   <!-- Infertile ground -->
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialMud</defName>
+      <label>mud (artificial)</label>
+      <texturePath>Terrain/Surfaces/Mud</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>330</renderPrecedence>
+      <pathCost>14</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-2</Cleanliness>
+      </statBases>
+      <affordances>
+         <li>Bridgeable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>0</fertility>
+      <takeFootprints>True</takeFootprints>
+      <avoidWander>true</avoidWander>
+      <driesTo>Soil</driesTo>
+      <tools>
+         <li>
+            <label>mud</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>MudInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+   </TerrainDef>
+
+   <!-- Ice -->
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
+      <defName>mipeSB_ArtificialIce</defName>
+      <label>Ice (artificial)</label>
+      <texturePath>Terrain/Surfaces/Ice</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>350</renderPrecedence>
+      <pathCost>14</pathCost>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+      </statBases>
+      <scatterType>SoftGray</scatterType>
+      <affordances>
+         <li>Light</li>
+         <li>Diggable</li>
+      </affordances>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>0.00</fertility>
+      <takeFootprints>True</takeFootprints>
+   </TerrainDef>
+
+
+</Defs>

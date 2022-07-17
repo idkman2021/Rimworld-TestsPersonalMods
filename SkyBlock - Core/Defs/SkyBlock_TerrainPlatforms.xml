@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+   <TerrainDef Name="mipeSB_PlatformBase" Abstract="True">
+      <label>sky platform</label>
+      <description>A platform in the sky.</description>
+      <texturePath>skyblock/bridge_wood</texturePath>
+      <layerable>false</layerable> <!-- allows to properly put floors on it, but also makes "remove bridge" command not work -->
+      <bridge>true</bridge> <!-- bridge graphics -->
+      <affordances>
+         <li>mipeSB_Platform</li> <!-- sky is buildable on sky platforms to emulate deconstructing -->
+      </affordances>
+      <designationCategory>Structure</designationCategory>
+      <fertility>0</fertility>
+      <constructEffect>ConstructWood</constructEffect>
+      <terrainAffordanceNeeded>mipeSB_Sky</terrainAffordanceNeeded>
+      <edgeType>Hard</edgeType>
+      <renderPrecedence>400</renderPrecedence>
+      <autoRebuildable>true</autoRebuildable>
+      <tags>
+         <li>Floor</li>
+      </tags>
+      <destroyOnBombDamageThreshold>16</destroyOnBombDamageThreshold>
+      <destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+      <destroyEffect>Bridge_Collapse</destroyEffect>
+      <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_WoodPlatformBase">
+      <defName>mipeSB_PlatformWood</defName>
+      <label>wooden sky platform</label>
+      <description>A flat wooden surface supported by a wooden structure underneath, can be built over the sky. Be careful - platforms are fragile and can only support light structures. If a platform falls, buildings on top of it fall as well.</description>
+      <texturePath>skyblock/bridge_wood</texturePath>
+      <color>(108,78,55)</color>
+      <!--<uiIconPath>skyblock/bridge_wood</uiIconPath>-->
+      <affordances>
+         <li>Light</li>
+      </affordances>
+      <statBases>
+         <WorkToBuild>3000</WorkToBuild>
+         <Flammability>1</Flammability>
+      </statBases>
+      <burnedDef>mipeSB_PlatformWoodBurned</burnedDef>
+      <costList>
+         <WoodLog>20</WoodLog>
+      </costList>
+      <destroyOnBombDamageThreshold>12</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_WoodPlatformBase">
+      <defName>mipeSB_PlatformWoodBurned</defName>
+      <label>burned wooden sky platform</label>
+      <texturePath>Terrain/Surfaces/BurnedWoodFloor</texturePath>
+      <designationCategory Inherit="False" />
+      <destroyOnBombDamageThreshold>1</destroyOnBombDamageThreshold>
+      <statBases Inherit="False">
+         <Beauty>-4</Beauty>
+      </statBases>
+      <autoRebuildable>false</autoRebuildable>
+   </TerrainDef>
+
+   <DesignatorDropdownGroupDef>
+      <defName>mipeSB_PlatformStone</defName>
+      <label>stone platform</label>
+   </DesignatorDropdownGroupDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_PlatformBaseStone" Abstract="True">
+      <label>stone sky platform</label>
+      <description>A flat stone surface supported by a steel structure underneath, can be built over the sky. Can support medium structures.</description>
+      <texturePath>Terrain/Surfaces/TileStone</texturePath>
+      <affordances>
+         <li>Medium</li>
+      </affordances>
+      <constructEffect>ConstructWood</constructEffect>
+      <statBases>
+         <WorkToBuild>6000</WorkToBuild>
+      </statBases>
+      <costList>
+         <Steel>4</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>24</destroyOnBombDamageThreshold>
+      <designatorDropdown>mipeSB_PlatformStone</designatorDropdown>
+      <modExtensions><!--
+         <li MayRequire="VanillaExpanded.VFEArchitect" Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>-->
+      </modExtensions>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformSandstone</defName>
+      <label>sandstone sky platform</label>
+      <color>(126,104,94)</color>
+      <costList>
+         <BlocksSandstone>16</BlocksSandstone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformGranite</defName>
+      <label>granite sky platform</label>
+      <color>(105,95,97)</color>
+      <costList>
+         <BlocksGranite>16</BlocksGranite>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformLimestone</defName>
+      <label>limestone sky platform</label>
+      <color>(158,153,135)</color>
+      <costList>
+         <BlocksLimestone>16</BlocksLimestone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformSlate</defName>
+      <label>slate sky platform</label>
+      <color>(70,70,70)</color>
+      <costList>
+         <BlocksSlate>16</BlocksSlate>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformMarble</defName>
+      <label>marble sky platform</label>
+      <color>(132,135,132)</color>
+      <costList>
+         <BlocksMarble>16</BlocksMarble>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseStone">
+      <defName>mipeSB_PlatformJade</defName>
+      <label>jade sky platform</label>
+      <color>(85,118,69)</color>
+      <costList>
+         <Jade>16</Jade>
+      </costList>
+      <statBases>
+         <Beauty>3</Beauty>
+      </statBases>
+   </TerrainDef>
+   <!-- stuffable floors xml edition will add modded ones -->
+
+
+   <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_PlatformBaseMetal" Abstract="True">
+      <label>metal sky platform</label>
+      <description>A flat metallic surface supported by a steel structure underneath, can be built over the sky. Can support medium structures.</description>
+      <texturePath>Terrain/Surfaces/GenericFloorTile</texturePath>
+      <affordances>
+         <li>Medium</li>
+      </affordances>
+      <constructEffect>ConstructWood</constructEffect>
+      <statBases>
+         <WorkToBuild>4500</WorkToBuild>
+      </statBases>
+      <costList>
+         <Steel>8</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>20</destroyOnBombDamageThreshold>
+      <designatorDropdown>mipeSB_PlatformStone</designatorDropdown>
+      <modExtensions><!--
+         <li MayRequire="VanillaExpanded.VFEArchitect" Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>-->
+      </modExtensions>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseMetal">
+      <defName>mipeSB_PlatformSteel</defName>
+      <label>steel sky platform</label>
+      <description>A flat steel surface supported by a structure underneath, can be built over the sky. Can support medium structures.</description>
+      <color>(105,105,105)</color>
+      <costList>
+         <Steel>20</Steel>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseMetal">
+      <defName>mipeSB_PlatformPlasteel</defName>
+      <label>plasteel sky platform</label>
+      <description>A flat plasteel surface supported by a structure underneath, can be built over the sky. Can support heavy structures.</description>
+      <color>(160,178,181)</color>
+      <costList Inherit="False">
+         <Plasteel>20</Plasteel>
+      </costList>
+      <affordances>
+         <li>Heavy</li>
+      </affordances>
+      <destroyOnBombDamageThreshold>36</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseMetal">
+      <defName>mipeSB_PlatformGold</defName>
+      <label>golden sky platform</label>
+      <description>A flat golden surface supported by a steel structure underneath, can be built over the sky. Beautiful and can support medium structures.</description>
+      <color>(255,235,122)</color>
+      <statBases>
+         <Beauty>4</Beauty>
+      </statBases>
+      <costList>
+         <Gold>12</Gold>
+         <Steel>20</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>12</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseMetal">
+      <defName>mipeSB_PlatformSilver</defName>
+      <label>silver sky platform</label>
+      <description>A flat silver surface supported by a steel structure underneath, can be built over the sky. Quite beautiful and can support medium structures.</description>
+      <color>(180,173,150)</color>
+      <statBases>
+         <Beauty>2</Beauty>
+      </statBases>
+      <costList>
+         <Silver>12</Silver>
+         <Steel>20</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>12</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseMetal">
+      <defName>mipeSB_PlatformUranium</defName>
+      <label>uranium sky platform</label>
+      <description>A flat uranium surface supported by a structure underneath, can be built over the sky. Can support heavy structures.</description>
+      <color>(100,100,100)</color>
+      <costList Inherit="False">
+         <Uranium>20</Uranium>
+      </costList>
+      <affordances>
+         <li>Heavy</li>
+      </affordances>
+      <destroyOnBombDamageThreshold>36</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+
+   <DesignatorDropdownGroupDef>
+      <defName>mipeSB_PlatformReinforced</defName>
+      <label>reinforced platform</label>
+   </DesignatorDropdownGroupDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_PlatformBaseReinforced" Abstract="True">
+      <label>reinforced sky platform</label>
+      <description>A strong flat surface supported by a reinforced structure underneath, can be built over the sky. Can support heavy structures.</description>
+      <texturePath>skyblock/reinforcedplatform</texturePath>
+      <affordances>
+         <li>Medium</li>
+         <li>Heavy</li>
+      </affordances>
+      <constructEffect>ConstructWood</constructEffect>
+      <statBases>
+         <WorkToBuild>7500</WorkToBuild>
+      </statBases>
+      <costList>
+         <Steel>10</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>50</destroyOnBombDamageThreshold>
+      <designatorDropdown>mipeSB_PlatformReinforced</designatorDropdown>
+      <modExtensions><!--
+         <li MayRequire="VanillaExpanded.VFEArchitect" Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>-->
+      </modExtensions>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformReinforcedSteel</defName>
+      <label>reinforced steel sky platform</label>
+      <color>(105,105,105)</color>
+      <costList>
+         <Steel>35</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>36</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformReinforcedPlasteel</defName>
+      <label>reinforced plasteel sky platform</label>
+      <color>(160,178,181)</color>
+      <costList Inherit="False">
+         <Plasteel>35</Plasteel>
+      </costList>
+      <statBases>
+         <Beauty>2</Beauty>
+      </statBases>
+      <destroyOnBombDamageThreshold>120</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformReinforcedUranium</defName>
+      <label>reinforced uranium sky platform</label>
+      <color>(100,100,100)</color>
+      <costList Inherit="False">
+         <Uranium>35</Uranium>
+      </costList>
+      <statBases>
+         <Cleanliness>2</Cleanliness>
+      </statBases>
+      <destroyOnBombDamageThreshold>80</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformSandstoneReinforced</defName>
+      <label>reinforced sandstone sky platform</label>
+      <color>(126,104,94)</color>
+      <costList>
+         <BlocksSandstone>30</BlocksSandstone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformGraniteReinforced</defName>
+      <label>reinforced granite sky platform</label>
+      <color>(105,95,97)</color>
+      <costList>
+         <BlocksGranite>30</BlocksGranite>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformLimestoneReinforced</defName>
+      <label>reinforced limestone sky platform</label>
+      <color>(158,153,135)</color>
+      <costList>
+         <BlocksLimestone>30</BlocksLimestone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformSlateReinforced</defName>
+      <label>reinforced slate sky platform</label>
+      <color>(70,70,70)</color>
+      <costList>
+         <BlocksSlate>30</BlocksSlate>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseReinforced">
+      <defName>mipeSB_PlatformMarbleReinforced</defName>
+      <label>reinforced marble sky platform</label>
+      <color>(132,135,132)</color>
+      <costList>
+         <BlocksMarble>30</BlocksMarble>
+      </costList>
+   </TerrainDef>
+
+
+   <DesignatorDropdownGroupDef>
+      <defName>mipeSB_PlatformContainer</defName>
+      <label>terrain support platform</label>
+   </DesignatorDropdownGroupDef>
+
+   <!-- artificial terrains can fill terrain support platforms -->
+   <TerrainAffordanceDef>
+      <defName>mipeSB_TerrainSupport</defName>
+      <label>terrain support</label>
+      <order>2500</order>
+   </TerrainAffordanceDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_PlatformBaseContainer" Abstract="True">
+      <label>terrain support platform</label>
+      <description>A sky platform that can be filled with artificial terrain like soil or sand. Doesn't support most structures.</description>
+      <texturePath>skyblock/reinforcedplatform</texturePath>
+      <affordances>
+         <li>Light</li>
+         <li>mipeSB_TerrainSupport</li>
+      </affordances>
+      <constructEffect>ConstructWood</constructEffect>
+      <statBases>
+         <WorkToBuild>3000</WorkToBuild>
+      </statBases>
+      <costList>
+         <Steel>4</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>16</destroyOnBombDamageThreshold>
+      <designatorDropdown>mipeSB_PlatformContainer</designatorDropdown>
+      <modExtensions><!--
+         <li MayRequire="VanillaExpanded.VFEArchitect" Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>-->
+      </modExtensions>
+   </TerrainDef>
+
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformWoodSupport</defName>
+      <label>wooden terrain support</label>
+      <color>(108,78,55)</color>
+      <costList>
+         <WoodLog>24</WoodLog>
+         <Steel>6</Steel>
+      </costList>
+      <destroyOnBombDamageThreshold>12</destroyOnBombDamageThreshold>
+   </TerrainDef>
+
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformSandstoneSupport</defName>
+      <label>sandstone terrain support</label>
+      <color>(126,104,94)</color>
+      <costList>
+         <BlocksSandstone>16</BlocksSandstone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformGraniteSupport</defName>
+      <label>granite terrain support</label>
+      <color>(105,95,97)</color>
+      <costList>
+         <BlocksGranite>16</BlocksGranite>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformLimestoneSupport</defName>
+      <label>limestone terrain support</label>
+      <color>(158,153,135)</color>
+      <costList>
+         <BlocksLimestone>16</BlocksLimestone>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformSlateSupport</defName>
+      <label>slate terrain support</label>
+      <color>(70,70,70)</color>
+      <costList>
+         <BlocksSlate>16</BlocksSlate>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformMarbleSupport</defName>
+      <label>marble terrain support</label>
+      <color>(132,135,132)</color>
+      <costList>
+         <BlocksMarble>16</BlocksMarble>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformSteelSupport</defName>
+      <label>steel terrain support</label>
+      <color>(105,105,105)</color>
+      <costList>
+         <Steel>20</Steel>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_PlatformBaseContainer">
+      <defName>mipeSB_PlatformPlasteelSupport</defName>
+      <label>plasteel terrain support</label>
+      <affordances>
+         <li>Light</li>
+      </affordances>
+      <color>(160,178,181)</color>
+      <costList>
+         <Plasteel>10</Plasteel>
+      </costList>
+   </TerrainDef>
+
+</Defs>
