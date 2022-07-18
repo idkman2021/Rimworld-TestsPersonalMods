@@ -287,7 +287,7 @@
       <patchName>testspatches_act</patchName>
       <arguments>
          <li>Borderlands: Creatures</li>
-         <li>deon.borderlandscreatures</li>
+         <li>deon.borderlandscreatures, deon.borderlandscreatures.xml</li>
          <li>BorderlandsCreatures</li>
       </arguments>
    </Operation>
@@ -1574,6 +1574,67 @@
       <caseFalse></caseFalse>
    </Operation>
 
+   <!-- Nexomon -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>testspatches_act</patchName>
+      <arguments>
+         <li>Nexomon</li>
+         <li>nexomon.x</li>
+         <li>Nexomon</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.ModAnimalCommonality</modId>
+      <key>testsMAC_Nexomon</key>
+      <defaultValue>false</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.ModAnimalCommonality</modId>
+            <key>testsMAC_Nexomonk</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[
+                            defName="Abaddog" or 
+                            defName="Arctivore" or 
+                            defName="Boltusk" or 
+                            defName="Carnagrius" or 
+                            defName="Draclone" or 
+                            defName="Fuzztino" or 
+                            defName="Jeeta" or 
+                            defName="Mystogen" or 
+                            defName="Omnicron" or 
+                            defName="Raamu" or 
+                            defName="Voltaic"
+                            ]/race/wildBiomes/*</xpath>
+                  <value>{testsMAC_Nexomonk}</value>
+                  <operation>*</operation>
+               </Operation>
+               <Operation Class="XmlExtensions.PatchOperationMath">
+                  <success>Always</success>
+                  <xpath>
+                            Defs/BiomeDef/wildAnimals/Abaddog | 
+                            Defs/BiomeDef/wildAnimals/Arctivore |
+                            Defs/BiomeDef/wildAnimals/Boltusk |
+                            Defs/BiomeDef/wildAnimals/Carnagrius |
+                            Defs/BiomeDef/wildAnimals/Draclone |
+                            Defs/BiomeDef/wildAnimals/Fuzztino |
+                            Defs/BiomeDef/wildAnimals/Jeeta |
+                            Defs/BiomeDef/wildAnimals/Mystogen |
+                            Defs/BiomeDef/wildAnimals/Omnicron |
+                            Defs/BiomeDef/wildAnimals/Raamu |
+                            Defs/BiomeDef/wildAnimals/Voltaic
+                        </xpath>
+                  <value>{testsMAC_Nexomonk}</value>
+                  <operation>*</operation>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse></caseFalse>
+   </Operation>
 
    <!-- Oxygen Not Included Animals Module  -->
    <Operation Class="XmlExtensions.ApplyPatch">
