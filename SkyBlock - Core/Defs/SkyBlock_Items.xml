@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+
+   <ThingDef ParentName="ResourceBase" Name="mipeSB_ArtificialBase" Abstract="True">
+      <useHitPoints>false</useHitPoints>
+      <thingCategories>
+         <li>ResourcesRaw</li>
+      </thingCategories>
+   </ThingDef>
+
+   <ThingDef ParentName="mipeSB_ArtificialBase">
+      <defName>mipeSB_TerrainSoil</defName>
+      <label>soil</label>
+      <description>The upper layer of earth in which plants grow consisting of a mixture of organic remains, clay, and rock particles.</description>
+      <graphicData>
+         <texPath>Things/Item/Resource/StoneBlocks</texPath>
+         <graphicClass>Graphic_StackCount</graphicClass>
+         <drawSize>0.90</drawSize>
+      </graphicData>
+      <statBases>
+         <MarketValue>4.6</MarketValue>
+         <Mass>0.1</Mass>
+      </statBases>
+   </ThingDef>
+
+   <RecipeDef>
+      <defName>mipeSB_TerrainSoil</defName>
+      <label>make soil</label>
+      <description>Make a batch of soil from organics.</description>
+      <jobString>Making soil from organics.</jobString>
+      <recipeUsers>
+         <li>CraftingSpot</li>
+         <li>TableStonecutter</li>
+      </recipeUsers>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Cremate</soundWorking>
+      <workAmount>2500</workAmount>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <allowMixingIngredients>true</allowMixingIngredients>
+      <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+      <ingredients>
+         <li>
+            <filter>
+               <categories>
+                  <li>Foods</li>
+                  <li>PlantMatter</li>
+               </categories>
+               <disallowedThingDefs>
+                  <li>Hay</li>
+               </disallowedThingDefs>
+               <disallowedCategories>
+                  <li>FoodMeals</li>
+               </disallowedCategories>
+            </filter>
+            <count>1</count>
+         </li>
+      </ingredients>
+      <fixedIngredientFilter>
+         <categories>
+            <li>Foods</li>
+            <li>PlantMatter</li>
+         </categories>
+         <disallowedThingDefs>
+            <li>Hay</li>
+         </disallowedThingDefs>
+         <disallowedCategories>
+            <li>FoodMeals</li>
+         </disallowedCategories>
+      </fixedIngredientFilter>
+      <defaultIngredientFilter>
+         <categories>
+            <li>FoodRaw</li>
+         </categories>
+         <disallowedCategories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+         </disallowedCategories>
+      </defaultIngredientFilter>
+      <products>
+         <mipeSB_TerrainSoil>30</mipeSB_TerrainSoil>
+      </products>
+   </RecipeDef>
+
+   <ThingDef ParentName="mipeSB_ArtificialBase">
+      <defName>mipeSB_TerrainSoilRich</defName>
+      <label>rich soil</label>
+      <description>Soil rich in nutrients. Most plants flourish on it.</description>
+      <graphicData>
+         <texPath>Things/Item/Resource/StoneBlocks</texPath>
+         <graphicClass>Graphic_StackCount</graphicClass>
+         <drawSize>0.90</drawSize>
+      </graphicData>
+      <statBases>
+         <MarketValue>9.2</MarketValue>
+         <Mass>0.1</Mass>
+      </statBases>
+   </ThingDef>
+
+   <RecipeDef>
+      <defName>mipeSB_TerrainSoilRich</defName>
+      <label>make rich soil</label>
+      <description>Make a batch of rich soil from organics.</description>
+      <jobString>Making rich soil from organics.</jobString>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Cremate</soundWorking>
+      <workAmount>5000</workAmount>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <allowMixingIngredients>true</allowMixingIngredients>
+      <recipeUsers>
+         <li>CraftingSpot</li>
+         <li>TableStonecutter</li>
+      </recipeUsers>
+      <ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+      <ingredients>
+         <li>
+            <filter>
+               <categories>
+                  <li>Foods</li>
+                  <li>PlantMatter</li>
+               </categories>
+               <disallowedThingDefs>
+                  <li>Hay</li>
+               </disallowedThingDefs>
+               <disallowedCategories>
+                  <li>FoodMeals</li>
+               </disallowedCategories>
+            </filter>
+            <count>2</count>
+         </li>
+      </ingredients>
+      <fixedIngredientFilter>
+         <categories>
+            <li>Foods</li>
+            <li>PlantMatter</li>
+         </categories>
+         <disallowedThingDefs>
+            <li>Hay</li>
+         </disallowedThingDefs>
+         <disallowedCategories>
+            <li>FoodMeals</li>
+         </disallowedCategories>
+      </fixedIngredientFilter>
+      <defaultIngredientFilter>
+         <categories>
+            <li>FoodRaw</li>
+         </categories>
+         <disallowedCategories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+         </disallowedCategories>
+      </defaultIngredientFilter>
+      <products>
+         <mipeSB_TerrainSoilRich>30</mipeSB_TerrainSoilRich>
+      </products>
+   </RecipeDef>
+
+
+   <ThingDef ParentName="mipeSB_ArtificialBase">
+      <defName>mipeSB_TerrainSoilStony</defName>
+      <label>stony soil</label>
+      <description>Soil mixed with rocks, cheaper but not as fertile.</description>
+      <graphicData>
+         <texPath>Things/Item/Resource/StoneBlocks</texPath>
+         <graphicClass>Graphic_StackCount</graphicClass>
+         <drawSize>0.90</drawSize>
+      </graphicData>
+      <statBases>
+         <MarketValue>3</MarketValue>
+         <Mass>0.1</Mass>
+      </statBases>
+   </ThingDef>
+
+   <RecipeDef>
+      <defName>mipeSB_TerrainSoilStony</defName>
+      <label>make stony soil</label>
+      <description>Crush stone and mix it with some organics to make stony soil.</description>
+      <jobString>Making stony soil.</jobString>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Cremate</soundWorking>
+      <workAmount>2500</workAmount>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <allowMixingIngredients>true</allowMixingIngredients>
+      <recipeUsers>
+         <li>CraftingSpot</li>
+         <li>TableStonecutter</li>
+      </recipeUsers>
+      <ingredients>
+         <li>
+            <filter>
+               <categories>
+                  <li>Foods</li>
+                  <li>PlantMatter</li>
+               </categories>
+               <disallowedThingDefs>
+                  <li>Hay</li>
+               </disallowedThingDefs>
+               <disallowedCategories>
+                  <li>FoodMeals</li>
+               </disallowedCategories>
+            </filter>
+            <count>5</count>
+         </li>
+         <li>
+            <filter>
+               <categories>
+                  <li>StoneBlocks</li>
+               </categories>
+            </filter>
+            <count>10</count>
+         </li>
+      </ingredients>
+      <fixedIngredientFilter>
+         <categories>
+            <li>Foods</li>
+            <li>PlantMatter</li>
+            <li>StoneBlocks</li>
+         </categories>
+         <disallowedThingDefs>
+            <li>Hay</li>
+         </disallowedThingDefs>
+         <disallowedCategories>
+            <li>FoodMeals</li>
+         </disallowedCategories>
+      </fixedIngredientFilter>
+      <defaultIngredientFilter>
+         <categories>
+            <li>FoodRaw</li>
+         </categories>
+         <disallowedCategories>
+            <li>MeatRaw</li>
+            <li>AnimalProductRaw</li>
+         </disallowedCategories>
+      </defaultIngredientFilter>
+      <products>
+         <mipeSB_TerrainSoilStony>30</mipeSB_TerrainSoilStony>
+      </products>
+   </RecipeDef>
+
+
+   <ThingDef ParentName="mipeSB_ArtificialBase">
+      <defName>mipeSB_TerrainSand</defName>
+      <label>sand</label>
+      <description>A sedimentary material consisting of small, often rounded grains or particles of disintegrated rock, smaller than granules and larger than silt.</description>
+      <graphicData>
+         <texPath>Things/Item/Resource/StoneBlocks</texPath>
+         <graphicClass>Graphic_StackCount</graphicClass>
+         <drawSize>0.90</drawSize>
+      </graphicData>
+      <statBases>
+         <MarketValue>0.4</MarketValue>
+         <Mass>0.1</Mass>
+      </statBases>
+   </ThingDef>
+
+   <RecipeDef>
+      <defName>mipeSB_TerrainSand</defName>
+      <recipeUsers>
+         <li>CraftingSpot</li>
+         <li>TableStonecutter</li>
+      </recipeUsers>
+      <effectWorking>Cook</effectWorking>
+      <soundWorking>Recipe_Cremate</soundWorking>
+      <allowMixingIngredients>true</allowMixingIngredients>
+      <label>make sand</label>
+      <description>Crush stone into sand</description>
+      <jobString>making sand.</jobString>
+      <workAmount>1000</workAmount>
+      <ingredients>
+         <li>
+            <filter>
+               <categories>
+                  <li>StoneBlocks</li>
+               </categories>
+            </filter>
+            <count>10</count>
+         </li>
+      </ingredients>
+      <fixedIngredientFilter>
+         <categories>
+            <li>StoneBlocks</li>
+         </categories>
+      </fixedIngredientFilter>
+      <products>
+         <mipeSB_TerrainSand>30</mipeSB_TerrainSand>
+      </products>
+   </RecipeDef>
+
+
+</Defs>

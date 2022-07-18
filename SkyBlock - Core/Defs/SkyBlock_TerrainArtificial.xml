@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
+   <DesignatorDropdownGroupDef>
+      <defName>mipeSB_Terrains</defName>
+      <label>terrains</label>
+   </DesignatorDropdownGroupDef>
+
    <TerrainDef ParentName="NaturalTerrainBase" Name="mipeSB_ArtificialSkyTerrainBase" Abstract="True">
       <!-- "bridge" graphics - edges should look a floating island -->
       <layerable>true</layerable>
@@ -11,10 +16,77 @@
             <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
          </li>
       </modExtensions>
-      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can fill terrain support platforms -->
+      <affordances>
+         <li>mipeSB_TerrainSupport</li>
+      </affordances>
+      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can only be placed in terrain support platforms -->
       <designationCategory>Floors</designationCategory>
+      <designatorDropdown>mipeSB_Terrains</designatorDropdown>
+      <statBases>
+         <WorkToBuild>4000</WorkToBuild>
+      </statBases>
    </TerrainDef>
 
+   <TerrainDef ParentName="WaterDeepBase" Name="mipeSB_ArtificialSkyWaterDeepBase" Abstract="True">
+      <!-- "bridge" graphics - edges should look a floating island -->
+      <layerable>true</layerable>
+      <bridge>true</bridge>
+      <modExtensions>
+         <li Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>
+      </modExtensions>
+      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can only be placed in terrain support platforms -->
+      <designationCategory>Floors</designationCategory>
+      <designatorDropdown>mipeSB_Terrains</designatorDropdown>
+      <statBases>
+         <WorkToBuild>100000</WorkToBuild>
+      </statBases>
+   </TerrainDef>
+
+   <TerrainDef ParentName="WaterChestDeepBase" Name="mipeSB_ArtificialSkyWaterChestDeepBase" Abstract="True">
+      <!-- "bridge" graphics - edges should look a floating island -->
+      <layerable>true</layerable>
+      <bridge>true</bridge>
+      <modExtensions>
+         <li Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>
+      </modExtensions>
+      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can only be placed in terrain support platforms -->
+      <designationCategory>Floors</designationCategory>
+      <designatorDropdown>mipeSB_Terrains</designatorDropdown>
+      <statBases>
+         <WorkToBuild>50000</WorkToBuild>
+      </statBases>
+   </TerrainDef>
+
+   <TerrainDef ParentName="WaterShallowBase" Name="mipeSB_ArtificialSkyWaterShallowBase" Abstract="True">
+      <!-- "bridge" graphics - edges should look a floating island -->
+      <layerable>true</layerable>
+      <bridge>true</bridge>
+      <modExtensions>
+         <li Class="VFEArchitect.TerrainExtension_CustomBridgeProps">
+            <loopPath>StoneBridge/StoneBridgeProps_Loop</loopPath>
+            <rightPath>StoneBridge/StoneBridgeProps_Right</rightPath>
+         </li>
+      </modExtensions>
+      <terrainAffordanceNeeded>mipeSB_TerrainSupport</terrainAffordanceNeeded> <!-- artificial terrains can only be placed in terrain support platforms -->
+      <designationCategory>Floors</designationCategory>
+      <designatorDropdown>mipeSB_Terrains</designatorDropdown>
+      <statBases>
+         <WorkToBuild>10000</WorkToBuild>
+      </statBases>
+   </TerrainDef>
+
+
+   <TerrainAffordanceDef>
+      <defName>mipeSB_Soil</defName> <!-- lichen can be put onto soil -->
+      <label>soil</label>
+      <order>2500</order>
+   </TerrainAffordanceDef>
 
    <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
       <defName>mipeSB_ArtificialSoil</defName>
@@ -33,6 +105,7 @@
          <li>Light</li>
          <li>GrowSoil</li>
          <li>Diggable</li>
+         <li>mipeSB_Soil</li>
       </affordances>
       <generatedFilth>Filth_Dirt</generatedFilth>
       <fertility>1.0</fertility>
@@ -50,9 +123,11 @@
       <tags>
          <li>Soil</li>
       </tags>
+      <costList>
+         <mipeSB_TerrainSoil>5</mipeSB_TerrainSoil>
+      </costList>
    </TerrainDef>
-
-
+<!--
    <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
       <defName>mipeSB_ArtificialMossyTerrain</defName>
       <label>lichen-covered soil (artificial)</label>
@@ -74,10 +149,12 @@
       <fertility>1</fertility>
       <takeFootprints>True</takeFootprints>
       <avoidWander>false</avoidWander>
+      <terrainAffordanceNeeded>mipeSB_Soil</terrainAffordanceNeeded>
       <tags>
          <li>Soil</li>
       </tags>
    </TerrainDef>
+-->
 
    <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
       <defName>mipeSB_ArtificialMarshyTerrain</defName>
@@ -101,7 +178,7 @@
       <generatedFilth>Filth_Dirt</generatedFilth>
       <fertility>1.0</fertility>
       <takeFootprints>True</takeFootprints>
-      <driesTo>Soil</driesTo>
+      <driesTo>mipeSB_ArtificialSoil</driesTo>
       <tools>
          <li>
             <label>mud</label>
@@ -115,6 +192,9 @@
       <tags>
          <li>Soil</li>
       </tags>
+      <costList>
+         <mipeSB_TerrainSoil>5</mipeSB_TerrainSoil>
+      </costList>
    </TerrainDef>
 
    <!-- Rich soils -->
@@ -152,6 +232,9 @@
       <tags>
          <li>Soil</li>
       </tags>
+      <costList>
+         <mipeSB_TerrainSoilRich>5</mipeSB_TerrainSoilRich>
+      </costList>
    </TerrainDef>
 
    <!-- Poor soils -->
@@ -190,6 +273,9 @@
       <tags>
          <li>Soil</li>
       </tags>
+      <costList>
+         <mipeSB_TerrainSoilStony>5</mipeSB_TerrainSoilStony>
+      </costList>
    </TerrainDef>
 
    <!-- Sand -->
@@ -205,6 +291,7 @@
          <Beauty>-3</Beauty>
          <BeautyOutdoors>0</BeautyOutdoors>
          <Cleanliness>-1</Cleanliness>
+         <WorkToBuild>2000</WorkToBuild>
       </statBases>
       <scatterType>SoftDry</scatterType>
       <affordances>
@@ -224,6 +311,9 @@
             <cooldownTime>1.5</cooldownTime>
          </li>
       </tools>
+      <costList>
+         <mipeSB_TerrainSand>5</mipeSB_TerrainSand>
+      </costList>
    </TerrainDef>
 
    <TerrainDef ParentName="mipeSB_ArtificialSkyTerrainBase">
@@ -233,7 +323,7 @@
       <edgeType>FadeRough</edgeType>
       <renderPrecedence>352</renderPrecedence>
       <pathCost>14</pathCost>
-      <driesTo>Sand</driesTo>
+      <driesTo>mipeSB_ArtificialSand</driesTo>
       <statBases>
          <Beauty>-3</Beauty>
          <BeautyOutdoors>0</BeautyOutdoors>
@@ -256,6 +346,9 @@
             <cooldownTime>1.5</cooldownTime>
          </li>
       </tools>
+      <costList>
+         <mipeSB_TerrainSand>5</mipeSB_TerrainSand>
+      </costList>
    </TerrainDef>
 
 
@@ -280,7 +373,7 @@
       <fertility>0</fertility>
       <takeFootprints>True</takeFootprints>
       <avoidWander>true</avoidWander>
-      <driesTo>Soil</driesTo>
+      <driesTo>mipeSB_ArtificialSoil</driesTo>
       <tools>
          <li>
             <label>mud</label>
@@ -291,6 +384,9 @@
             <cooldownTime>1.5</cooldownTime>
          </li>
       </tools>
+      <costList>
+         <mipeSB_TerrainSoil>5</mipeSB_TerrainSoil>
+      </costList>
    </TerrainDef>
 
    <!-- Ice -->
@@ -314,7 +410,63 @@
       <generatedFilth>Filth_Dirt</generatedFilth>
       <fertility>0.00</fertility>
       <takeFootprints>True</takeFootprints>
+      <statBases>
+         <WorkToBuild>10000</WorkToBuild>
+      </statBases>
    </TerrainDef>
 
+   <TerrainDef ParentName="mipeSB_ArtificialSkyWaterShallowBase">
+      <defName>mipeSB_ArtificialWaterShallow</defName>
+      <label>shallow water (artificial)</label>
+      <texturePath>Terrain/Surfaces/WaterShallowRamp</texturePath>
+      <waterDepthShader>Map/WaterDepth</waterDepthShader>
+      <renderPrecedence>394</renderPrecedence>
+      <driesTo>mipeSB_ArtificialGravel</driesTo>
+      <costList>
+         <mipeSB_TerrainSoil>5</mipeSB_TerrainSoil>
+      </costList>
+   </TerrainDef>
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyWaterShallowBase">
+      <defName>mipeSB_ArtificialMarsh</defName>
+      <label>marsh (artificial)</label>
+      <texturePath>Terrain/Surfaces/Marsh</texturePath>
+      <edgeType>FadeRough</edgeType>
+      <renderPrecedence>325</renderPrecedence>
+      <statBases>
+         <Beauty>-3</Beauty>
+         <BeautyOutdoors>0</BeautyOutdoors>
+         <Cleanliness>-2</Cleanliness>
+      </statBases>
+      <generatedFilth>Filth_Dirt</generatedFilth>
+      <fertility>0</fertility>
+      <takeFootprints>True</takeFootprints>
+      <avoidWander>true</avoidWander>
+      <driesTo>mipeSB_ArtificialSoil</driesTo>
+      <extinguishesFire>true</extinguishesFire>
+      <tools>
+         <li>
+            <label>mud</label>
+            <capacities>
+               <li>KickMaterialInEyes</li>
+            </capacities>
+            <hediff>MudInEyes</hediff>
+            <cooldownTime>1.5</cooldownTime>
+         </li>
+      </tools>
+      <costList>
+         <mipeSB_TerrainSoil>5</mipeSB_TerrainSoil>
+      </costList>
+   </TerrainDef>
+
+
+   <TerrainDef ParentName="mipeSB_ArtificialSkyWaterDeepBase">
+      <defName>mipeSB_ArtificialWaterDeep</defName>
+      <label>deep water (artificial)</label>
+      <renderPrecedence>395</renderPrecedence>
+      <costList>
+         <mipeSB_TerrainSand>5</mipeSB_TerrainSand>
+      </costList>
+   </TerrainDef>
 
 </Defs>
