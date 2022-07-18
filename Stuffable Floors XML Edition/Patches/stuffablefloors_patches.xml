@@ -306,14 +306,16 @@
             <xmlDoc>StoneFloors</xmlDoc>
             <xpath>StoneFloors/TerrainDef[@ParentName="StoneBridgeBase"]</xpath>
          </li>
-         <Operation Class="PatchOperationSequence">
+         <li Class="PatchOperationSequence">
             <success>Invert</success>
             <operations>
+               <!-- does addon exist -->
                <li Class="XmlExtensions.Test">
                   <success>Normal</success>
                   <xmlDoc>StoneFloors</xmlDoc>
                   <xpath>StoneFloors/TerrainDef[defName="SBridgeDeepSandstone"]</xpath>
                </li>
+               <!-- yep -->
                <li Class="XmlExtensions.PatchOperationAdd">
                   <xmlDoc>PatchDef</xmlDoc>
                   <xpath>PatchDef/apply</xpath>
@@ -354,7 +356,8 @@
                </li>
                <!-- etc -->
             </operations>
-         </Operation>
+         </li>
+         <!-- nope -->
          <li Class="XmlExtensions.ApplyPatch">
             <patchName>tests_StuffableFloorsASpaghetti</patchName>
             <arguments>
