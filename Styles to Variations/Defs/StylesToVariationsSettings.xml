@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+   <XmlExtensions.SettingsMenuDef>
+      <defName>tests_StylesToVTE</defName> <!--Can be anything unique with no periods-->
+      <modId>tests.StylesToVTE</modId> <!--MUST be the same as the one entered earlier-->
+      <label>Styles to Variations</label> <!-- This is what displays as your mod's name-->
+      <settings>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Settings apply after restart.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.GapLine" />
+
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsStylesToVTE_Convert</key>
+            <label>Convert all ideology styles to texture variations using Vanilla Textures Expanded - Variations</label>
+            <defaultValue>True</defaultValue>
+            <tooltip>Adds all custom ideology building styles as texture variations using Vanilla Textures Expanded - Variations.</tooltip>
+         </li>
+
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsStylesToVTE_Buildable</key>
+            <label>Unlock all ideology items and buildings for everyone</label>
+            <defaultValue>True</defaultValue>
+            <tooltip>Some items and buildings can only be made if you have specific precepts or memes, this option unlocks them for everyone. Most ideology restricted buildings have no function without their ideology, but they make great decorations so there is no reason to prevent them from being buildable.</tooltip>
+         </li>
+
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsStylesToVTE_Walls</key>
+            <label>Make all wall styles buildable</label>
+            <defaultValue>True</defaultValue>
+            <tooltip>Doesn't work yet.</tooltip>
+         </li>
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsStylesToVTE_Logging</key>
+            <label>Debug mode (not recommended)</label>
+            <defaultValue>False</defaultValue>
+            <tooltip>Will show a list of all affected items, blacklisted ones will be displayed red.</tooltip>
+         </li>
+
+         <li Class="XmlExtensions.Setting.Group">
+            <settings></settings>
+         </li>
+
+         <li Class="XmlExtensions.Setting.Gap" />
+         <li Class="XmlExtensions.Setting.ResetSettings" />
+      </settings>
+   </XmlExtensions.SettingsMenuDef>
+</Defs>

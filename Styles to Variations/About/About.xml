@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+   <name>Styles to Variations</name>
+   <packageId>tests.StylesToVTE</packageId>
+   <description>Adds all custom ideology building styles as texture variations using Vanilla Textures Expanded - Variations, and unlocks all ideology-restricted items and buildings. Meant to be used with "No Ideology" mode but can be used with ideology enabled.
+- Lets you finally decorate your base using all those great ideology styles in No Ideology mode. 
+- Styles will also be added alongside built-in variations from VTE-V, so both can be used at the same time which wasn't possible before. 
+- Most ideology restricted buildings have no function without their ideology, but they make great decorations so there is no reason to prevent them from being buildable.
+
+Notes:
+- ideology styles always take priority over VTE-V variations. If you don't use "No ideology" mode and have an ideology with a selected style, that style will overwrite VTE-V texture variations, including ones converted to VTE-V by this mod.
+- VTE-V only works on non-linkable buildings, however this mod can also optionally convert some linkable building styles into separate buildings. For example, you will be able to build steampunk walls or hyeroglyphs walls from Alpha Memes.
+- As weapon and apparel styles aren't supported, if you want to select textures for those, check UpsilonSigmaEta's "USE Select Style".
+    </description>
+   <author>test</author>
+   <supportedVersions>
+      <li>1.3</li>
+   </supportedVersions>
+   <modDependencies>
+      <li>
+         <packageId>VanillaExpanded.VTEXVariations</packageId>
+         <displayName>Vanilla Textures Expanded - Variations</displayName>
+         <steamWorkshopUrl>steam://url/CommunityFilePage/2493234474</steamWorkshopUrl>
+      </li>
+      <li>
+         <packageId>imranfish.xmlextensions</packageId>
+         <displayName>XML Extensions</displayName>
+         <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+         <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+      </li>
+   </modDependencies>
+
+   <loadAfter>
+      <li>VanillaExpanded.VTEXVariations</li>
+      <li>imranfish.xmlextensions</li>
+      <li>sarg.alphamemes</li>
+      <li>vanillaexpanded.vmemese</li>
+      <li>audreysstyles.industrial</li>
+      <li>audreysstyles.astro</li>
+      <li>fantasystyles.xerandereth</li>
+      <li>rimsenal.french</li>
+      <li>rimsenal.murica</li>
+      <li>rimsenal.sophian</li>
+      <li>rimsenal.techist</li>
+      <li>audreysstyles.jazzy</li>
+      <li>stylerevised.animalist</li>
+      <li>vanillaexpanded.vgeneticse</li>
+   </loadAfter>
+
+</ModMetaData>
