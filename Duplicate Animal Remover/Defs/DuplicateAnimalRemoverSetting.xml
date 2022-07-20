@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+   <XmlExtensions.SettingsMenuDef>
+      <defName>tests_DuplicateAnimalRemover</defName> <!--Can be anything unique with no periods-->
+      <modId>tests.DAR</modId> <!--MUST be the same as the one entered earlier-->
+      <label>Duplicate Animal Remover</label> <!-- This is what displays as your mod's name-->
+      <settings>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Settings apply after restart.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.GapLine" />
+
+
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>tests_DARDebug</key>
+            <label>Enable debugging</label>
+            <defaultValue>False</defaultValue>
+            <tooltip>shows all duplicate animals and which ones were removed</tooltip>
+        </li>
+
+        <li Class="XmlExtensions.Setting.GapLine" />
+
+         <li Class="XmlExtensions.Setting.Group">
+            <tag>1</tag>
+            <settings></settings>
+         </li>
+         
+         <li Class="XmlExtensions.Setting.Group">
+            <tag>2</tag>
+            <settings></settings>
+         </li>
+
+         
+         <li Class="XmlExtensions.Setting.Gap" />
+         <li Class="XmlExtensions.Setting.ResetSettings" />
+      </settings>
+   </XmlExtensions.SettingsMenuDef>
+
+
+   <XmlExtensions.PatchDef Name="tests_DAR" Abstract="True">
+      <parameters>
+         <li>keep</li>
+         <li>remove</li>
+      </parameters>
+      <apply>
+
+         <!-- main operation that removes duplicate animal -->
+         <Operation Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+
+               <!-- tests if DARAnimalRemove exists and terminates if it doesn't -->
+               <li Class="PatchOperationTest">
+                  <xpath>Defs/ThingDef[defName="{remove}"]</xpath>
+                  <success>Normal</success>
+               </li>
+
+               <li Class="XmlExtensions.OptionalPatch">
+                  <success>Always</success>
+                  <modId>tests.DAR</modId>
+                  <key>tests_DARDebug</key>
+                  <defaultValue>false</defaultValue>
+                  <caseTrue>
+                     <!-- adds active defName to the DARLog tab if it isn't there already -->
+                     <Operation Class="XmlExtensions.Conditional">
+                        <xmlDoc>DARLog</xmlDoc>
+                        <xpath>DARLog/settings/li[text="animal: {remove}"]</xpath>
+                        <caseFalse>
+                           <Operation Class="XmlExtensions.PatchOperationAdd">
+                              <xmlDoc>DARLog</xmlDoc>
+                              <order>Append</order>
+                              <xpath>DARLog/settings</xpath>
+                              <value>
+                                 <li Class="XmlExtensions.Setting.Text">
+                                    <font>Tiny</font>
+                                    <text>animal: {remove}</text>
+                                 </li>
+                              </value>
+                           </Operation>
+                        </caseFalse>
+                     </Operation>
+                  </caseTrue>
+               </li>
+
+               <!-- tests if DARAnimalKeep exists and terminates if it doesn't -->
+               <li Class="PatchOperationTest">
+                  <xpath>Defs/ThingDef[defName="{keep}"]</xpath>
+                  <success>Normal</success>
+               </li>
+
+               <!-- removes the animal -->
+               <li Class="PatchOperationRemove">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[defName="{remove}"]</xpath>
+               </li>
+               <li Class="PatchOperationRemove">
+                  <success>Always</success>
+                  <xpath>Defs/PawnKindDef[defName="{remove}"]</xpath>
+               </li>
+               <!-- removes eggs -->
+               <li Class="PatchOperationRemove">
+                  <success>Always</success>
+                  <xpath>Defs/ThingDef[comps/li/hatcherPawn="{remove}"]</xpath>
+               </li>
+
+               <li Class="XmlExtensions.OptionalPatch">
+                  <success>Always</success>
+                  <modId>tests.DAR</modId>
+                  <key>tests_DARDebug</key>
+                  <defaultValue>false</defaultValue>
+                  <caseTrue>
+                     <!-- adds an entry to the DARInfo tab -->
+                     <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xmlDoc>DARInfo</xmlDoc>
+                        <xpath>DARInfo/settings</xpath>
+                        <order>Append</order>
+                        <value>
+                           <li Class="XmlExtensions.Setting.SplitColumn">
+                              <split>0.5</split>
+                              <leftCol>
+                                 <li Class="XmlExtensions.Setting.Text">
+                                    <font>Tiny</font>
+                                    <text>A: replaced     "{remove}";</text>
+                                 </li>
+                              </leftCol>
+                              <rightCol>
+                                 <li Class="XmlExtensions.Setting.Text">
+                                    <font>Tiny</font>
+                                    <text>with     "{keep}"</text>
+                                 </li>
+                              </rightCol>
+                           </li>
+                        </value>
+                     </Operation>
+                  </caseTrue>
+               </li>
+
+            </operations>
+         </Operation>
+
+
+         <!-- adds active defName to the DARLog tab if it isn't there already -->
+         <Operation Class="XmlExtensions.OptionalPatch">
+            <modId>tests.DAR</modId>
+            <key>tests_DARDebug</key>
+            <defaultValue>false</defaultValue>
+            <caseTrue>
+               <Operation Class="XmlExtensions.Conditional">
+                  <xpath>Defs/ThingDef[defName="{keep}"]</xpath>
+                  <caseTrue>
+                     <Operation Class="XmlExtensions.Conditional">
+                        <xmlDoc>DARLog</xmlDoc>
+                        <xpath>DARLog/settings/li[text="animal: {keep}"]</xpath>
+                        <caseFalse>
+                           <Operation Class="XmlExtensions.PatchOperationAdd">
+                              <order>Append</order>
+                              <xpath>DARLog/settings</xpath>
+                              <value>
+                                 <li Class="XmlExtensions.Setting.Text">
+                                    <font>Tiny</font>
+                                    <text>animal: {keep}</text>
+                                 </li>
+                              </value>
+                           </Operation>
+                        </caseFalse>
+                     </Operation>
+                  </caseTrue>
+                  <!-- adds inactive defNames to the DARLog tab if they aren't there already -->
+                  <caseFalse>
+                     <Operation Class="XmlExtensions.Conditional">
+                        <xmlDoc>DARLog</xmlDoc>
+                        <xpath>DARLog/settings/li[text="animal: {keep}"]</xpath>
+                        <caseFalse>
+                           <Operation Class="XmlExtensions.PatchOperationAdd">
+                              <xmlDoc>DARLog</xmlDoc>
+                              <order>Append</order>
+                              <xpath>DARLog/settings</xpath>
+                              <value>
+                                 <li Class="XmlExtensions.Setting.SetColor">
+                                    <color>(155,155,155)</color>
+                                 </li>
+                                 <li Class="XmlExtensions.Setting.Text">
+                                    <font>Tiny</font>
+                                    <text>animal: {keep}</text>
+                                 </li>
+                                 <li Class="XmlExtensions.Setting.SetColor">
+                                    <color>(255,255,255)</color>
+                                 </li>
+                              </value>
+                           </Operation>
+                        </caseFalse>
+                     </Operation>
+                  </caseFalse>
+               </Operation>
+               <Operation Class="XmlExtensions.Conditional">
+                  <xmlDoc>DARLog</xmlDoc>
+                  <xpath>DARLog/settings/li[text="animal: {remove}"]</xpath>
+                  <caseFalse>
+                     <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xmlDoc>DARLog</xmlDoc>
+                        <order>Append</order>
+                        <xpath>DARLog/settings</xpath>
+                        <value>
+                           <li Class="XmlExtensions.Setting.SetColor">
+                              <color>(155,155,155)</color>
+                           </li>
+                           <li Class="XmlExtensions.Setting.Text">
+                              <font>Tiny</font>
+                              <text>animal: {remove}</text>
+                           </li>
+                           <li Class="XmlExtensions.Setting.SetColor">
+                              <color>(255,255,255)</color>
+                           </li>
+                        </value>
+                     </Operation>
+                  </caseFalse>
+               </Operation>
+            </caseTrue>
+         </Operation>
+
+      </apply>
+   </XmlExtensions.PatchDef>
+
+</Defs>

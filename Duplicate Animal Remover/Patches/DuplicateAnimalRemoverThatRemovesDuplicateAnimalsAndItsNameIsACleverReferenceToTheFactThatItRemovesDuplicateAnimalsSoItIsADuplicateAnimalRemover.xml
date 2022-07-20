@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DAR</modId>
+      <key>tests_DARDebug</key>
+      <defaultValue>False</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.CreateDocument">
+            <docName>DARLog</docName>
+            <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_DuplicateAnimalRemover"]/settings/li[tag="2"]/settings</xpath>
+         </Operation>
+         <Operation Class="XmlExtensions.CreateDocument">
+            <docName>DARInfo</docName>
+            <xpath>Defs/XmlExtensions.SettingsMenuDef[defName="tests_DuplicateAnimalRemover"]/settings/li[tag="1"]/settings</xpath>
+         </Operation>
+      </caseTrue>
+      <caseFalse>
+         <!--Patch operations here-->
+      </caseFalse>
+   </Operation>
+
+
+   <!-- Vanilla Animals Expanded — Arid Shrubland -->
+   <!-- Cheetah -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Cheetah</li>
+         <li>ACPCheetah</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Cheetah</li>
+         <li>HC_Cheetah</li>
+      </arguments>
+   </Operation>
+
+   <!-- Giraffe -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Giraffe</li>
+         <li>HC_Giraffe</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Giraffe</li>
+         <li>ACPGiraffe</li>
+      </arguments>
+   </Operation>
+
+   <!-- Crocodile -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Crocodile</li>
+         <li>HC_Crocodale</li>
+      </arguments>
+   </Operation>
+
+   <!-- Hippopotamus -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hippopotamus</li>
+         <li>HC_Hippo</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hippopotamus</li>
+         <li>ACPHippopotamus</li>
+      </arguments>
+   </Operation>
+
+   <!-- AEXP_Coyote -->
+
+   <!-- AEXP_Zebra -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Zebra</li>
+         <li>ZW_Zebra</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Vanilla Animals Expanded — Cats and Dogs -->
+   <!-- Munchkin Cat -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_CatMunchkin</li>
+         <li>ACPMunchkinCat</li>
+      </arguments>
+   </Operation>
+
+   <!-- Pug -->
+
+
+   <!-- Vanilla Animals Expanded — Desert -->
+   <!-- Lion -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Lion</li>
+         <li>ACPLion</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Lion</li>
+         <li>HC_Lion</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Lion</li>
+         <li>ZW_Lion</li>
+      </arguments>
+   </Operation>
+
+   <!-- Hyena -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hyena</li>
+         <li>HC_Hyena</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hyena</li>
+         <li>ZW_Hyena</li>
+      </arguments>
+   </Operation>
+
+   <!-- Desert tortoise -->
+
+
+   <!-- Vanilla Animals Expanded — Extreme Desert -->
+   <!-- Camel -->
+
+   <!-- Rattlesnake -->
+
+
+   <!-- Vanilla Animals Expanded — Tundra -->
+   <!-- Porcupine -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Porcupine</li>
+         <li>ACPPorcupine</li>
+      </arguments>
+   </Operation>
+
+   <!-- Moose -->
+
+   <!-- Musk ox -->
+
+   <!-- Vanilla Animals Expanded — Boreal Forest -->
+   <!-- Black Bear -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_BlackBear</li>
+         <li>ACPBlackbear</li>
+      </arguments>
+   </Operation>
+
+   <!-- Otter -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Otter</li>
+         <li>ACPOtter</li>
+      </arguments>
+   </Operation>
+
+   <!-- Arctic coyote -->
+
+
+   <!-- Vanilla Animals Expanded — Tropical Rainforest -->
+   <!-- Tapir -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Tapir</li>
+         <li>ACPTapir</li>
+      </arguments>
+   </Operation>
+
+   <!-- Tiger -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Tiger</li>
+         <li>ACPTiger</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Tiger</li>
+         <li>HC_Tiger</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Tiger</li>
+         <li>ZW_Tiger</li>
+      </arguments>
+   </Operation>
+
+   <!-- Jaguar -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Jaguar</li>
+         <li>HC_Jaguar</li>
+      </arguments>
+   </Operation>
+
+   <!-- Gorilla -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Gorilla</li>
+         <li>ZW_Gorilla</li>
+      </arguments>
+   </Operation>
+
+   <!-- Lemur -->
+
+   <!-- Mandrill -->
+
+
+   <!-- Vanilla Animals Expanded — Tropical Swamp -->
+   <!-- Anaconda -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Anaconda</li>
+         <li>HC_Anacondas</li>
+      </arguments>
+   </Operation>
+
+   <!-- Alligator -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Alligator</li>
+         <li>HC_Alligator</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Alligator</li>
+         <li>ZW_Alligator</li>
+      </arguments>
+   </Operation>
+
+   <!-- Indian elephant -->
+
+
+   <!-- Vanilla Animals Expanded — Ice Sheet -->
+   <!-- Penguin -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Penguin</li>
+         <li>ACPPenguin</li>
+      </arguments>
+   </Operation>
+
+   <!-- Walrus -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Walrus</li>
+         <li>ACPWalrus</li>
+      </arguments>
+   </Operation>
+
+   <!-- Seal -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Seal</li>
+         <li>ACPSpottedSeal</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Vanilla Animals Expanded — Australia -->
+   <!-- AEXP_Kangaroo -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Kangaroo</li>
+         <li>ZW_Kangaroo</li>
+      </arguments>
+   </Operation>
+
+   <!-- AEXP_Koala -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Koala</li>
+         <li>ZW_Koala</li>
+      </arguments>
+   </Operation>
+
+   <!-- AEXP_Platypus -->
+
+   <!-- AEXP_Boombat -->
+
+
+   <!-- Vanilla Animals Expanded — Temperate Forest -->
+   <!-- Hedgehog -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hedgehog</li>
+         <li>ERN_Hedgehog</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hedgehog</li>
+         <li>ACPHedgehog</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Hedgehog</li>
+         <li>ZW_Hedgehog</li>
+      </arguments>
+   </Operation>
+
+   <!-- Red panda -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_RedPanda</li>
+         <li>ERN_Redpanda</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_RedPanda</li>
+         <li>ACPRedPanda</li>
+      </arguments>
+   </Operation>
+
+   <!-- Badger -->
+
+   <!-- Beaver -->
+
+   <!-- Wild goose -->
+
+
+   <!-- Vanilla Animals Expanded — Endangered -->
+   <!-- African wild dog -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_AfricanWildDog</li>
+         <li>ACPWildDog</li>
+      </arguments>
+   </Operation>
+
+   <!-- Black rhinoceros -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_BlackRhino</li>
+         <li>ACPBlackRhinoceros</li>
+      </arguments>
+   </Operation>
+
+   <!-- Black-footed ferr -->
+
+   <!-- Bonobo -->
+
+   <!-- Giant panda -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Panda</li>
+         <li>ACPPanda</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Panda</li>
+         <li>ZW_PandaBear</li>
+      </arguments>
+   </Operation>
+
+   <!-- Giant pangolin -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>AEXP_Pangolin</li>
+         <li>HC_Pangolin</li>
+      </arguments>
+   </Operation>
+
+   <!-- Moa -->
+
+   <!-- Quagga -->
+
+   <!-- Rockhopper penguin -->
+
+   <!-- Tasmanian devil -->
+
+   <!-- Thylacine -->
+
+
+   <!-- Erin's Wildlife -->
+   <!-- Armadillo -->
+
+   <!-- Gartersnake -->
+
+   <!-- Grey fox -->
+
+   <!-- Hedgehog -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ERN_Hedgehog</li>
+         <li>ACPHedgehog</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ERN_Hedgehog</li>
+         <li>ZW_Hedgehog</li>
+      </arguments>
+   </Operation>
+
+   <!-- Mink -->
+
+   <!-- Ptarmigan -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ERN_ptarmigan</li>
+         <li>ACPPtarmigan</li>
+      </arguments>
+   </Operation>
+
+   <!-- Red panda -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ERN_Redpanda</li>
+         <li>ACPRedPanda</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Erin's Mountain Animals -->
+   <!-- Argali -->
+
+   <!-- Pallas' cat -->
+
+   <!-- Pika -->
+
+   <!-- Snow leopard -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>Snow_leopard</li>
+         <li>HC_Snowleopard</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>Snow_leopard</li>
+         <li>ACPSnowLeopard</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>Snow_leopard</li>
+         <li>ZW_SnowLeopard</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Erin's Friendly Ferrets -->
+   <!-- Ferret -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ERN_Ferret</li>
+         <li>ACPFerret</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Biomes! Core (Just Animals) -->
+   <!-- Flamingo -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>BiomesIslands_Flamingo</li>
+         <li>ACPFlamingo</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- Biomes! Islands (Just Animals) -->
+   <!-- Kiwi -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>BiomesIslands_KiwiBird</li>
+         <li>ACPKiwi</li>
+      </arguments>
+   </Operation>
+
+   <!-- Komodo Dragon -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>BMT_KomodoDragon</li>
+         <li>ACPKomodo</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>BMT_KomodoDragon</li>
+         <li>HC_KomodoDragon</li>
+      </arguments>
+   </Operation>
+
+   <!-- Galapagos Tortoise -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>BiomesIslands_GalapagosTortoise</li>
+         <li>HC_Galapagostortoise</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- HC_Animal_1 -->
+   <!-- Komodo dragon -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_KomodoDragon</li>
+         <li>ACPKomodo</li>
+      </arguments>
+
+   </Operation>
+   <!-- Samoyed -->
+   <!-- Serval -->
+   <!-- Pangolin -->
+   <!-- Weasel -->
+
+
+   <!-- HC_Animal_2 -->
+   <!-- Alligator turtle -->
+   <!-- Anaconda -->
+   <!-- Bullfrog -->
+   <!-- Galapagos tortoise -->
+   <!-- leopard gecko -->
+   <!-- Water monitor -->
+
+
+   <!-- HC_Animal_3 -->
+   <!-- Lion -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Lion</li>
+         <li>ACPLion</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Lion</li>
+         <li>ZW_Lion</li>
+      </arguments>
+   </Operation>
+
+   <!-- Jaguar -->
+
+   <!-- cheetah -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Cheetah</li>
+         <li>ACPCheetah</li>
+      </arguments>
+   </Operation>
+
+   <!-- Hyena -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Hyena</li>
+         <li>ZW_Hyena</li>
+      </arguments>
+   </Operation>
+
+   <!-- Tiger -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Tiger</li>
+         <li>ACPTiger</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Tiger</li>
+         <li>ZW_Tiger</li>
+      </arguments>
+   </Operation>
+
+   <!-- Snow leopard -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Snowleopard</li>
+         <li>ACPSnowLeopard</li>
+      </arguments>
+   </Operation>
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Snowleopard</li>
+         <li>ZW_SnowLeopard</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- HC_Animal_4 -->
+   <!-- Baboon -->
+
+   <!-- Giraffe -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Giraffe</li>
+         <li>ACPGiraffe</li>
+      </arguments>
+   </Operation>
+
+   <!-- Alligator -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Alligator</li>
+         <li>ZW_Alligator</li>
+      </arguments>
+   </Operation>
+
+   <!-- Crocodile -->
+
+   <!-- Hippopotamus -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>HC_Hippo</li>
+         <li>ACPHippopotamus</li>
+      </arguments>
+   </Operation>
+
+   <!-- ACP-->
+
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ACPHedgehog</li>
+         <li>ZW_Hedgehog</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ACPSnowLeopard</li>
+         <li>ZW_SnowLeopard</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ACPLion</li>
+         <li>ZW_Lion</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ACPPanda</li>
+         <li>ZW_PandaBear</li>
+      </arguments>
+   </Operation>
+
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>ACPTiger</li>
+         <li>ZW_Tiger</li>
+      </arguments>
+   </Operation>
+
+
+   <!-- regrowth -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>RG_WoollyMammoth</li>
+         <li>ZW_Mammoth</li>
+      </arguments>
+   </Operation>
+
+   <!-- megafauna -->
+   <Operation Class="XmlExtensions.ApplyPatch">
+      <patchName>tests_DAR</patchName>
+      <arguments>
+         <li>WoollyMammoth</li>
+         <li>ZW_Mammoth</li>
+      </arguments>
+   </Operation>
+
+   <!-- avoid red errors -->
+   <Operation Class="PatchOperationFindMod">
+      <mods>
+         <li>Vanilla Genetics Expanded</li>
+      </mods>
+      <nomatch Class="XmlExtensions.ApplyPatch">
+         <patchName>tests_DAR</patchName>
+         <arguments>
+            <li>RG_WoollyMammoth</li>
+            <li>WoollyMammoth</li>
+         </arguments>
+      </nomatch>
+   </Operation>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.DAR</modId>
+      <key>tests_DARDebug</key>
+      <defaultValue>False</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.MergeDocument">
+            <docName>DARLog</docName>
+         </Operation>
+         <Operation Class="XmlExtensions.MergeDocument">
+            <docName>DARInfo</docName>
+         </Operation>
+      </caseTrue>
+      <caseFalse>
+         <!--Patch operations here-->
+      </caseFalse>
+   </Operation>
+
+
+</Patch>
