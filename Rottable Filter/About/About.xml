@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ModMetaData>
+   <name>Rottable Filter</name>
+   <packageId>tests.Rottable</packageId>
+   <description>Adds a filter for all items that can rot unless frozen, except corpses (including all modded items).</description>
+   <author>test</author>
+   <supportedVersions>
+      <li>1.3</li>
+   </supportedVersions>
+   <modDependencies>
+      <li>
+         <packageId>imranfish.xmlextensions</packageId>
+         <displayName>XML Extensions</displayName>
+         <downloadUrl>https://github.com/15adhami/XmlExtensions/releases/latest</downloadUrl>
+         <steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+      </li>
+   </modDependencies>
+   <loadAfter>
+      <li>imranfish.xmlextensions</li>
+   </loadAfter>
+</ModMetaData>

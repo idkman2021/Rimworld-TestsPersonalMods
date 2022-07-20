@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+   <Operation Class="PatchOperationAdd">
+      <xpath>Defs</xpath>
+      <value>
+         <ThingCategoryDef>
+            <defName>TPatchesRottable</defName>
+            <label>*Rottable</label>
+            <parent>Root</parent>
+         </ThingCategoryDef>
+      </value>
+   </Operation>
+   <!-- patch by imranfish -->
+   <Operation Class="XmlExtensions.DefDatabaseForEach">
+      <objPath>ThingDef/[thingCategories/[defName="MeatRaw"]]</objPath>
+      <storeIn>path</storeIn>
+      <apply>
+         <!--Add the category to the ThingDef-->
+         <Operation Class="XmlExtensions.DefDatabaseOperationAdd">
+            <objPath>{path}/thingCategories</objPath>
+            <objPath2>ThingCategoryDef/[defName="TPatchesRottable"]</objPath2>
+         </Operation>
+         <!--Add the ThingDef to the ThingCategory-->
+         <Operation Class="XmlExtensions.DefDatabaseOperationAdd">
+            <objPath>ThingCategoryDef/[defName="TPatchesRottable"]/childThingDefs</objPath>
+            <objPath2>{path}</objPath2>
+         </Operation>
+         <!--Add the ThingDef to the ThingCategory's HashSet-->
+         <Operation Class="XmlExtensions.DefDatabaseOperationAdd">
+            <objPath>ThingCategoryDef/[defName="TPatchesRottable"]/allChildThingDefsCached</objPath>
+            <objPath2>{path}</objPath2>
+         </Operation>
+         <!--Add the ThingDef to the ThingCategory's cachedList-->
+         <Operation Class="XmlExtensions.DefDatabaseOperationAdd">
+            <objPath>ThingCategoryDef/[defName="TPatchesRottable"]/sortedChildThingDefsCached</objPath>
+            <objPath2>{path}</objPath2>
+         </Operation>
+      </apply>
+   </Operation>
+   <!--Sort the cached list in the ThingCategory-->
+   <Operation Class="XmlExtensions.DefDatabaseOperationSortList">
+      <nonNumeric>true</nonNumeric>
+      <objPath>ThingCategoryDef/[defName="TPatchesRottable"]/sortedChildThingDefsCached</objPath>
+      <objPathLocal>label</objPathLocal>
+   </Operation>
+
+   <!-- my xml stuff -->
+   <Operation Class="PatchOperationAdd">
+      <success>Always</success>
+      <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_Rottable"] and (not(@ParentName="MealCookedIngredientless" or @ParentName="MealCooked" or @ParentName="MealFineBase" or @ParentName="MealLavishBase"))]/thingCategories[not(li="TPatchesRottable")]</xpath>
+      <value>
+         <li>TPatchesRottable</li>
+      </value>
+   </Operation>
+   <Operation Class="PatchOperationAdd">
+      <success>Always</success>
+      <xpath>Defs/ThingDef[comps/li[@Class="CompProperties_Rottable"] and (not(@ParentName="MealCookedIngredientless" or @ParentName="MealCooked" or @ParentName="MealFineBase" or @ParentName="MealLavishBase")) and (not(thingCategories))]</xpath>
+      <value>
+         <thingCategories>
+            <li>TPatchesRottable</li>
+         </thingCategories>
+      </value>
+   </Operation>
+
+   <!-- VGE -->
+   <Operation Class="PatchOperationAdd">
+      <success>Always</success>
+      <xpath>Defs/ThingDef[@Name="GR_GeneticsBase" or @Name="GR_GeneticsBaseTier2or3"]/thingCategories[not(li="TPatchesRottable")]</xpath>
+      <value>
+         <li>TPatchesRottable</li>
+      </value>
+   </Operation>
+
+   <!-- Config error in VFEM_SmokedFish: has duplicate thingCategory TPatchesRottable. ?????? -->
+
+</Patch>
