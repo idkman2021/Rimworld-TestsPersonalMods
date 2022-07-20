@@ -94,7 +94,7 @@
                                 <key>testsDW_Culinary</key>
                                 <defaultValue>true</defaultValue>
                                 <caseTrue>
-                                    <Operation Class="PatchOperationReplace">
+                                    <Operation Class="XmlExtensions.PatchOperationReplace">
                                        <xmlDoc>Designations</xmlDoc>
                                         <xpath>Designations/ThingDef[defName="AB_PropaneStove"]/designationCategory</xpath>
                                         <value>

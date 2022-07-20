@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Enabled</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.DocWorldA</modId>
+                <key>testsDW_Turrets</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Logging</key>
+                        <defaultValue>false</defaultValue>
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.Log">
+                                <text>Stopwatch: Docworld - turrets</text>
+                            </Operation>
+                            <Operation Class="XmlExtensions.StopwatchStart" />
+                        </caseTrue>
+                    </Operation>
+
+                    <Operation Class="PatchOperationFindMod">
+                        <mods>
+                            <li>Rimlaser</li>
+                        </mods>
+                        <match Class="PatchOperationReplace">
+                            <xpath>Defs/ThingDef[
+                                @Name="RimlaserTuretBase"
+                                ]/designationCategory</xpath>
+                            <value>
+                                <designationCategory>DZ_Turrets</designationCategory>
+                            </value>
+                        </match>
+                    </Operation>
+
+                    <Operation Class="PatchOperationFindMod">
+                        <mods>
+                            <li>Dubs Rimatomics</li>
+                        </mods>
+                        <match Class="PatchOperationReplace">
+                            <xpath>Defs/ThingDef[
+                                @Name="BasedWeapon"
+                                ]/designationCategory</xpath>
+                            <value>
+                                <designationCategory>DZ_Turrets</designationCategory>
+                            </value>
+                        </match>
+                    </Operation>
+
+
+                    <!-- patches go above -->
+
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Logging</key>
+                        <defaultValue>false</defaultValue>
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.StopwatchStop" />
+                        </caseTrue>
+                    </Operation>
+                </caseTrue>
+                <caseFalse></caseFalse>
+            </Operation>
+        </caseTrue>
+    </Operation>
+
+</Patch>

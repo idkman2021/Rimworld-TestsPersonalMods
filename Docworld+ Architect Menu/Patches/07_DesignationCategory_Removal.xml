@@ -75,7 +75,6 @@
             text()="DZ_Culinary" or 
             text()="DZ_Lighting" or 
             text()="DZ_Beds" or 
-            text()="DZ_Storage" or 
             text()="DZ_Turrets" or 
             text()="DZ_Husbandry" or
                <!--text()="DZ_Industrial" or  - could be empty -->
