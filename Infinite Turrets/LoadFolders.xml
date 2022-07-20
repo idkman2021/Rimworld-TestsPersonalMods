@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<loadFolders>
+    <v1.3>
+        <li>/</li>
+        <li IfModNotActive="imranfish.xmlextensions">NotXMLExtensions</li>
+        <li IfModActive="imranfish.xmlextensions">XMLExtensions</li>
+    </v1.3>
+
+    <!-- 
+
+        sarg.alphabiomes
+
+        void.szstonesandterrains
+
+        Ogliss.Cupro.CuprosStones
+
+        Kura.ExtraStone
+
+        Kura.ExtraStoneCupro
+
+
+
+
+        Argon.ExpandedMaterials.Stones
+
+    -->
+</loadFolders>

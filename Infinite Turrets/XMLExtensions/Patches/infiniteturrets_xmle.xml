@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patch>
+
+   <Operation Class="XmlExtensions.OptionalPatch">
+      <modId>tests.InfiniteTurrets</modId>
+      <key>tests_InfiniteTurretsCustom</key>
+      <defaultValue>False</defaultValue>
+      <caseTrue>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.InfiniteTurrets</modId>
+            <key>tests_InfiniteTurretsFuelType</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchByCase">
+                  <value>{tests_InfiniteTurretsFuelType}</value>
+                  <cases>
+                     <li>
+                        <value>1</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuel</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="PatchOperationReplace">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>
+                                       <fuelCapacity>{tests_InfiniteTurretsFuel}</fuelCapacity>
+                                    </value>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+
+                        </apply>
+                     </li>
+                     <li>
+                        <value>2</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuel</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuel}</value> <!--Default to adding 2-->
+                                    <operation>*</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>3</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuel</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuel}</value> <!--Default to adding 2-->
+                                    <operation>+</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>4</value>
+                        <apply></apply>
+                     </li>
+                  </cases>
+               </Operation>
+            </apply>
+         </Operation>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.InfiniteTurrets</modId>
+            <key>tests_InfiniteTurretsFuelMultiplierType</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchByCase">
+                  <value>{tests_InfiniteTurretsFuelMultiplierType}</value>
+                  <cases>
+                     <li>
+                        <value>1</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelMultiplier</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="PatchOperationReplace">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>
+                                       <fuelCapacity>{tests_InfiniteTurretsFuelMultiplier}</fuelCapacity>
+                                    </value>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+
+                        </apply>
+                     </li>
+                     <li>
+                        <value>2</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelMultiplier</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuelMultiplier}</value> <!--Default to adding 2-->
+                                    <operation>*</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>3</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelMultiplier</key>
+                              <defaultValue>10000</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuelMultiplier}</value> <!--Default to adding 2-->
+                                    <operation>+</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>4</value>
+                        <apply></apply>
+                     </li>
+                  </cases>
+               </Operation>
+            </apply>
+         </Operation>
+         <Operation Class="XmlExtensions.UseSetting">
+            <modId>tests.InfiniteTurrets</modId>
+            <key>tests_InfiniteTurretsFuelRateType</key>
+            <defaultValue>1</defaultValue>
+            <apply>
+               <Operation Class="XmlExtensions.PatchByCase">
+                  <value>{tests_InfiniteTurretsFuelRateType}</value>
+                  <cases>
+                     <li>
+                        <value>1</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelRate</key>
+                              <defaultValue>0.01</defaultValue>
+                              <apply>
+                                 <Operation Class="PatchOperationReplace">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>
+                                       <fuelCapacity>{tests_InfiniteTurretsFuelRate}</fuelCapacity>
+                                    </value>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+
+                        </apply>
+                     </li>
+                     <li>
+                        <value>2</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelRate</key>
+                              <defaultValue>0.01</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuelRate}</value> <!--Default to adding 2-->
+                                    <operation>*</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>3</value>
+                        <apply>
+                           <Operation Class="XmlExtensions.UseSetting">
+                              <modId>tests.InfiniteTurrets</modId>
+                              <key>tests_InfiniteTurretsFuelRate</key>
+                              <defaultValue>0.01</defaultValue>
+                              <apply>
+                                 <Operation Class="XmlExtensions.PatchOperationMath">
+                                    <success>Always</success>
+                                    <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+                                    <value>{tests_InfiniteTurretsFuelRate}</value> <!--Default to adding 2-->
+                                    <operation>+</operation>
+                                 </Operation>
+                              </apply>
+                           </Operation>
+                        </apply>
+                     </li>
+                     <li>
+                        <value>4</value>
+                        <apply></apply>
+                     </li>
+                  </cases>
+               </Operation>
+            </apply>
+         </Operation>
+      </caseTrue>
+      <caseFalse>
+         <Operation Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelCapacity</xpath>
+            <value>
+               <fuelCapacity>10000</fuelCapacity>
+            </value>
+         </Operation>
+         <Operation Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelMultiplier</xpath>
+            <value>
+               <fuelMultiplier>10000</fuelMultiplier>
+            </value>
+         </Operation>
+         <Operation Class="PatchOperationReplace">
+            <success>Always</success>
+            <xpath>Defs/ThingDef[statBases/ShootingAccuracyTurret]/comps/li/fuelConsumptionRate</xpath>
+            <value>
+               <fuelConsumptionRate>0.01</fuelConsumptionRate>
+            </value>
+         </Operation>
+      </caseFalse>
+   </Operation>
+
+
+</Patch>

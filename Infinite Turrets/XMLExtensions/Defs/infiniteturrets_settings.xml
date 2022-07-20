@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+   <XmlExtensions.SettingsMenuDef>
+      <defName>tests_InfiniteTurrets</defName> <!--Can be anything unique with no periods-->
+      <modId>tests.InfiniteTurrets</modId> <!--MUST be the same as the one entered earlier-->
+      <label>Infinite Turrets</label> <!-- This is what displays as your mod's name-->
+      <settings>
+         <li Class="XmlExtensions.Setting.Text">
+            <text>Settings apply after restart.</text>
+         </li>
+         <li Class="XmlExtensions.Setting.GapLine" />
+
+         <li Class="XmlExtensions.Setting.ToggleableSettings">
+            <key>tests_InfiniteTurretsCustom</key>
+            <caseTrue></caseTrue>
+            <caseFalse>
+               <li Class="XmlExtensions.Setting.Text">
+                  <text>All turret fuelCapacity and fuelMultiplier will be replaced with 10000. If you want different values or use an offset/multiplier instead, enable custom values.</text>
+               </li>
+            </caseFalse>
+         </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>tests_InfiniteTurretsCustom</key>
+            <label>Enable custom values</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Not sure why you might need this but you can apply custom values.</tooltip>
+         </li>
+         <li Class="XmlExtensions.Setting.ToggleableSettings">
+            <key>tests_InfiniteTurretsCustom</key>
+            <caseTrue>
+               <li Class="XmlExtensions.Setting.Text">
+                  <text>Fuel capacity:</text>
+               </li>
+               <li Class="XmlExtensions.Setting.IntEntry">
+                  <key>tests_InfiniteTurretsFuel</key>
+                  <defaultValue>10000</defaultValue>
+                  <multiplier>100</multiplier>
+                  <min>0</min>
+               </li>
+               <li Class="XmlExtensions.Setting.RadioButtons">
+                  <key>tests_InfiniteTurretsFuelType</key>
+                  <defaultValue>replace</defaultValue>
+                  <buttons>
+                     <li>
+                        <label>replace all turret fuel capacities with chosen value</label>
+                        <value>1</value>
+                     </li>
+                     <li>
+                        <label>multiply all turret fuel capacities by chosen value</label>
+                        <value>2</value>
+                     </li>
+                     <li>
+                        <label>offset all turret fuel capacities by chosen value</label>
+                        <value>3</value>
+                     </li>
+                     <li>
+                        <label>disable fuel capacity patch</label>
+                        <value>4</value>
+                     </li>
+                  </buttons>
+               </li>
+               <li Class="XmlExtensions.Setting.Gap" />
+               <li Class="XmlExtensions.Setting.Text">
+                  <text>Fuel restored per unit of fuel:</text>
+               </li>
+               <li Class="XmlExtensions.Setting.IntEntry">
+                  <key>tests_InfiniteTurretsFuelMultiplier</key>
+                  <defaultValue>10000</defaultValue>
+                  <multiplier>100</multiplier>
+                  <min>0</min>
+               </li>
+               <li Class="XmlExtensions.Setting.RadioButtons">
+                  <key>tests_InfiniteTurretsFuelMultiplierType</key>
+                  <defaultValue>replace</defaultValue>
+                  <buttons>
+                     <li>
+                        <label>replace all turret fuel restored per unit of fuel with chosen value</label>
+                        <value>1</value>
+                     </li>
+                     <li>
+                        <label>multiply all turret fuel restored per unit of fuel by chosen value</label>
+                        <value>2</value>
+                     </li>
+                     <li>
+                        <label>offset all turret fuel restored per unit of fuel by chosen value</label>
+                        <value>3</value>
+                     </li>
+                     <li>
+                        <label>disable fuel restored per unit of fuel patch</label>
+                        <value>4</value>
+                     </li>
+                  </buttons>
+               </li>
+               <li Class="XmlExtensions.Setting.Gap" />
+               <li Class="XmlExtensions.Setting.Text">
+                  <text>Fuel consumption rate (most turrets don't have that stat):</text>
+               </li>
+               <li Class="XmlExtensions.Setting.Numeric">
+                  <key>tests_InfiniteTurretsFuelRate</key>
+                  <defaultValue>0.01</defaultValue>
+                  <min>0</min>
+                  <max>10000</max>
+               </li>
+               <li Class="XmlExtensions.Setting.RadioButtons">
+                  <key>tests_InfiniteTurretsFuelRateType</key>
+                  <defaultValue>replace</defaultValue>
+                  <buttons>
+                     <li>
+                        <label>replace all turret fuel consumption rate with chosen value</label>
+                        <value>1</value>
+                     </li>
+                     <li>
+                        <label>multiply all turret fuel consumption rate by chosen value</label>
+                        <value>2</value>
+                     </li>
+                     <li>
+                        <label>offset all turret fuel consumption rate by chosen value</label>
+                        <value>3</value>
+                     </li>
+                     <li>
+                        <label>disable fuel consumption rate patch</label>
+                        <value>4</value>
+                     </li>
+                  </buttons>
+               </li>
+            </caseTrue>
+            <caseFalse></caseFalse>
+         </li>
+
+
+         <li Class="XmlExtensions.Setting.Gap" />
+         <li Class="XmlExtensions.Setting.ResetSettings" />
+      </settings>
+   </XmlExtensions.SettingsMenuDef>
+</Defs>
