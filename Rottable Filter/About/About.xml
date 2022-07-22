@@ -18,5 +18,6 @@
    </modDependencies>
    <loadAfter>
       <li>imranfish.xmlextensions</li>
+      <li>kyd.evenmorefoodfilters</li>
    </loadAfter>
 </ModMetaData>

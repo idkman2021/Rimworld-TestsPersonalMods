@@ -7,7 +7,7 @@
   <supportedVersions>
     <li>1.3</li>
   </supportedVersions>
-  <description>stuff</description>
+  <description>stone floors can be made out of all modded stone blocks.</description>
   <modDependencies>
     <li>
       <packageId>imranfish.xmlextensions</packageId>
@@ -41,5 +41,13 @@
     <li>ogliss.cupro.cuprosstones</li>
     <li>wolf478.wolfhaulcore.stones</li>
     <li>kura.extrastonecupro</li>
+    <li>audreysstyles.industrial</li>
+    <li>audreysstyles.astro</li>
+    <li>fantasystyles.xerandereth</li>
+    <li>rimsenal.french</li>
+    <li>rimsenal.murica</li>
+    <li>rimsenal.sophian</li>
+    <li>rimsenal.techist</li>
+    <li>stylerevised.animalist</li>
   </loadAfter>
 </ModMetaData>
