@@ -24,8 +24,8 @@
    <TerrainDef Name="mipeSB_Sky">
       <defName>mipeSB_SkyA</defName>
       <label>sky</label>
-      <texturePath>skyblock/sky</texturePath>
-      <color>(215,232,253)</color>
+      <texturePath>skyblock/skytextures/solid</texturePath> <!-- solid white color -->
+      <color>(135,206,235)</color> <!-- light sky (215,232,253) medium sky (135,206,235) darker sky (56,172,236) dark sky (57, 106, 133) night sky (12, 17, 69) -->
       <renderPrecedence>397</renderPrecedence>
       <edgeType>Hard</edgeType><!-- if set to water, instead of rendering texture it applies some kind of shader with parallax based on the texture, kinda looks like sky. HOWEVER water has soft edges, looks terrible with bridges. -->
       <fertility>0</fertility>

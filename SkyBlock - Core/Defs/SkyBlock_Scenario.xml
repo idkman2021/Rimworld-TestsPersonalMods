@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+   <ScenarioDef>
+      <defName>mipeSB_SkyBlockBase</defName>
+      <label>SkyBlock - Core (250x250)</label>
+      <description>NOTE: this is a barebones scenario to generate a 250x250 skyblock map, customize it however you want.
+You are left on a floating island. Gather resources, build platforms to expand your island, fill in artificial terrain.
+
+Make sure to generate a 250x250 map!</description>
+      <scenario>
+         <summary>You are left on a floating island. Gather resources, build platforms to expand your island, fill in artificial terrain.</summary>
+         <playerFaction>
+            <def>PlayerFaction</def>
+            <factionDef>PlayerColony</factionDef>
+         </playerFaction>
+         <parts>
+
+            <!-- Config pages -->
+            <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+               <def>ConfigPage_ConfigureStartingPawns</def>
+               <pawnCount>1</pawnCount>
+               <pawnChoiceCount>8</pawnChoiceCount>
+            </li>
+
+            <!-- Player starting stuff spawn method-->
+            <li Class="ScenPart_PlayerPawnsArriveMethod">
+               <def>PlayerPawnsArriveMethod</def>
+               <method>Standing</method>
+            </li>
+
+            <li Class="KCSG.ScenPart_AddStartingStructure">
+               <def>VFEC_AddStartingStructure</def>
+               <structureLabel>SkyBlock (250x250)</structureLabel>
+               <nearMapCenter>True</nearMapCenter>
+               <chooseFrom>
+                 <li>mipeSB_IslandSmall1_250</li>
+               </chooseFrom>
+             </li>
+
+         </parts>
+      </scenario>
+   </ScenarioDef>
+
+
+</Defs>

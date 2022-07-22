@@ -4,7 +4,7 @@
    <TerrainDef Name="mipeSB_PlatformBase" Abstract="True">
       <label>sky platform</label>
       <description>A platform in the sky.</description>
-      <texturePath>skyblock/bridge_wood</texturePath>
+      <texturePath>skyblock/normalplatform</texturePath>
       <layerable>false</layerable> <!-- allows to properly put floors on it, but also makes "remove bridge" command not work -->
       <bridge>true</bridge> <!-- bridge graphics -->
       <affordances>
@@ -30,7 +30,7 @@
       <defName>mipeSB_PlatformWood</defName>
       <label>wooden sky platform</label>
       <description>A flat wooden surface supported by a wooden structure underneath, can be built over the sky. Be careful - platforms are fragile and can only support light structures. If a platform falls, buildings on top of it fall as well.</description>
-      <texturePath>skyblock/bridge_wood</texturePath>
+      <texturePath>skyblock/normalplatform</texturePath>
       <color>(108,78,55)</color>
       <!--<uiIconPath>skyblock/bridge_wood</uiIconPath>-->
       <affordances>
@@ -367,7 +367,7 @@
    <TerrainDef ParentName="mipeSB_PlatformBase" Name="mipeSB_PlatformBaseContainer" Abstract="True">
       <label>terrain support platform</label>
       <description>A sky platform that can be filled with artificial terrain like soil or sand. Doesn't support most structures.</description>
-      <texturePath>skyblock/reinforcedplatform</texturePath>
+      <texturePath>skyblock/terrainsupport</texturePath>
       <affordances>
          <li>Light</li>
          <li>mipeSB_TerrainSupport</li>
