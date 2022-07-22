@@ -197,7 +197,8 @@
                             <li>Project RimFactory Revived</li>
                         </mods>
                         <match Class="PatchOperationReplace">
-                            <xpath>Defs/ThingDef[@Name="PRFMassStorageBase"]/designationCategory</xpath>
+                           <success>Always</success>
+                            <xpath>Defs/ThingDef[defName="PRF_DigitalStorageUnit_I" or defName="PRF_DigitalStorageUnit_l"]/designationCategory</xpath>
                             <value>
                                 <designationCategory>DZ_Storage</designationCategory>
                             </value>

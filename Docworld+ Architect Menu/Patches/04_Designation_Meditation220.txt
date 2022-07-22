@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    This file is under the Gnu General Public License version 3, see https://www.gnu.org/licenses/gpl-3.0.txt for more information.
+-->
+
+<Patch>
+
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.DocWorldA</modId>
+        <key>testsDW_Enabled</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.DocWorldA</modId>
+                <key>testsDW_Meditation</key>
+                <defaultValue>false</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Logging</key>
+                        <defaultValue>false</defaultValue>
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.Log">
+                                <text>Stopwatch: Docworld - meditation</text>
+                            </Operation>
+                            <Operation Class="XmlExtensions.StopwatchStart" />
+                        </caseTrue>
+                    </Operation>
+
+               <!--defName="AnimusStone" or -->
+               <!--
+                    <Operation Class="XmlExtensions.PatchOperationAddOrReplace" MayRequire="ludeon.rimworld.royalty">
+                        <xpath>
+                            Defs/ThingDef[
+                    @Name="NatureShrineBase" or 
+                    defName="Throne" or 
+                    defName="GrandThrone" or
+             
+                            defName="Grave" or 
+                    defName="Sarcophagus"
+                    ]
+                        </xpath>
+                        <value>
+                            <designationCategory>DZ_Meditation</designationCategory>
+                        </value>
+                    </Operation>
+                  -->
+                    <Operation Class="PatchOperationFindMod" MayRequire="ludeon.rimworld.royalty">
+                        <mods>
+                            <li>Vanilla Factions Expanded - Vikings</li>
+                        </mods>
+                        <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                            <xpath>Defs/ThingDef[
+                                defName="VFEV_RuneStone"
+                                ]</xpath>
+                            <value>
+                                <designationCategory>DZ_Meditation</designationCategory>
+                            </value>
+                        </match>
+                    </Operation>
+
+                    <Operation Class="PatchOperationFindMod" MayRequire="ludeon.rimworld.royalty">
+                        <mods>
+                            <li>Edo Themed Expansion</li>
+                        </mods>
+                        <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                            <xpath>Defs/ThingDef[
+                                defName="HSHaka"
+                                ]</xpath>
+                            <value>
+                                <designationCategory>DZ_Meditation</designationCategory>
+                            </value>
+                        </match>
+                    </Operation>
+
+                    <Operation Class="PatchOperationFindMod" MayRequire="ludeon.rimworld.royalty">
+                        <mods>
+                            <li>Rim-Effect: Core</li>
+                        </mods>
+                        <match Class="XmlExtensions.PatchOperationAddOrReplace">
+                            <xpath>Defs/ThingDef[
+                                defName="RE_GraveBodyBag"
+                                ]</xpath>
+                            <value>
+                                <designationCategory>DZ_Meditation</designationCategory>
+                            </value>
+                        </match>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>tests.DocWorldA</modId>
+                        <key>testsDW_Logging</key>
+                        <defaultValue>false</defaultValue>
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.StopwatchStop" />
+                        </caseTrue>
+                    </Operation>
+
+
+                </caseTrue>
+                <caseFalse />
+            </Operation>
+        </caseTrue>
+        <caseFalse />
+    </Operation>
+
+
+</Patch>

@@ -31,7 +31,7 @@
                         </caseTrue>
                     </Operation>
 
-
+<!--
                     <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
                         <xpath>Defs/ThingDef[
                     defName="SleepingSpot" or 
@@ -45,6 +45,7 @@
                             <designationCategory>DZ_Beds</designationCategory>
                         </value>
                     </Operation>
+                  -->
 
                     <Operation Class="PatchOperationFindMod">
                         <mods>
@@ -467,6 +468,7 @@
                             <operations>
 
                                 <li Class="PatchOperationReplace">
+                                   <success>Always</success>
                                     <xpath>Defs/ThingDef[defName="MF_MechanoidPad"]/designationCategory[text()="DZ_Beds"]</xpath>
                                     <value>
                                         <designationCategory>Misc</designationCategory>

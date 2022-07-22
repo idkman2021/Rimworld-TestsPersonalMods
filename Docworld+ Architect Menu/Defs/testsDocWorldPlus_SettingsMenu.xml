@@ -104,19 +104,35 @@
          </li>
          <li Class="XmlExtensions.Setting.Checkbox">
             <key>testsDW_DesignationGlitterNet</key>
-            <label>Organise GlitterNet</label>
+            <label>GlitterNet to Industrial</label>
             <defaultValue>false</defaultValue>
             <tooltip>Removes GlitterNet tab and moves all buildings into Industrial tab.</tooltip>
          </li>
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationPRF</key>
+            <label>Project RimFactory to Industrial</label>
+            <defaultValue>true</defaultValue>
+            <tooltip>Removes RimFactory tab and moves all buildings into Industrial tab.</tooltip>
+         </li>
+         <!--
          <li Class="XmlExtensions.Setting.Checkbox">
             <key>testsDW_DesignationRimatomics</key>
             <label>Organise Rimatomics</label>
             <defaultValue>false</defaultValue>
             <tooltip>Removes Rimatomics tab and moves all buildings into Industrial ands Security tabs.</tooltip>
          </li>
+      -->
+         <!--
+         <li Class="XmlExtensions.Setting.Checkbox">
+            <key>testsDW_DesignationVanillaChemfuelExpanded</key>
+            <label>Organise Vanilla Chemfuel Expanded</label>
+            <defaultValue>false</defaultValue>
+            <tooltip>Removes Vanilla Chemfuel Expanded tab and moves all buildings into Industrial tab.</tooltip>
+         </li>
+      -->
          <li Class="XmlExtensions.Setting.Checkbox">
             <key>testsDW_DesignationVFEMechanoids</key>
-            <label>Organise Vanilla Factions Expanded - Mechanoids</label>
+            <label>Vanilla Factions Expanded - Mechanoids to Industrial</label>
             <defaultValue>true</defaultValue>
             <tooltip>Removes VFE Mechanoids tab and moves all buildings into Industrial tab.</tooltip>
          </li>

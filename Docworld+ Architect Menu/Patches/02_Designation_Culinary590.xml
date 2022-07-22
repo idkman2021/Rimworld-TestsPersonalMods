@@ -28,7 +28,7 @@
                         </caseTrue>
                     </Operation>
 
-
+<!--
                     <Operation Class="XmlExtensions.PatchOperationAddOrReplace">
                         <xpath>Defs/ThingDef[ defName="Brewery" or defName="FermentingBarrel" or defName="FueledStove" or defName="ElectricStove" or defName="ButcherSpot" or defName="TableButcher" or defName="NutrientPasteDispenser" or defName="Hopper"
                     ]</xpath>
@@ -36,6 +36,7 @@
                             <designationCategory>DZ_Culinary</designationCategory>
                         </value>
                     </Operation>
+                  -->
 
                     <Operation Class="PatchOperationFindMod">
                         <mods>
