@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+    <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>tests.ERRT</modId>
+        <key>tests_ERRTEnable</key>
+        <defaultValue>true</defaultValue>
+        <caseTrue>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>tests.ERRT</modId>
+                <key>tests_ERRTReplaceExisting</key>
+                <defaultValue>false</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.CreateDocument">
+                        <docName>ERRT</docName>
+                        <xpath>Defs/ResearchProjectDef[defName]</xpath>
+                    </Operation>
+                </caseTrue>
+                <caseFalse>
+                    <Operation Class="XmlExtensions.CreateDocument">
+                        <docName>ERRT</docName>
+                        <xpath>Defs/ResearchProjectDef[defName and (not(@ParentName="BaseBodyPartEmpire_TierA" or @ParentName="BaseBodyPartEmpire_TierB" or techprintCount))]</xpath>
+                    </Operation>
+                </caseFalse>
+            </Operation>
+
+            
+
+        </caseTrue>
+        <caseFalse></caseFalse>
+    </Operation>
+
+
+</Patch>
